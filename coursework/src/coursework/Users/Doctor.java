@@ -2,6 +2,8 @@ package coursework.Users;
 
 public class Doctor extends User{
     
+    String address;
+    
     public Doctor(String _uniqueID, String _password, String _firstName, 
             String _lastName, char _accessKey){
         

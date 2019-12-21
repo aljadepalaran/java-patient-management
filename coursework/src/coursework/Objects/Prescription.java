@@ -1,14 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package coursework.Objects;
 
-/**
- *
- * @author palar
- */
 public class Prescription {
+    
+    String prescriptionID;
+    String patientID;
+    String doctorID;
+    String notes;
+    String medicineID;
+    int quantity;
+    String dosage;
     
 }

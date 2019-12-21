@@ -15,7 +15,7 @@ public class User {
         this.password = _password; 
         this.firstName = _firstName;
         this.lastName = _lastName;
-        this.accessKey = _accessKey;
+        this.accessKey = 'U';
         
     }
     
