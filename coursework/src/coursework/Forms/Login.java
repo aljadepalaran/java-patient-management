@@ -82,17 +82,24 @@ public class Login extends javax.swing.JFrame {
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         
-        String username;
+        String uniqueID;
         char[] charPass;
         String password;
+        boolean authFlag = false;
         
-        username = usernameField.getText();
+        uniqueID = usernameField.getText();
         charPass = passwordField.getPassword();
                 
-        password = Functions.convertCharToString(charPass);
+        password = Functions.convertCharToString(charPass);                             //Converts char array input into a string.
+        authFlag = Functions.authenticateLogin(uniqueID, password);                     //Checks if the credentials are correct.
         
-        System.out.println("Auth: " + Functions.authenticateLogin(username, password));
-
+        if(authFlag == true){
+            Functions.displayMainForm(uniqueID);
+        }
+        else{
+            System.out.println("Login unsuccessful!");
+        }
+        
     }//GEN-LAST:event_loginButtonActionPerformed
 
     public static void main(String args[]) {
