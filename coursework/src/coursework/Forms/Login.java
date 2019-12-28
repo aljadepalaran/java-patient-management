@@ -18,6 +18,7 @@ public class Login extends javax.swing.JFrame {
         loginButton = new javax.swing.JButton();
         passwordField = new javax.swing.JPasswordField();
         registerButton = new javax.swing.JButton();
+        testButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -33,6 +34,18 @@ public class Login extends javax.swing.JFrame {
         });
 
         registerButton.setText("Register");
+        registerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerButtonActionPerformed(evt);
+            }
+        });
+
+        testButton.setText("TEST");
+        testButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                testButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -40,7 +53,7 @@ public class Login extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -54,10 +67,11 @@ public class Login extends javax.swing.JFrame {
                             .addComponent(passwordField, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(9, 9, 9)))
-                .addContainerGap(27, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(testButton)))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -73,7 +87,8 @@ public class Login extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(testButton))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
@@ -87,20 +102,36 @@ public class Login extends javax.swing.JFrame {
         String password;
         boolean authFlag = false;
         
+        //Sets values of variables - taken from the form.
         uniqueID = usernameField.getText();
         charPass = passwordField.getPassword();
                 
         password = Functions.convertCharToString(charPass);                             //Converts char array input into a string.
         authFlag = Functions.authenticateLogin(uniqueID, password);                     //Checks if the credentials are correct.
         
-        if(authFlag == true){
+        if(authFlag == true){                                                           //If the credentials match.
             Functions.displayMainForm(uniqueID);
         }
-        else{
-            System.out.println("Login unsuccessful!");
+        else{                                                                           //If the credentials do not match.
+            System.out.println("Login unsuccessful!");                                  
         }
         
     }//GEN-LAST:event_loginButtonActionPerformed
+
+    private void testButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testButtonActionPerformed
+        MainAdmin adminForm = new MainAdmin();
+        adminForm.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_testButtonActionPerformed
+
+    private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
+        
+        Registration registerForm = new Registration();
+        registerForm.setVisible(true);
+        this.setVisible(false);
+        
+        
+    }//GEN-LAST:event_registerButtonActionPerformed
 
     public static void main(String args[]) {
 
@@ -117,6 +148,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton loginButton;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JButton registerButton;
+    private javax.swing.JButton testButton;
     private javax.swing.JTextField usernameField;
     // End of variables declaration//GEN-END:variables
 }

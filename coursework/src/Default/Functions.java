@@ -16,7 +16,7 @@ public class Functions {
     public static User[] readFile() throws IOException, ClassNotFoundException{                                 //Reads the array of users from a file.   
         
         ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("Users.txt"));
-        User userArray[] = (User[]) inputStream.readObject();
+        User userArray[] = (User[]) inputStream.readObject();                                       //typecast
         
         return userArray;
         
@@ -168,6 +168,27 @@ public class Functions {
         
         return outputArray;
         
+    }
+    
+    public static boolean validateDate(String _date){//verifies correct date format
+        boolean output = false;
+        
+        if(_date.length() == 8){
+            if(Integer.parseInt(_date.substring(0, 2)) < 30 && Integer.parseInt(_date.substring(0,2)) > 0){
+                if(Integer.parseInt(_date.substring(2,4)) < 12 && Integer.parseInt(_date.substring(2,4)) > 0){
+                    if(Integer.parseInt(_date.substring(4,8)) > 1900 && Integer.parseInt(_date.substring(4,8)) < 2050){
+                        output = true;
+                    }
+                    else{}
+                }
+                else{}
+            }
+            else{}
+        }
+        else{
+            System.out.println("Incorrect date format!");
+        }
+        return output;
     }
     
 }
