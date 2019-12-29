@@ -4,11 +4,11 @@ import java.io.Serializable;
 
 public class User implements Serializable{
     
-    String uniqueID;
-    String password;
-    String firstName;
-    String lastName;
-    char accessKey;
+    private String uniqueID;
+    private String password;
+    private String firstName;
+    private String lastName;
+    private char accessKey;
     
     public User(String _uniqueID, String _password, String _firstName, 
             String _lastName, char _accessKey){
@@ -21,20 +21,38 @@ public class User implements Serializable{
         
     }
     
+    //GET Methods.
     public String getUniqueID(){
-        return uniqueID;
+        return this.uniqueID;
     }
     public String getPassword(){
-        return password;
+        return this.password;
     }
-    public String getFirstNames(){
-        return firstName;
+    public String getFirstName(){
+        return this.firstName;
     }
     public String getLastName(){
-        return lastName;
+        return this.lastName;
     }
     public char getAccessKey(){
-        return accessKey;
+        return this.accessKey;
+    }
+    
+    //SET Methods.
+    public void setUniqueID(String _uniqueID){
+        this.uniqueID = _uniqueID;
+    }
+    public void setPassword(String _password){
+        this.password = _password;
+    }
+    public void setFirstName(String _firstName){
+        this.firstName = _firstName;
+    }
+    public void setLastName(String _lastName){
+        this.lastName = _lastName;
+    }
+    public void setAccessKey(char _accessKey){
+        this.accessKey = _accessKey;
     }
     
 }
