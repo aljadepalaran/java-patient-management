@@ -7,7 +7,7 @@ public class Coursework {
         
         //TestClass.populateFile();
         //FileIO.displayArray();
-        FileIO.displayArray();
+        //FileIO.displayArray();
         Login loginForm = new Login();
         loginForm.setVisible(true);
         

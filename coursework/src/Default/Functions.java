@@ -26,7 +26,6 @@ public class Functions {
     }
     public static User getUser(String _uniqueID){
         User foundUser = null;
-        int arrayLength = 0;
         boolean auth_flag = false;
         int arrayPos = 0;
         User userArray[] = null;
@@ -35,7 +34,7 @@ public class Functions {
         }catch(Exception e){
             System.out.println(e);
         }
-        for(int i = 0; i < arrayLength; i++){
+        for(int i = 0; i < userArray.length; i++){
             if(userArray[i].getUniqueID().compareTo(_uniqueID) == 0){
                 auth_flag = true;
                 arrayPos = i;
