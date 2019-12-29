@@ -1,14 +1,8 @@
 package coursework.Forms;
-
 import Default.FileIO;
 import Default.Functions;
-import coursework.Users.Patient;
-
+import coursework.Users.*;
 public class Registration extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Registration
-     */
     public Registration() {
         initComponents();
         
@@ -21,7 +15,6 @@ public class Registration extends javax.swing.JFrame {
         genderWarning.setVisible(false);
         
     }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -215,73 +208,112 @@ public class Registration extends javax.swing.JFrame {
         String address = addressField.getText();
         String dateOfBirth = dateOfBirthField.getText();
         char sex = 'N';
+        boolean validInput = false;
         
         if(maleRadio.isSelected() == true){
             sex = 'M';
-        }
-        else if(femaleRadio.isSelected() == true){
+        }else if(femaleRadio.isSelected() == true){
             sex = 'F';
         }
         
         //Checks if the gender is not selected.
         if(sex == 'N'){
             genderWarning.setVisible(true);
+            validInput = false;
         }else{
             genderWarning.setVisible(false);
+            validInput = true;
         }
         
         //Checks if the first name is null.
         if(firstName.compareTo("") == 0){ 
             fnWarning.setVisible(true);
+            validInput = false;
         }else{
             fnWarning.setVisible(false);
+            validInput = true;
         }
         
         //Checks if the last name is null.
         if(lastName.compareTo("") == 0){
             lnWarning.setVisible(true);
+            validInput = false;
         }else{
             lnWarning.setVisible(false);
+            validInput = true;
         }
         
         //Checks if the password is null.
         if(password.compareTo("") == 0){
             passWarning.setVisible(true);
+            validInput = false;
         }else{
             passWarning.setVisible(false);
+            validInput = true;
         }
         
         //Checks if the confirm password is null.
         if(passwordConfirm.compareTo("") == 0){
             checkWarning.setVisible(true);
+            validInput = false;
         }else{
             checkWarning.setVisible(false);
+            validInput = true;
         }
         
         //Checks if the address is null.
         if(address.compareTo("") == 0){
             addressWarning.setVisible(true);
+            validInput = false;
         }else{
             addressWarning.setVisible(false);
+            validInput = true;
         }
         
         //Checks if the password matches.
         if(password.compareTo(passwordConfirm) == 0 ){
-            //Do nothing.
+            validInput = true;
         }
         else{
             System.out.println("Passwords do not match!");
             checkWarning.setVisible(true);
+            validInput = false;
         }
         
         //Checks if the date entered is valid.
         if(Functions.validateDate(dateOfBirth) == false){
             dateWarning.setVisible(true);
+            validInput = false;
+        }else{
+            validInput = true;
         }
         
-        //Generate new id for the patient.
-        String newID = Functions.generateID('A');
-        
+        if(validInput == true){
+            //Generate new id for the patient.
+            String newID = Functions.generateID('P');
+            System.out.println(newID);
+            User newPatient = new Patient(newID, password, firstName, lastName, address, sex, dateOfBirth);
+
+            User userArray[] = null;
+
+            try{
+                userArray = FileIO.readFile();
+            }catch(Exception e){
+                System.out.println(e);
+            }
+
+            userArray = Functions.resizeArray(userArray, userArray.length + 1);
+
+            userArray[userArray.length - 1] = newPatient;
+
+            try{
+                FileIO.writeUsersToFile(userArray);
+            }catch(Exception e){
+                System.out.println(e);
+            }
+        }else{
+            System.out.println("Invalid input(s)");
+        }
     }//GEN-LAST:event_registerButtonActionPerformed
 
     private void maleRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maleRadioActionPerformed
