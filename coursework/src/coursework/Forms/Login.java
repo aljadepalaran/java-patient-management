@@ -18,7 +18,10 @@ public class Login extends javax.swing.JFrame {
         loginButton = new javax.swing.JButton();
         passwordField = new javax.swing.JPasswordField();
         registerButton = new javax.swing.JButton();
-        testButton = new javax.swing.JButton();
+        adminTest = new javax.swing.JButton();
+        sceretaryTest = new javax.swing.JButton();
+        doctorTest = new javax.swing.JButton();
+        patientTest = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -40,10 +43,31 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        testButton.setText("TEST");
-        testButton.addActionListener(new java.awt.event.ActionListener() {
+        adminTest.setText("Admin");
+        adminTest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                testButtonActionPerformed(evt);
+                adminTestActionPerformed(evt);
+            }
+        });
+
+        sceretaryTest.setText("Secretary");
+        sceretaryTest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sceretaryTestActionPerformed(evt);
+            }
+        });
+
+        doctorTest.setText("Doctor");
+        doctorTest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                doctorTestActionPerformed(evt);
+            }
+        });
+
+        patientTest.setText("Patient");
+        patientTest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                patientTestActionPerformed(evt);
             }
         });
 
@@ -70,8 +94,14 @@ public class Login extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(testButton)))
-                .addContainerGap(36, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(adminTest, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(patientTest, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(doctorTest, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sceretaryTest, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,12 +114,22 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(testButton))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(adminTest)
+                            .addComponent(sceretaryTest))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(doctorTest)
+                            .addComponent(patientTest))))
+                .addContainerGap())
         );
 
         pack();
@@ -111,6 +151,7 @@ public class Login extends javax.swing.JFrame {
         
         if(authFlag == true){                                                           //If the credentials match.
             Functions.displayMainForm(uniqueID);
+            this.setVisible(false);
         }
         else{                                                                           //If the credentials do not match.
             System.out.println("Login unsuccessful!");                                  
@@ -118,20 +159,37 @@ public class Login extends javax.swing.JFrame {
         
     }//GEN-LAST:event_loginButtonActionPerformed
 
-    private void testButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testButtonActionPerformed
+    private void adminTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminTestActionPerformed
         MainAdmin adminForm = new MainAdmin();
         adminForm.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_testButtonActionPerformed
+    }//GEN-LAST:event_adminTestActionPerformed
 
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
-        
         Registration registerForm = new Registration();
         registerForm.setVisible(true);
         this.setVisible(false);
         
         
     }//GEN-LAST:event_registerButtonActionPerformed
+
+    private void sceretaryTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sceretaryTestActionPerformed
+        MainSecretary secretaryForm = new MainSecretary();
+        secretaryForm.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_sceretaryTestActionPerformed
+
+    private void doctorTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doctorTestActionPerformed
+        MainDoctor doctorForm = new MainDoctor();
+        doctorForm.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_doctorTestActionPerformed
+
+    private void patientTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientTestActionPerformed
+        MainPatient patientForm = new MainPatient();
+        patientForm.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_patientTestActionPerformed
 
     public static void main(String args[]) {
 
@@ -143,12 +201,15 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton adminTest;
+    private javax.swing.JButton doctorTest;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JButton loginButton;
     private javax.swing.JPasswordField passwordField;
+    private javax.swing.JButton patientTest;
     private javax.swing.JButton registerButton;
-    private javax.swing.JButton testButton;
+    private javax.swing.JButton sceretaryTest;
     private javax.swing.JTextField usernameField;
     // End of variables declaration//GEN-END:variables
 }
