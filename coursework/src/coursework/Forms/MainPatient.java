@@ -14,6 +14,7 @@ public class MainPatient extends javax.swing.JFrame {
         initComponents();
         this.setResizable(false); 
         userSession = _session;
+        JOptionPane.showMessageDialog(this, "You have logged in as: " + userSession.getUID());
     }
 
     @SuppressWarnings("unchecked")
@@ -48,6 +49,11 @@ public class MainPatient extends javax.swing.JFrame {
         viewPrescriptionButton.setText("View Prescription");
 
         logoutButton.setText("Logout");
+        logoutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutButtonActionPerformed(evt);
+            }
+        });
 
         terminateButton.setText("Request Termination");
 
@@ -121,6 +127,13 @@ public class MainPatient extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
+        Login loginForm = new Login();
+        loginForm.setVisible(true);
+        this.setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_logoutButtonActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {

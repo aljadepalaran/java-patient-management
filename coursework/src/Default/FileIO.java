@@ -27,4 +27,32 @@ public class FileIO {                                                           
             + ":" + output[i].getFirstName() + ":" + output[i].getLastName());
         }
     }
+    public static void addUserToFile(User _user){
+        User userArray[] = null;
+        boolean hasNull = false;
+        try{
+            userArray = FileIO.readFile();
+        }catch(Exception e){
+            System.out.println(e);
+        }
+        
+        for(int i = 0; i < userArray.length; i++){
+            if(userArray[i] == null){//if there is space
+                userArray[i] = _user;
+                hasNull = true;
+                break;
+            }else{}
+        }
+        
+        if(hasNull == false){//if there was no space
+            userArray = Functions.resizeArray(userArray, userArray.length + 1);
+            userArray[userArray.length - 1] = _user;
+        }
+        
+        try{
+            FileIO.writeUsersToFile(userArray);
+        }catch(Exception e){
+            System.out.println(e);
+        }
+    }
 }

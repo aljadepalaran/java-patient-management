@@ -1,63 +1,229 @@
 package coursework.Forms;
+
 import Default.FileIO;
 import Default.Functions;
 import coursework.Users.*;
+import javax.swing.JOptionPane;
+
 public class Register extends javax.swing.JFrame {
+    String firstname;
+    String lastname;
+    String password;
+    String checkPassword;
+    String address;
+    String birthDate;
+    char sex = 'N';
+    char userType;
     public Register() {
         initComponents();
-        fnWarning.setVisible(false);
-        lnWarning.setVisible(false);
-        passWarning.setVisible(false);
+    }
+    public Register(char _userType) {
+        initComponents();
+        firstnameWarning.setVisible(false);
+        lastnameWarning.setVisible(false);
+        passwordWarning.setVisible(false);
         checkWarning.setVisible(false);
         addressWarning.setVisible(false);
-        dateWarning.setVisible(false);
+        birthWarning.setVisible(false);
         genderWarning.setVisible(false);
+        setAccess(_userType);
+        userType = _userType;
     }
+    
+    public void setAccess(char _userType){
+        if(_userType == 'A'){
+            firstnameField.setEnabled(true);
+            lastnameField.setEnabled(true);
+            passwordField.setEnabled(true);
+            checkField.setEnabled(true);
+        }else if(_userType == 'D'){
+            firstnameField.setEnabled(true);
+            lastnameField.setEnabled(true);
+            passwordField.setEnabled(true);
+            checkField.setEnabled(true);
+            addressField.setEnabled(true);
+        }else if(_userType == 'P'){
+            firstnameField.setEnabled(true);
+            lastnameField.setEnabled(true);
+            passwordField.setEnabled(true);
+            checkField.setEnabled(true);
+            addressField.setEnabled(true);
+            birthField.setEnabled(true);
+            femaleRadio.setEnabled(true);
+            maleRadio.setEnabled(true);
+        }else if(_userType == 'S'){
+            firstnameField.setEnabled(true);
+            lastnameField.setEnabled(true);
+            passwordField.setEnabled(true);
+            checkField.setEnabled(true);
+        }
+    }
+    
+    public void createUser(char _userType){
+        boolean validInput = false;
+        
+        //Checks if the first name is null.
+        if(firstname.compareTo("") == 0){ 
+            firstnameWarning.setVisible(true);
+            validInput = false;
+        }else{
+            firstnameWarning.setVisible(false);
+            validInput = true;
+        }
+        
+        //Checks if the last name is null.
+        if(lastname.compareTo("") == 0){ 
+            lastnameWarning.setVisible(true);
+            validInput = false;
+        }else{
+            lastnameWarning.setVisible(false);
+            validInput = true;
+        }
+        
+        //Checks if the password is null.
+        if(password.compareTo("") == 0){
+            passwordWarning.setVisible(true);
+            validInput = false;
+        }else{
+            passwordWarning.setVisible(false);
+            validInput = true;
+        }
+        
+        //Checks if the confirm password is null.
+        if(checkPassword.compareTo("") == 0){
+            checkWarning.setVisible(true);
+            validInput = false;
+        }else{
+            checkWarning.setVisible(false);
+            validInput = true;
+        }
+        
+        //Checks if the password matches.
+        if(password.compareTo(checkPassword) == 0 ){
+            validInput = true;
+        }else{
+            checkWarning.setVisible(true);
+            validInput = false;
+        }
+        
+        if(_userType == 'A'){
+        }else if(_userType == 'D'){
+            if(address.compareTo("") == 0){
+                addressWarning.setVisible(true);
+                validInput = false;
+            }else{
+                addressWarning.setVisible(false);
+            }
+        }else if(_userType == 'P'){
+            if(address.compareTo("") == 0){
+                addressWarning.setVisible(true);
+                validInput = false;
+            }else{
+                addressWarning.setVisible(false);
+            }
+            if(birthDate.compareTo("") == 0){
+                birthWarning.setVisible(true);
+                validInput = false;
+            }else{
+                birthWarning.setVisible(false);
+            }
+            if(sex == 'N'){
+                genderWarning.setVisible(true);
+                validInput = false;
+            }else{
+                genderWarning.setVisible(false);
+            }
+        }else if(_userType == 'S'){}
+        
+        if(validInput == true){
+            if(userType == 'A'){
+                String newID = Functions.generateID('A');
+                User newUser = new Administrator(newID, password, firstname, lastname);
+                FileIO.addUserToFile(newUser);
+                JOptionPane.showMessageDialog(this, "Your UID: " + newUser.getUniqueID());
+                this.setVisible(false);
+                this.dispose();
+            }else if(userType == 'D'){
+                String newID = Functions.generateID('D');
+                User newUser = new Doctor(newID, password, firstname, lastname, address);
+                FileIO.addUserToFile(newUser);
+                JOptionPane.showMessageDialog(this, "Your UID: " + newUser.getUniqueID());
+                this.setVisible(false);
+                this.dispose();
+            }else if(userType == 'P'){
+                String newID = Functions.generateID('P');
+                User newUser = new Patient(newID, password, firstname, lastname, address, sex, birthDate);
+                FileIO.addUserToFile(newUser);
+                JOptionPane.showMessageDialog(this, "Your UID: " + newUser.getUniqueID());
+                this.setVisible(false);
+                this.dispose();
+            }else if(userType == 'S'){
+                String newID = Functions.generateID('S');
+                User newUser = new Secretary(newID, password, firstname, lastname);
+                FileIO.addUserToFile(newUser);
+                JOptionPane.showMessageDialog(this, "Your UID: " + newUser.getUniqueID());
+                this.setVisible(false);
+                this.dispose();
+            }
+        }else{
+            JOptionPane.showMessageDialog(this, "Register incomplete: One or more fields are empty.");
+        }
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
-        buttonGroup2 = new javax.swing.ButtonGroup();
-        buttonGroup3 = new javax.swing.ButtonGroup();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        lastNameField = new javax.swing.JTextField();
-        firstNameField = new javax.swing.JTextField();
-        passwordPrimaryField = new javax.swing.JPasswordField();
-        passwordSecondaryField = new javax.swing.JPasswordField();
-        dateOfBirthField = new javax.swing.JTextField();
+        usernameField2 = new javax.swing.JTextField();
+        usernameField4 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        firstnameField = new javax.swing.JTextField();
+        lastnameField = new javax.swing.JTextField();
+        addressField = new javax.swing.JTextField();
+        birthField = new javax.swing.JTextField();
         maleRadio = new javax.swing.JRadioButton();
         femaleRadio = new javax.swing.JRadioButton();
-        registerButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        addressField = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        fnWarning = new javax.swing.JLabel();
-        lnWarning = new javax.swing.JLabel();
-        passWarning = new javax.swing.JLabel();
-        checkWarning = new javax.swing.JLabel();
+        firstnameWarning = new javax.swing.JLabel();
+        lastnameWarning = new javax.swing.JLabel();
+        passwordWarning = new javax.swing.JLabel();
         addressWarning = new javax.swing.JLabel();
-        dateWarning = new javax.swing.JLabel();
+        checkWarning = new javax.swing.JLabel();
+        birthWarning = new javax.swing.JLabel();
         genderWarning = new javax.swing.JLabel();
+        checkField = new javax.swing.JPasswordField();
+        passwordField = new javax.swing.JPasswordField();
+        registerButton = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
 
-        jLabel9.setText("LOL");
+        usernameField2.setFont(new java.awt.Font("Dosis", 0, 18)); // NOI18N
 
-        jLabel11.setText("LOL");
+        usernameField4.setFont(new java.awt.Font("Dosis", 0, 18)); // NOI18N
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabel7.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel7.setText("⚠");
 
-        lastNameField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lastNameFieldActionPerformed(evt);
-            }
-        });
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        firstnameField.setFont(new java.awt.Font("Dosis", 0, 18)); // NOI18N
+        firstnameField.setEnabled(false);
+
+        lastnameField.setFont(new java.awt.Font("Dosis", 0, 18)); // NOI18N
+        lastnameField.setEnabled(false);
+
+        addressField.setFont(new java.awt.Font("Dosis", 0, 18)); // NOI18N
+        addressField.setEnabled(false);
+
+        birthField.setFont(new java.awt.Font("Dosis", 0, 18)); // NOI18N
+        birthField.setEnabled(false);
 
         maleRadio.setText("Male");
+        maleRadio.setEnabled(false);
         maleRadio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 maleRadioActionPerformed(evt);
@@ -65,11 +231,122 @@ public class Register extends javax.swing.JFrame {
         });
 
         femaleRadio.setText("Female");
+        femaleRadio.setEnabled(false);
         femaleRadio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 femaleRadioActionPerformed(evt);
             }
         });
+
+        firstnameWarning.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        firstnameWarning.setForeground(new java.awt.Color(255, 0, 0));
+        firstnameWarning.setText("⚠");
+
+        lastnameWarning.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lastnameWarning.setForeground(new java.awt.Color(255, 0, 0));
+        lastnameWarning.setText("⚠");
+
+        passwordWarning.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        passwordWarning.setForeground(new java.awt.Color(255, 0, 0));
+        passwordWarning.setText("⚠");
+
+        addressWarning.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        addressWarning.setForeground(new java.awt.Color(255, 0, 0));
+        addressWarning.setText("⚠");
+
+        checkWarning.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        checkWarning.setForeground(new java.awt.Color(255, 0, 0));
+        checkWarning.setText("⚠");
+
+        birthWarning.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        birthWarning.setForeground(new java.awt.Color(255, 0, 0));
+        birthWarning.setText("⚠");
+
+        genderWarning.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        genderWarning.setForeground(new java.awt.Color(255, 0, 0));
+        genderWarning.setText("⚠");
+
+        checkField.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        checkField.setEnabled(false);
+
+        passwordField.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        passwordField.setEnabled(false);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(lastnameField, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lastnameWarning, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(firstnameField, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(firstnameWarning, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(birthField, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addComponent(maleRadio)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(femaleRadio)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(genderWarning)
+                            .addComponent(birthWarning)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(checkField, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(checkWarning, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(passwordWarning, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(addressField, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(addressWarning, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(firstnameField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(firstnameWarning))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lastnameField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lastnameWarning))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(passwordField)
+                    .addComponent(passwordWarning, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(checkWarning)
+                    .addComponent(checkField, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addressField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addressWarning))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(birthField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(birthWarning))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(femaleRadio)
+                    .addComponent(maleRadio)
+                    .addComponent(genderWarning))
+                .addGap(7, 7, 7))
+        );
 
         registerButton.setText("Register");
         registerButton.addActionListener(new java.awt.event.ActionListener() {
@@ -78,252 +355,102 @@ public class Register extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("First Name:");
+        jLabel11.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel11.setText("Confirm Password");
 
-        jLabel2.setText("Last Name:");
+        jLabel12.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel12.setText("Address");
 
-        jLabel3.setText("Password:");
+        jLabel13.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel13.setText("Password");
 
-        jLabel4.setText("Confirm Password:");
+        jLabel14.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel14.setText("DOB(DDMMYYYY)");
 
-        jLabel5.setText("Date Of Birth(DDMMYYYY): ");
+        jLabel10.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel10.setText("Last Name");
 
-        jLabel6.setText("Address:");
-
-        fnWarning.setText("!");
-
-        lnWarning.setText("!");
-
-        passWarning.setText("!");
-
-        checkWarning.setText("!");
-
-        addressWarning.setText("!");
-
-        dateWarning.setText("!");
-
-        genderWarning.setText("!");
+        jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel9.setText("First Name");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addGap(17, 17, 17))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(dateOfBirthField, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(addressField)
-                                .addComponent(lastNameField)
-                                .addComponent(firstNameField)
-                                .addComponent(passwordPrimaryField)
-                                .addComponent(passwordSecondaryField, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addComponent(registerButton)
-                        .addGap(50, 50, 50)
-                        .addComponent(maleRadio)
-                        .addGap(30, 30, 30)
-                        .addComponent(femaleRadio)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(passWarning)
-                        .addComponent(checkWarning, javax.swing.GroupLayout.Alignment.TRAILING))
-                    .addComponent(addressWarning)
-                    .addComponent(dateWarning)
-                    .addComponent(lnWarning)
-                    .addComponent(fnWarning)
-                    .addComponent(genderWarning, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(52, 52, 52)
+                                        .addComponent(jLabel9))
+                                    .addComponent(jLabel14))
+                                .addComponent(jLabel12)
+                                .addComponent(jLabel11)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel13)
+                                    .addGap(1, 1, 1)))
+                            .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(firstNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(fnWarning))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lastNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(lnWarning))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(passwordPrimaryField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(passWarning))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(passwordSecondaryField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(checkWarning))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addressField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addComponent(addressWarning))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dateOfBirthField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(dateWarning))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(maleRadio)
-                    .addComponent(femaleRadio)
-                    .addComponent(genderWarning, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(registerButton))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(21, 21, 21)
+                        .addComponent(jLabel10)
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel11)
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel12)
+                        .addGap(21, 21, 21)
+                        .addComponent(jLabel14)
+                        .addGap(18, 18, 18)
+                        .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lastNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastNameFieldActionPerformed
-        //Do nothing.
-    }//GEN-LAST:event_lastNameFieldActionPerformed
-
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
 
-        String firstName = firstNameField.getText();
-        String lastName = lastNameField.getText();
-        String password = Functions.convertCharToString(passwordPrimaryField.getPassword());
-        String passwordConfirm = Functions.convertCharToString(passwordSecondaryField.getPassword());
-        String address = addressField.getText();
-        String dateOfBirth = dateOfBirthField.getText();
-        char sex = 'N';
-        boolean validInput = false;
+        firstname = firstnameField.getText();
+        lastname = lastnameField.getText();
+        password = Functions.convertCharToString(passwordField.getPassword());
+        checkPassword = Functions.convertCharToString(checkField.getPassword());
+        address = addressField.getText();
+        birthDate = birthField.getText();
         
-        if(maleRadio.isSelected() == true){
-            sex = 'M';
-        }else if(femaleRadio.isSelected() == true){
-            sex = 'F';
-        }
+        createUser(userType);
         
-        //Checks if the gender is not selected.
-        if(sex == 'N'){
-            genderWarning.setVisible(true);
-            validInput = false;
-        }else{
-            genderWarning.setVisible(false);
-            validInput = true;
-        }
-        
-        //Checks if the first name is null.
-        if(firstName.compareTo("") == 0){ 
-            fnWarning.setVisible(true);
-            validInput = false;
-        }else{
-            fnWarning.setVisible(false);
-            validInput = true;
-        }
-        
-        //Checks if the last name is null.
-        if(lastName.compareTo("") == 0){
-            lnWarning.setVisible(true);
-            validInput = false;
-        }else{
-            lnWarning.setVisible(false);
-            validInput = true;
-        }
-        
-        //Checks if the password is null.
-        if(password.compareTo("") == 0){
-            passWarning.setVisible(true);
-            validInput = false;
-        }else{
-            passWarning.setVisible(false);
-            validInput = true;
-        }
-        
-        //Checks if the confirm password is null.
-        if(passwordConfirm.compareTo("") == 0){
-            checkWarning.setVisible(true);
-            validInput = false;
-        }else{
-            checkWarning.setVisible(false);
-            validInput = true;
-        }
-        
-        //Checks if the address is null.
-        if(address.compareTo("") == 0){
-            addressWarning.setVisible(true);
-            validInput = false;
-        }else{
-            addressWarning.setVisible(false);
-            validInput = true;
-        }
-        
-        //Checks if the password matches.
-        if(password.compareTo(passwordConfirm) == 0 ){
-            validInput = true;
-        }
-        else{
-            System.out.println("Passwords do not match!");
-            checkWarning.setVisible(true);
-            validInput = false;
-        }
-        
-        //Checks if the date entered is valid.
-        if(Functions.validateDate(dateOfBirth) == false){
-            dateWarning.setVisible(true);
-            validInput = false;
-        }else{
-            validInput = true;
-        }
-        
-        if(validInput == true){
-            //Generate new id for the patient.
-            String newID = Functions.generateID('P');
-            System.out.println(newID);
-            User newPatient = new Patient(newID, password, firstName, lastName, address, sex, dateOfBirth);
-
-            User userArray[] = null;
-
-            try{
-                userArray = FileIO.readFile();
-            }catch(Exception e){
-                System.out.println(e);
-            }
-
-            userArray = Functions.resizeArray(userArray, userArray.length + 1);
-
-            userArray[userArray.length - 1] = newPatient;
-
-            try{
-                FileIO.writeUsersToFile(userArray);
-            }catch(Exception e){
-                System.out.println(e);
-            }
-        }else{
-            System.out.println("Invalid input(s)");
-        }
     }//GEN-LAST:event_registerButtonActionPerformed
 
     private void maleRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maleRadioActionPerformed
+        sex = 'M';
         femaleRadio.setSelected(false);
     }//GEN-LAST:event_maleRadioActionPerformed
 
     private void femaleRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_femaleRadioActionPerformed
+        sex = 'F';
         maleRadio.setSelected(false);
     }//GEN-LAST:event_femaleRadioActionPerformed
 
     public static void main(String args[]) {
-
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Register().setVisible(true);
@@ -334,30 +461,29 @@ public class Register extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField addressField;
     private javax.swing.JLabel addressWarning;
-    private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.JTextField birthField;
+    private javax.swing.JLabel birthWarning;
+    private javax.swing.JPasswordField checkField;
     private javax.swing.JLabel checkWarning;
-    private javax.swing.JTextField dateOfBirthField;
-    private javax.swing.JLabel dateWarning;
     private javax.swing.JRadioButton femaleRadio;
-    private javax.swing.JTextField firstNameField;
-    private javax.swing.JLabel fnWarning;
+    private javax.swing.JTextField firstnameField;
+    private javax.swing.JLabel firstnameWarning;
     private javax.swing.JLabel genderWarning;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField lastNameField;
-    private javax.swing.JLabel lnWarning;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField lastnameField;
+    private javax.swing.JLabel lastnameWarning;
     private javax.swing.JRadioButton maleRadio;
-    private javax.swing.JLabel passWarning;
-    private javax.swing.JPasswordField passwordPrimaryField;
-    private javax.swing.JPasswordField passwordSecondaryField;
+    private javax.swing.JPasswordField passwordField;
+    private javax.swing.JLabel passwordWarning;
     private javax.swing.JButton registerButton;
+    private javax.swing.JTextField usernameField2;
+    private javax.swing.JTextField usernameField4;
     // End of variables declaration//GEN-END:variables
 }

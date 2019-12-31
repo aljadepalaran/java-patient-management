@@ -267,5 +267,40 @@ public class Functions {
         }
         return output;
     }
-    
+    public static void removeFromFile(String _uniqueID){
+        User userArray[] = null;
+        try{
+            userArray = FileIO.readFile();
+        }catch(Exception e){
+            
+        }
+        
+        //change value to null
+        for(int i = 0; i < userArray.length; i++){
+            if(userArray[i].getUniqueID().compareTo(_uniqueID) == 0){
+                userArray[i] = null;
+            }
+        }
+    }
+    public static User[] removeNullFromArray(User[] _userArray){
+        User[] output = _userArray;
+        for(int i = 0; i < _userArray.length; i++){
+            if(_userArray[i] == null && i != _userArray.length - 1){
+                _userArray[i] = _userArray[i + 1];
+                _userArray[i+1] = null;
+            }else{}
+        }
+        while(_userArray[_userArray.length - 1] == null){
+            _userArray = resizeDown(_userArray);
+        }
+        output = _userArray;
+        return output;
+    }
+    public static User[] resizeDown(User[] _userArray){
+        User output[] = new User[_userArray.length - 1];
+        for(int i = 0; i < output.length; i++){
+            output[i] = _userArray[i];
+        }
+        return output;
+    }
 }

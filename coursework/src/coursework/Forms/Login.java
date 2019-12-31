@@ -137,7 +137,8 @@ public class Login extends javax.swing.JFrame {
 
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
         //registration form param=p for patient
-        
+        Register registrationForm = new Register('P');
+        registrationForm.setVisible(true);
     }//GEN-LAST:event_registerButtonActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
@@ -153,6 +154,7 @@ public class Login extends javax.swing.JFrame {
             authFlag = Functions.authenticateLogin(uniqueID, password);                     //Checks if the credentials are correct.
             if(authFlag == true){                                                           //If the credentials match.
                 Session userSession = Session.getInstance(uniqueID);
+                userSession.setUID(uniqueID);
                 Functions.displayMainForm(userSession);
                 this.setVisible(false);
             }else{                                                                           //If the credentials do not match.
@@ -163,24 +165,28 @@ public class Login extends javax.swing.JFrame {
 
     private void adminTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminTestActionPerformed
         Session userSession = Session.getInstance("A0001");
+        userSession.setUID("A0001");
         MainAdministrator newForm = new MainAdministrator(userSession);
         newForm.setVisible(true);
     }//GEN-LAST:event_adminTestActionPerformed
 
     private void patientTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientTestActionPerformed
         Session userSession = Session.getInstance("P0001");
+        userSession.setUID("P0001");
         MainPatient newForm = new MainPatient(userSession);
         newForm.setVisible(true);
     }//GEN-LAST:event_patientTestActionPerformed
 
     private void secretaryTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secretaryTestActionPerformed
         Session userSession = Session.getInstance("S0001");
+        userSession.setUID("S0001");
         MainSecretary newForm = new MainSecretary(userSession);
         newForm.setVisible(true);
     }//GEN-LAST:event_secretaryTestActionPerformed
 
     private void doctorTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doctorTestActionPerformed
         Session userSession = Session.getInstance("D0001");
+        userSession.setUID("D0001");
         MainDoctor newForm = new MainDoctor(userSession);
         newForm.setVisible(true);
     }//GEN-LAST:event_doctorTestActionPerformed

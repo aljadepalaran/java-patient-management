@@ -14,6 +14,7 @@ public class MainDoctor extends javax.swing.JFrame {
         initComponents();
         this.setResizable(false);
         userSession = _session;
+        JOptionPane.showMessageDialog(this, "You have logged in as: " + userSession.getUID());
     }
 
     @SuppressWarnings("unchecked")
@@ -52,6 +53,11 @@ public class MainDoctor extends javax.swing.JFrame {
         createMedicineButton.setText("Create Medicine");
 
         logoutButton.setText("Logout");
+        logoutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutButtonActionPerformed(evt);
+            }
+        });
 
         buttonPanel.setLayer(viewAppointmentButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
         buttonPanel.setLayer(makeNoteButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -120,6 +126,13 @@ public class MainDoctor extends javax.swing.JFrame {
     private void viewAppointmentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewAppointmentButtonActionPerformed
         JOptionPane.showMessageDialog(this, "UID:" + userSession.getUID());   
     }//GEN-LAST:event_viewAppointmentButtonActionPerformed
+
+    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
+        Login loginForm = new Login();
+        loginForm.setVisible(true);
+        this.setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_logoutButtonActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
