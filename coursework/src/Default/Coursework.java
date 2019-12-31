@@ -1,5 +1,6 @@
 package Default;
-import coursework.Forms.*;
+import coursework.Forms.Login;
+import coursework.Objects.Rating;
 import coursework.Users.*;
 public class Coursework {
 
@@ -9,12 +10,27 @@ public class Coursework {
         //TestClass.populateFile();
         //FileIO.displayArray();
 
-//        Login loginForm = new Login();
-//        loginForm.setVisible(true);
+        //PopulateFile.populateRating5();
+        //FileIO.displayRatings();
+        //test2();
+        //PopulateFile.populateFeedback5();
+        FileIO.displayFeedback();
+
         
-        test();
+        Login loginForm = new Login();
+        loginForm.setVisible(true);
+        
+        //test2();
     }
     
+    
+    public static void test2(){
+        Rating newArr[] = null;
+        newArr = Functions.getRating("D0007");
+        for(int i = 0; i < newArr.length; i++){
+            System.out.println(newArr[i].getDoctorID());
+        }
+    }
     public static void test(){
         User adminTest = new Administrator("A0001", "adminP4SS", "Admin", "One");
         User doctorTest = new Doctor("D0001", "docP4SS", "Doctor", "One", "Plymouth");
@@ -33,6 +49,8 @@ public class Coursework {
         }
         
     }
-   
+    public static void test3(){
+        
+    }
 }
 

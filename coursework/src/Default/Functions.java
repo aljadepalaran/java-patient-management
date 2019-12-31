@@ -1,7 +1,7 @@
 package Default;
 import coursework.Forms.*;
-import coursework.Objects.Session;
-import coursework.Users.User;
+import coursework.Objects.*;
+import coursework.Users.*;
 public class Functions {
     public static String convertCharToString(char[] _charArray){                                                                        //Converts the character array to a string.
         String outputString = "";
@@ -274,12 +274,20 @@ public class Functions {
         }catch(Exception e){
             
         }
-        
         //change value to null
         for(int i = 0; i < userArray.length; i++){
             if(userArray[i].getUniqueID().compareTo(_uniqueID) == 0){
                 userArray[i] = null;
             }
+            else{
+                //do nothing
+            }
+        }
+        userArray = removeNullFromArray(userArray);
+        try{
+        FileIO.writeUsersToFile(userArray);
+        }catch(Exception e){
+            //display notification
         }
     }
     public static User[] removeNullFromArray(User[] _userArray){
@@ -300,6 +308,40 @@ public class Functions {
         User output[] = new User[_userArray.length - 1];
         for(int i = 0; i < output.length; i++){
             output[i] = _userArray[i];
+        }
+        return output;
+    }
+    public static Rating[] getRating(String _doctorID){
+        Rating readArray[] = null;
+        Rating doctorRating[] = new Rating[1]; //will store the ratings for the specific doctor.
+        try{
+            readArray = FileIO.readRatings();
+        }catch(Exception e){
+            
+        }
+        for(int i = 0; i < readArray.length; i++){
+            if(readArray[i].getDoctorID().compareTo(_doctorID) == 0){
+                if(doctorRating[doctorRating.length - 1] == null){
+                    doctorRating[doctorRating.length - 1] = readArray[i];
+                }else{
+                    doctorRating = Functions.resizeRatingArray(doctorRating, doctorRating.length + 1);
+                    doctorRating[doctorRating.length - 1] = readArray[i];
+                }
+            }
+        }
+        return doctorRating;
+    }
+    public static Rating[] resizeRatingArray(Rating[] _array, int _size){
+        Rating output[] = new Rating[_size];
+        for(int i = 0; i < _array.length; i++){
+            output[i] = _array[i];
+        }
+        return output;
+    }
+    public static Feedback[] resizeFeedback(Feedback[] _array, int _size){
+        Feedback output[] = new Feedback[_size];
+        for(int i = 0; i < _array.length; i++){
+            output[i] = _array[i];
         }
         return output;
     }

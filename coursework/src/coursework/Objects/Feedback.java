@@ -2,18 +2,18 @@ package coursework.Objects;
 
 import java.io.Serializable;
 
-public class Rating implements Serializable{
+public class Feedback implements Serializable{
     
     private String doctorID;
     private String patientID;
-    private String message;
-    private int ratingValue;//max value = 5
+    private String adminID;
+    private String feedback;
     
-    public Rating(String _doctorID, String _patientID, int _ratingValue, String _message){
+    public Feedback(String _doctorID, String _patientID, String _adminID, String _feedback){
         this.doctorID = _doctorID;
         this.patientID = _patientID;
-        this.ratingValue = _ratingValue;
-        this.message = _message;
+        this.adminID = _adminID;
+        this.feedback = _feedback;
     }
     
     //GET Methods.
@@ -23,11 +23,11 @@ public class Rating implements Serializable{
     public String getPatientID(){
         return this.patientID;
     }
-    public int getRatingValue(){
-        return this.ratingValue;
+    public String getAdminID(){
+        return this.adminID;
     }
-    public String getMessage(){
-        return this.message;
+    public String getFeedback(){
+        return this.feedback;
     }
     
     //SET Methods.
@@ -37,11 +37,11 @@ public class Rating implements Serializable{
     public void setPatientID(String _patientID){
         this.patientID = _patientID;
     }
-    public void setRatingValue(int _value){
-        this.ratingValue = _value;
+    public void setAdminID(String _adminID){
+        this.adminID = _adminID;
     }
-    public void setMessage(String _message){
-        this.message = _message;
+    public void setFeedback(String _feedback){
+        this.feedback = _feedback;
     }
     
 }

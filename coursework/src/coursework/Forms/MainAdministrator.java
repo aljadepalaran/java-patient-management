@@ -1,10 +1,8 @@
 package coursework.Forms;
 
-import Default.FileIO;
-import Default.Functions;
-import coursework.Objects.Session;
-import coursework.Users.Doctor;
-import coursework.Users.User;
+import Default.*;
+import coursework.Objects.*;
+import coursework.Users.*;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
@@ -14,6 +12,7 @@ public class MainAdministrator extends javax.swing.JFrame {
     User doctorArray[] = new User[1];
     User secretaryArray[] = new User[1];
     User readArray[];
+    Rating doctorRatings[];
     int removeType = 0; //0=default, 1=doctor, 2=secretary
     public MainAdministrator() {
         initComponents();
@@ -23,6 +22,10 @@ public class MainAdministrator extends javax.swing.JFrame {
     public MainAdministrator(Session _session) {
         initComponents();
         this.setResizable(false);   
+        doctorDropdown.removeAllItems();
+        patientDropdown.removeAllItems();
+        listValues = new DefaultListModel();    
+        listField.setModel(listValues);
         userSession = _session;
         JOptionPane.showMessageDialog(this, "You have logged in as: " + userSession.getUID());
         loadArrays();
@@ -40,11 +43,18 @@ public class MainAdministrator extends javax.swing.JFrame {
         removeSecretaryButton = new javax.swing.JButton();
         addDoctorButton = new javax.swing.JButton();
         removeDoctorButton = new javax.swing.JButton();
-        feedbackButton = new javax.swing.JButton();
         logoutButton = new javax.swing.JButton();
+        refreshButton = new javax.swing.JButton();
+        viewRatingsButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         listField = new javax.swing.JList<>();
         confirmButton = new javax.swing.JButton();
+        doctorDropdown = new javax.swing.JComboBox<>();
+        patientDropdown = new javax.swing.JComboBox<>();
+        messageBox = new javax.swing.JTextField();
+        ratingLabel = new javax.swing.JLabel();
+        feedbackButton = new javax.swing.JButton();
+        adminFeedback = new javax.swing.JTextField();
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -93,12 +103,24 @@ public class MainAdministrator extends javax.swing.JFrame {
             }
         });
 
-        feedbackButton.setText("Provide Feedback");
-
         logoutButton.setText("Logout");
         logoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logoutButtonActionPerformed(evt);
+            }
+        });
+
+        refreshButton.setText("Reload");
+        refreshButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshButtonActionPerformed(evt);
+            }
+        });
+
+        viewRatingsButton.setText("View Ratings");
+        viewRatingsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewRatingsButtonActionPerformed(evt);
             }
         });
 
@@ -107,8 +129,9 @@ public class MainAdministrator extends javax.swing.JFrame {
         buttonPanel.setLayer(removeSecretaryButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
         buttonPanel.setLayer(addDoctorButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
         buttonPanel.setLayer(removeDoctorButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        buttonPanel.setLayer(feedbackButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
         buttonPanel.setLayer(logoutButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        buttonPanel.setLayer(refreshButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        buttonPanel.setLayer(viewRatingsButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout buttonPanelLayout = new javax.swing.GroupLayout(buttonPanel);
         buttonPanel.setLayout(buttonPanelLayout);
@@ -116,15 +139,21 @@ public class MainAdministrator extends javax.swing.JFrame {
             buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(buttonPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(logoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(addDoctorButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                    .addComponent(removeSecretaryButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(addSecretaryButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(createAdminButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(removeDoctorButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(feedbackButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(buttonPanelLayout.createSequentialGroup()
+                        .addGroup(buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(addDoctorButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(removeSecretaryButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(addSecretaryButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(createAdminButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
+                            .addComponent(removeDoctorButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(buttonPanelLayout.createSequentialGroup()
+                                .addComponent(logoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(refreshButton, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(viewRatingsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         buttonPanelLayout.setVerticalGroup(
             buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,9 +169,11 @@ public class MainAdministrator extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(removeDoctorButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(feedbackButton)
+                .addComponent(viewRatingsButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                .addComponent(logoutButton)
+                .addGroup(buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(logoutButton)
+                    .addComponent(refreshButton))
                 .addContainerGap())
         );
 
@@ -153,13 +184,41 @@ public class MainAdministrator extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(listField);
 
-        confirmButton.setText("Confirm");
+        confirmButton.setText("Remove");
         confirmButton.setEnabled(false);
         confirmButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmButtonActionPerformed(evt);
             }
         });
+
+        doctorDropdown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        doctorDropdown.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                doctorDropdownActionPerformed(evt);
+            }
+        });
+
+        patientDropdown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        patientDropdown.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                patientDropdownActionPerformed(evt);
+            }
+        });
+
+        messageBox.setFont(new java.awt.Font("Dosis", 0, 14)); // NOI18N
+
+        ratingLabel.setFont(new java.awt.Font("Dosis", 1, 36)); // NOI18N
+        ratingLabel.setText("##");
+
+        feedbackButton.setText("Provide Feedback");
+        feedbackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                feedbackButtonActionPerformed(evt);
+            }
+        });
+
+        adminFeedback.setFont(new java.awt.Font("Dosis", 0, 18)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -169,9 +228,21 @@ public class MainAdministrator extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(buttonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(confirmButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(confirmButton))
+                    .addComponent(messageBox)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(patientDropdown, javax.swing.GroupLayout.Alignment.LEADING, 0, 137, Short.MAX_VALUE)
+                            .addComponent(doctorDropdown, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ratingLabel)
+                        .addGap(44, 44, 44))
+                    .addComponent(feedbackButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(adminFeedback))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -184,7 +255,21 @@ public class MainAdministrator extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(confirmButton, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(doctorDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(patientDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(ratingLabel)))
+                        .addGap(18, 18, 18)
+                        .addComponent(messageBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(adminFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(feedbackButton)))
                 .addContainerGap())
         );
 
@@ -230,18 +315,69 @@ public class MainAdministrator extends javax.swing.JFrame {
            //invalid type
        }else if(removeType == 1){
            String uniqueID = doctorArray[listField.getSelectedIndex()].getUniqueID();
-           JOptionPane.showMessageDialog(this, "SELECTED: " + uniqueID);
-           
-           
-           displayDoctors();
+           Functions.removeFromFile(uniqueID);
+           refreshForm();
        }else if(removeType == 2){
            String uniqueID = secretaryArray[listField.getSelectedIndex()].getUniqueID();
-           JOptionPane.showMessageDialog(this, "SELECTED: " + uniqueID);
-           
-            displaySecretaries(); 
+           Functions.removeFromFile(uniqueID);
+           refreshForm();
        }
     }//GEN-LAST:event_confirmButtonActionPerformed
 
+    private void refreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshButtonActionPerformed
+        refreshForm();
+    }//GEN-LAST:event_refreshButtonActionPerformed
+
+    private void viewRatingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewRatingsButtonActionPerformed
+        doctorDropdown.removeAllItems();
+        for(int i = 0; i < doctorArray.length; i++){
+            Doctor displayDoctor = (Doctor)doctorArray[i];
+            doctorDropdown.addItem(displayDoctor.getUniqueID() + ":" + 
+            displayDoctor.getFirstName() + ":" + displayDoctor.getLastName());
+        }
+    }//GEN-LAST:event_viewRatingsButtonActionPerformed
+
+    private void doctorDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doctorDropdownActionPerformed
+        patientDropdown.removeAllItems();
+        try{
+            String doctorID = doctorArray[doctorDropdown.getSelectedIndex()].getUniqueID();
+            doctorRatings = Functions.getRating(doctorID); //ratings for the doctor
+            for(int i = 0; i < doctorRatings.length; i++){
+                patientDropdown.addItem("PATIENT:" + doctorRatings[i].getPatientID());
+            }
+        }catch(Exception e){
+            ratingLabel.setText("##");
+            messageBox.setText("");
+        }
+    }//GEN-LAST:event_doctorDropdownActionPerformed
+
+    private void patientDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientDropdownActionPerformed
+        try{
+            Rating selectedRating = doctorRatings[patientDropdown.getSelectedIndex()];
+            ratingLabel.setText(selectedRating.getRatingValue() + "*");
+            messageBox.setText(selectedRating.getMessage());
+        }catch(Exception e){
+            
+        }
+    }//GEN-LAST:event_patientDropdownActionPerformed
+
+    private void feedbackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_feedbackButtonActionPerformed
+        String feedback = adminFeedback.getText();
+        Rating selectedRating = doctorRatings[patientDropdown.getSelectedIndex()];
+        String doctorID = selectedRating.getDoctorID();
+        String patientID = selectedRating.getPatientID();
+        String adminID = userSession.getUID();
+        Feedback newFeedback = new Feedback(doctorID, patientID, adminID, feedback);
+        FileIO.addFeedback(newFeedback);
+    }//GEN-LAST:event_feedbackButtonActionPerformed
+ 
+    public void refreshForm(){
+        MainAdministrator reloadForm = new MainAdministrator(userSession);
+        reloadForm.setVisible(true);
+        this.setVisible(false);
+        this.dispose();
+    }
+    
     public void displaySecretaries(){       
         listValues = new DefaultListModel();    
         listField.setModel(listValues);
@@ -296,16 +432,23 @@ public class MainAdministrator extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addDoctorButton;
     private javax.swing.JButton addSecretaryButton;
+    private javax.swing.JTextField adminFeedback;
     private javax.swing.JLayeredPane buttonPanel;
     private javax.swing.JButton confirmButton;
     private javax.swing.JButton createAdminButton;
+    private javax.swing.JComboBox<String> doctorDropdown;
     private javax.swing.JButton feedbackButton;
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JList<String> listField;
     private javax.swing.JButton logoutButton;
+    private javax.swing.JTextField messageBox;
+    private javax.swing.JComboBox<String> patientDropdown;
+    private javax.swing.JLabel ratingLabel;
+    private javax.swing.JButton refreshButton;
     private javax.swing.JButton removeDoctorButton;
     private javax.swing.JButton removeSecretaryButton;
+    private javax.swing.JButton viewRatingsButton;
     // End of variables declaration//GEN-END:variables
 }

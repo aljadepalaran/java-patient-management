@@ -1,10 +1,9 @@
 package Default;
-import coursework.Users.User;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+
+import coursework.Objects.*;
+import coursework.Users.*;
+import java.io.*;
+
 public class FileIO {                                                                                               //Class for everything File IO related.  
     public static void writeUsersToFile(User[] _userArray) throws IOException{                                      //Writes the array of users into a file.
         ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("Users.txt"));
@@ -51,6 +50,103 @@ public class FileIO {                                                           
         
         try{
             FileIO.writeUsersToFile(userArray);
+        }catch(Exception e){
+            System.out.println(e);
+        }
+    }
+    
+    public static Rating[] readRatings() throws IOException, ClassNotFoundException{
+        ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("Ratings.txt"));
+        Rating ratingArray[] = (Rating[]) inputStream.readObject();
+        return ratingArray;
+    }
+    public static void writeRatings(Rating[] _ratingArray) throws IOException{                                      //Writes the array of users into a file.
+        ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("Ratings.txt"));
+        outputStream.writeObject(_ratingArray);       
+    }  
+    public static void displayRatings(){
+        Rating ratings[] =  null;
+        try{
+            ratings = FileIO.readRatings();
+        }catch(Exception e){
+            System.out.println(e);
+        }
+        for(int i = 0; i < ratings.length; i++){
+            System.out.println(ratings[i].getDoctorID() + ":" + ratings[i].getPatientID() 
+                    + ":" + ratings[i].getRatingValue() + ":" + ratings[i].getMessage());
+        }
+    
+    }
+    public static void addRating(Rating _rating){
+        Rating ratingArray[] = null;
+        boolean hasNull = false;
+        try{
+            ratingArray = FileIO.readRatings();
+        }catch(Exception e){
+            System.out.println(e);
+        }
+        
+        for(int i = 0; i < ratingArray.length; i++){
+            if(ratingArray[i] == null){//if there is space
+                ratingArray[i] = _rating;
+                hasNull = true;
+                break;
+            }else{}
+        }
+        
+        if(hasNull == false){//if there was no space
+            ratingArray = Functions.resizeRatingArray(ratingArray, ratingArray.length + 1);
+            ratingArray[ratingArray.length - 1] = _rating;
+        }
+        try{
+            FileIO.writeRatings(ratingArray);
+        }catch(Exception e){
+            System.out.println(e);
+        }
+    }
+    
+    public static Feedback[] readFeedback() throws IOException, ClassNotFoundException{
+        ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("Feedback.txt"));
+        Feedback feedbackArray[] = (Feedback[]) inputStream.readObject();
+        return feedbackArray;
+    }
+    public static void writeFeedback(Feedback[] _feedbackArray) throws IOException{
+        ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("Feedback.txt"));
+        outputStream.writeObject(_feedbackArray);   
+    }
+    public static void displayFeedback(){
+        Feedback feedbacks[] =  null;
+        try{
+            feedbacks = FileIO.readFeedback();
+        }catch(Exception e){
+            System.out.println(e);
+        }
+        for(int i = 0; i < feedbacks.length; i++){
+            System.out.println(feedbacks[i].getDoctorID() + ":" + feedbacks[i].getPatientID() 
+                    + ":" + feedbacks[i].getAdminID() + ":" + feedbacks[i].getFeedback());
+        }
+    }
+    public static void addFeedback(Feedback _feedback){
+        Feedback feedbackArray[] = null;
+        boolean hasNull = false;
+        try{
+            feedbackArray = FileIO.readFeedback();
+        }catch(Exception e){
+            System.out.println(e);
+        }
+        for(int i = 0; i < feedbackArray.length; i++){
+            if(feedbackArray[i] == null){
+                feedbackArray[i] = _feedback;
+                hasNull = true;
+                break;
+            }
+        }
+        if(hasNull == false){
+            feedbackArray = Functions.resizeFeedback(feedbackArray, feedbackArray.length + 1);
+            feedbackArray[feedbackArray.length - 1] = _feedback;
+        }
+        try{
+            FileIO.writeFeedback(feedbackArray);
         }catch(Exception e){
             System.out.println(e);
         }

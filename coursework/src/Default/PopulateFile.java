@@ -1,5 +1,6 @@
 package Default;
 import coursework.Users.*;
+import coursework.Objects.*;
 public class PopulateFile {
     public static void populateFour(){
         User adminTest = new Administrator("A0001", "adminP4SS", "Admin", "One");
@@ -167,5 +168,33 @@ public class PopulateFile {
         }catch(Exception e){
             System.out.println("E: POPF");
         }
+    }
+    public static void populateRating5(){
+        Rating ratingArray[] = new Rating[5];
+        ratingArray[0] = new Rating("D0007", "P0002", 5, "Testing #1ihjasd fbi if asasfhasu fo ");
+        ratingArray[1] = new Rating("D0005", "P0002", 5, "Testing #2");
+        ratingArray[2] = new Rating("D0003", "P0005", 4, "Testing #3");
+        ratingArray[3] = new Rating("D0007", "P0002", 2, "Testing #4");
+        ratingArray[4] = new Rating("D0006", "P0003", 3, "Testing #5");
+        
+        try{
+            FileIO.writeRatings(ratingArray);
+        }catch(Exception e){
+            
+        }
+    }
+    public static void populateFeedback5(){
+        Feedback feedbackArray[] = new Feedback[5];
+        feedbackArray[0] = new Feedback("D0007", "P0007", "A0005", "TESTING 1");
+        feedbackArray[1] = new Feedback("D0007", "P0007", "A0005", "TESTING 2");
+        feedbackArray[2] = new Feedback("D0005", "P0007", "A0005", "TESTING 3");
+        feedbackArray[3] = new Feedback("D0003", "P0007", "A0005", "TESTING 4");
+        feedbackArray[4] = new Feedback("D0007", "P0007", "A0005", "TESTING 5");
+        try{
+            FileIO.writeFeedback(feedbackArray);
+        }catch(Exception e){
+            
+        }
+        
     }
 }
