@@ -3,7 +3,7 @@
 <Form version="1.9" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="title" type="java.lang.String" value="Doctor Form"/>
+    <Property name="title" type="java.lang.String" value="Administrator Form"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -58,12 +58,12 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                       <Component id="logoutButton" alignment="1" max="32767" attributes="0"/>
-                      <Component id="createAppointmentButton" alignment="0" pref="170" max="32767" attributes="0"/>
-                      <Component id="viewHistoryButton" alignment="0" max="32767" attributes="0"/>
-                      <Component id="makeNoteButton" alignment="0" max="32767" attributes="0"/>
-                      <Component id="viewAppointmentButton" alignment="0" max="32767" attributes="0"/>
-                      <Component id="prescribeButton" alignment="0" max="32767" attributes="0"/>
-                      <Component id="createMedicineButton" alignment="0" max="32767" attributes="0"/>
+                      <Component id="addDoctorButton" alignment="0" pref="170" max="32767" attributes="0"/>
+                      <Component id="removeSecretaryButton" alignment="0" max="32767" attributes="0"/>
+                      <Component id="addSecretaryButton" alignment="0" max="32767" attributes="0"/>
+                      <Component id="createAdminButton" alignment="0" max="32767" attributes="0"/>
+                      <Component id="removeDoctorButton" alignment="0" max="32767" attributes="0"/>
+                      <Component id="feedbackButton" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -73,17 +73,17 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="viewAppointmentButton" min="-2" max="-2" attributes="0"/>
+                  <Component id="createAdminButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="makeNoteButton" min="-2" max="-2" attributes="0"/>
+                  <Component id="addSecretaryButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="viewHistoryButton" min="-2" max="-2" attributes="0"/>
+                  <Component id="removeSecretaryButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="createAppointmentButton" min="-2" max="-2" attributes="0"/>
+                  <Component id="addDoctorButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="prescribeButton" min="-2" max="-2" attributes="0"/>
+                  <Component id="removeDoctorButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="createMedicineButton" min="-2" max="-2" attributes="0"/>
+                  <Component id="feedbackButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="70" max="32767" attributes="0"/>
                   <Component id="logoutButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -92,37 +92,34 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="viewAppointmentButton">
+        <Component class="javax.swing.JButton" name="createAdminButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="View Appointments"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewAppointmentButtonActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="makeNoteButton">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Make Notes"/>
+            <Property name="text" type="java.lang.String" value="Create Administrator"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="viewHistoryButton">
+        <Component class="javax.swing.JButton" name="addSecretaryButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Patient History"/>
+            <Property name="text" type="java.lang.String" value="Add Secretary"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="createAppointmentButton">
+        <Component class="javax.swing.JButton" name="removeSecretaryButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Create Appointment"/>
+            <Property name="text" type="java.lang.String" value="Remove Secretary"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="prescribeButton">
+        <Component class="javax.swing.JButton" name="addDoctorButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Prescribe"/>
+            <Property name="text" type="java.lang.String" value="Add Doctor"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="createMedicineButton">
+        <Component class="javax.swing.JButton" name="removeDoctorButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Create Medicine"/>
+            <Property name="text" type="java.lang.String" value="Remove Doctor"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="feedbackButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Provide Feedback"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="logoutButton">

@@ -1,6 +1,6 @@
 package Default;
 import coursework.Users.*;
-public class TestClass {
+public class PopulateFile {
     public static void populateFour(){
         User adminTest = new Administrator("A0001", "adminP4SS", "Admin", "One");
         User doctorTest = new Doctor("D0001", "docP4SS", "Doctor", "One", "Plymouth");

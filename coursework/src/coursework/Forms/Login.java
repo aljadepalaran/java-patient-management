@@ -1,11 +1,14 @@
 package coursework.Forms;
 
 import Default.Functions;
+import coursework.Objects.Session;
+import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
-
+    
     public Login() {
         initComponents();
+        this.setResizable(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -13,21 +16,19 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         usernameField = new javax.swing.JTextField();
+        passwordField = new javax.swing.JPasswordField();
+        loginButton = new javax.swing.JButton();
+        registerButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        loginButton = new javax.swing.JButton();
-        passwordField = new javax.swing.JPasswordField();
-        registerButton = new javax.swing.JButton();
         adminTest = new javax.swing.JButton();
-        sceretaryTest = new javax.swing.JButton();
-        doctorTest = new javax.swing.JButton();
         patientTest = new javax.swing.JButton();
+        secretaryTest = new javax.swing.JButton();
+        doctorTest = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Username");
-
-        jLabel2.setText("Password");
+        usernameField.setFont(new java.awt.Font("Dosis", 0, 18)); // NOI18N
 
         loginButton.setText("Login");
         loginButton.addActionListener(new java.awt.event.ActionListener() {
@@ -43,31 +44,35 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        adminTest.setText("Admin");
+        jLabel1.setText("Username");
+
+        jLabel2.setText("Password");
+
+        adminTest.setText("A");
         adminTest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 adminTestActionPerformed(evt);
             }
         });
 
-        sceretaryTest.setText("Secretary");
-        sceretaryTest.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sceretaryTestActionPerformed(evt);
-            }
-        });
-
-        doctorTest.setText("Doctor");
-        doctorTest.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                doctorTestActionPerformed(evt);
-            }
-        });
-
-        patientTest.setText("Patient");
+        patientTest.setText("P");
         patientTest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 patientTestActionPerformed(evt);
+            }
+        });
+
+        secretaryTest.setText("S");
+        secretaryTest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                secretaryTestActionPerformed(evt);
+            }
+        });
+
+        doctorTest.setText("D");
+        doctorTest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                doctorTestActionPerformed(evt);
             }
         });
 
@@ -76,123 +81,111 @@ public class Login extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(29, 29, 29))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(30, 30, 30)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(usernameField)
-                            .addComponent(passwordField, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(registerButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(adminTest, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(patientTest, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(doctorTest, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(sceretaryTest, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(adminTest)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(patientTest))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(doctorTest)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(secretaryTest))))
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1))
+                .addGap(39, 39, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(14, 14, 14)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
+                            .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(22, 22, 22))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(adminTest)
-                            .addComponent(sceretaryTest))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(patientTest))
+                        .addGap(1, 1, 1)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(doctorTest)
-                            .addComponent(patientTest))))
-                .addContainerGap())
+                            .addComponent(secretaryTest))
+                        .addGap(18, 18, 18))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        
-        String uniqueID;
-        char[] charPass;
-        String password;
-        boolean authFlag = false;
-        
-        //Sets values of variables - taken from the form.
-        uniqueID = usernameField.getText();
-        charPass = passwordField.getPassword();
-                
-        password = Functions.convertCharToString(charPass);                             //Converts char array input into a string.
-        authFlag = Functions.authenticateLogin(uniqueID, password);                     //Checks if the credentials are correct.
-        
-        if(authFlag == true){                                                           //If the credentials match.
-            Functions.displayMainForm(uniqueID);
-            this.setVisible(false);
-        }
-        else{                                                                           //If the credentials do not match.
-            System.out.println("Login unsuccessful!");                                  
-        }
-        
-    }//GEN-LAST:event_loginButtonActionPerformed
-
-    private void adminTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminTestActionPerformed
-        MainAdmin adminForm = new MainAdmin();
-        adminForm.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_adminTestActionPerformed
-
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
-        Registration registerForm = new Registration();
-        registerForm.setVisible(true);
-        this.setVisible(false);
-        
+        //registration form param=p for patient
         
     }//GEN-LAST:event_registerButtonActionPerformed
 
-    private void sceretaryTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sceretaryTestActionPerformed
-        MainSecretary secretaryForm = new MainSecretary();
-        secretaryForm.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_sceretaryTestActionPerformed
+    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
+        String uniqueID;
+        String password;
+        boolean authFlag = false;       
+        //Sets values of variables - taken from the form.
+        uniqueID = usernameField.getText();
+        password = Functions.convertCharToString(passwordField.getPassword());        
+        if(uniqueID.compareTo("") == 0 || password.compareTo("") == 0){            
+            JOptionPane.showMessageDialog(this, "One or more fields are empty.");
+        }else{
+            authFlag = Functions.authenticateLogin(uniqueID, password);                     //Checks if the credentials are correct.
+            if(authFlag == true){                                                           //If the credentials match.
+                Session userSession = Session.getInstance(uniqueID);
+                Functions.displayMainForm(userSession);
+                this.setVisible(false);
+            }else{                                                                           //If the credentials do not match.
+                JOptionPane.showMessageDialog(this, "Login unsuccessful.");                                  
+            }
+        }
+    }//GEN-LAST:event_loginButtonActionPerformed
 
-    private void doctorTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doctorTestActionPerformed
-        MainDoctor doctorForm = new MainDoctor();
-        doctorForm.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_doctorTestActionPerformed
+    private void adminTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminTestActionPerformed
+        Session userSession = Session.getInstance("A0001");
+        MainAdministrator newForm = new MainAdministrator(userSession);
+        newForm.setVisible(true);
+    }//GEN-LAST:event_adminTestActionPerformed
 
     private void patientTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientTestActionPerformed
-        MainPatient patientForm = new MainPatient();
-        patientForm.setVisible(true);
-        this.setVisible(false);
+        Session userSession = Session.getInstance("P0001");
+        MainPatient newForm = new MainPatient(userSession);
+        newForm.setVisible(true);
     }//GEN-LAST:event_patientTestActionPerformed
 
-    public static void main(String args[]) {
+    private void secretaryTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secretaryTestActionPerformed
+        Session userSession = Session.getInstance("S0001");
+        MainSecretary newForm = new MainSecretary(userSession);
+        newForm.setVisible(true);
+    }//GEN-LAST:event_secretaryTestActionPerformed
 
+    private void doctorTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doctorTestActionPerformed
+        Session userSession = Session.getInstance("D0001");
+        MainDoctor newForm = new MainDoctor(userSession);
+        newForm.setVisible(true);
+    }//GEN-LAST:event_doctorTestActionPerformed
+
+    public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Login().setVisible(true);
@@ -209,7 +202,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JButton patientTest;
     private javax.swing.JButton registerButton;
-    private javax.swing.JButton sceretaryTest;
+    private javax.swing.JButton secretaryTest;
     private javax.swing.JTextField usernameField;
     // End of variables declaration//GEN-END:variables
 }

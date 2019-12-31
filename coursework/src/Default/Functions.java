@@ -1,5 +1,6 @@
 package Default;
 import coursework.Forms.*;
+import coursework.Objects.Session;
 import coursework.Users.User;
 public class Functions {
     public static String convertCharToString(char[] _charArray){                                                                        //Converts the character array to a string.
@@ -227,19 +228,20 @@ public class Functions {
         }
         return outputID;                                                                                                                //Returns XXXXX
     }
-    public static void displayMainForm(String _uniqueID){
-        String userType = _uniqueID.substring(0,1);       
+    public static void displayMainForm(Session _session){
+        //String userType = _uniqueID.substring(0,1);      
+        String userType = _session.getUID().substring(0,1);
         if(userType.compareTo("A") == 0){                                                                                               //Displays Administrator form.
-            MainAdmin adminForm = new MainAdmin(getUser(_uniqueID));
+            MainAdministrator adminForm = new MainAdministrator(_session);
             adminForm.setVisible(true);
         }else if(userType.compareTo("D") == 0){                                                                                         //Displays Doctor form.
-            MainDoctor doctorForm = new MainDoctor(getUser(_uniqueID));
+            MainDoctor doctorForm = new MainDoctor(_session);
             doctorForm.setVisible(true);
         }else if(userType.compareTo("P") == 0){                                                                                         //Displays Patient form.
-            MainPatient patientForm = new MainPatient(getUser(_uniqueID));
+            MainPatient patientForm = new MainPatient(_session);
             patientForm.setVisible(true);
         }else if(userType.compareTo("S") == 0){                                                                                         //Displays Secretary form.
-            MainSecretary secretaryForm = new MainSecretary(getUser(_uniqueID));
+            MainSecretary secretaryForm = new MainSecretary(_session);
             secretaryForm.setVisible(true);
         }
     }

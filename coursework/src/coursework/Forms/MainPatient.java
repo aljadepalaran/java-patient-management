@@ -1,115 +1,128 @@
 package coursework.Forms;
 
-import coursework.Users.User;
+import coursework.Objects.Session;
+import javax.swing.JOptionPane;
 
 public class MainPatient extends javax.swing.JFrame {
-
-    public MainPatient(User _loggedUser) {
-        initComponents();
-    }
-    
+    Session userSession;
     public MainPatient(){
         initComponents();
+        this.setResizable(false);
+    }
+    
+    public MainPatient(Session _session){
+        initComponents();
+        this.setResizable(false); 
+        userSession = _session;
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        logoutButton = new javax.swing.JMenuItem();
-        terminateButton = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        buttonPanel = new javax.swing.JLayeredPane();
+        rateDoctorButton = new javax.swing.JButton();
+        viewRatingButton = new javax.swing.JButton();
+        requestAppointmentButton = new javax.swing.JButton();
+        viewHistoryButton = new javax.swing.JButton();
+        viewAppointmentButton = new javax.swing.JButton();
+        viewPrescriptionButton = new javax.swing.JButton();
+        logoutButton = new javax.swing.JButton();
+        terminateButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Patient Form");
 
-        jLabel1.setText("Patient");
+        buttonPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jMenu1.setText("Account");
+        rateDoctorButton.setText("Rate Doctors");
+
+        viewRatingButton.setText("View Ratings");
+
+        requestAppointmentButton.setText("Request Appointment");
+
+        viewHistoryButton.setText("View History");
+
+        viewAppointmentButton.setText("View Appointment");
+
+        viewPrescriptionButton.setText("View Prescription");
 
         logoutButton.setText("Logout");
-        logoutButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logoutButtonActionPerformed(evt);
-            }
-        });
-        jMenu1.add(logoutButton);
 
         terminateButton.setText("Request Termination");
-        jMenu1.add(terminateButton);
 
-        jMenuBar1.add(jMenu1);
+        buttonPanel.setLayer(rateDoctorButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        buttonPanel.setLayer(viewRatingButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        buttonPanel.setLayer(requestAppointmentButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        buttonPanel.setLayer(viewHistoryButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        buttonPanel.setLayer(viewAppointmentButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        buttonPanel.setLayer(viewPrescriptionButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        buttonPanel.setLayer(logoutButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        buttonPanel.setLayer(terminateButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jMenu2.setText("Doctors");
-
-        jMenuItem1.setText("Rate Doctor");
-        jMenu2.add(jMenuItem1);
-
-        jMenuItem2.setText("View Ratings");
-        jMenu2.add(jMenuItem2);
-
-        jMenuBar1.add(jMenu2);
-
-        jMenu3.setText("Appointment");
-
-        jMenuItem3.setText("View Appointment");
-        jMenu3.add(jMenuItem3);
-
-        jMenuItem4.setText("Request Appointment");
-        jMenu3.add(jMenuItem4);
-
-        jMenuItem5.setText("View History");
-        jMenu3.add(jMenuItem5);
-
-        jMenuBar1.add(jMenu3);
-
-        jMenu4.setText("Prescription");
-
-        jMenuItem6.setText("View Prescriptions");
-        jMenu4.add(jMenuItem6);
-
-        jMenuBar1.add(jMenu4);
-
-        setJMenuBar(jMenuBar1);
+        javax.swing.GroupLayout buttonPanelLayout = new javax.swing.GroupLayout(buttonPanel);
+        buttonPanel.setLayout(buttonPanelLayout);
+        buttonPanelLayout.setHorizontalGroup(
+            buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(buttonPanelLayout.createSequentialGroup()
+                        .addGroup(buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(logoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(viewHistoryButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                            .addComponent(requestAppointmentButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(viewRatingButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(rateDoctorButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(viewAppointmentButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(viewPrescriptionButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(terminateButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        buttonPanelLayout.setVerticalGroup(
+            buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(rateDoctorButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(viewRatingButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(requestAppointmentButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(viewHistoryButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(viewAppointmentButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(viewPrescriptionButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(terminateButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addComponent(logoutButton)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(137, 137, 137)
-                .addComponent(jLabel1)
-                .addContainerGap(223, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(buttonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(310, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(134, 134, 134)
-                .addComponent(jLabel1)
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(buttonPanel)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
-        this.setVisible(false);
-        Login loginForm = new Login();
-        loginForm.setVisible(true);
-    }//GEN-LAST:event_logoutButtonActionPerformed
-
     public static void main(String args[]) {
-
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainPatient().setVisible(true);
@@ -118,19 +131,14 @@ public class MainPatient extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem logoutButton;
-    private javax.swing.JMenuItem terminateButton;
+    private javax.swing.JLayeredPane buttonPanel;
+    private javax.swing.JButton logoutButton;
+    private javax.swing.JButton rateDoctorButton;
+    private javax.swing.JButton requestAppointmentButton;
+    private javax.swing.JButton terminateButton;
+    private javax.swing.JButton viewAppointmentButton;
+    private javax.swing.JButton viewHistoryButton;
+    private javax.swing.JButton viewPrescriptionButton;
+    private javax.swing.JButton viewRatingButton;
     // End of variables declaration//GEN-END:variables
 }

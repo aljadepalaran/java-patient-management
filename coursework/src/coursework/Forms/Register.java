@@ -2,10 +2,9 @@ package coursework.Forms;
 import Default.FileIO;
 import Default.Functions;
 import coursework.Users.*;
-public class Registration extends javax.swing.JFrame {
-    public Registration() {
+public class Register extends javax.swing.JFrame {
+    public Register() {
         initComponents();
-        
         fnWarning.setVisible(false);
         lnWarning.setVisible(false);
         passWarning.setVisible(false);
@@ -13,7 +12,6 @@ public class Registration extends javax.swing.JFrame {
         addressWarning.setVisible(false);
         dateWarning.setVisible(false);
         genderWarning.setVisible(false);
-        
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -328,7 +326,7 @@ public class Registration extends javax.swing.JFrame {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Registration().setVisible(true);
+                new Register().setVisible(true);
             }
         });
     }
