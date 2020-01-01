@@ -181,7 +181,7 @@ public class Augment {
         }
         
         try{
-            FileWriter.writeRequests(output);
+            FileWriter.writeAccountRequests(output);
         }catch(Exception e){
             System.out.println(e);
         }

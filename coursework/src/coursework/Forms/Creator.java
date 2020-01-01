@@ -222,7 +222,8 @@ public class Creator extends javax.swing.JFrame {
     }//GEN-LAST:event_patientSelectActionPerformed
 
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
-        String patientID = patientSelect.getSelectedItem().toString();
+        //PROPOSE
+        String patientID = patientSelect.getSelectedItem().toString();              
         String doctorID = userSession.getUID();
         String newID = GenerateID.appointmentID();
         if(MainFunctions.validateDate(setDateField.getText())){
