@@ -304,6 +304,7 @@ public class Functions {
         output = _userArray;
         return output;
     }
+    
     public static User[] resizeDown(User[] _userArray){
         User output[] = new User[_userArray.length - 1];
         for(int i = 0; i < output.length; i++){

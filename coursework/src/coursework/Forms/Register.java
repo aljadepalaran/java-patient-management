@@ -1,7 +1,6 @@
 package coursework.Forms;
 
-import Default.FileIO;
-import Default.Functions;
+import coursework.Functions.*;
 import coursework.Users.*;
 import javax.swing.JOptionPane;
 
@@ -127,6 +126,12 @@ public class Register extends javax.swing.JFrame {
             }else{
                 birthWarning.setVisible(false);
             }
+            if(MainFunctions.validateDate(birthDate)){
+                birthWarning.setVisible(false);
+            }else{
+                birthWarning.setVisible(true);
+                validInput = false;
+            }
             if(sex == 'N'){
                 genderWarning.setVisible(true);
                 validInput = false;
@@ -137,30 +142,30 @@ public class Register extends javax.swing.JFrame {
         
         if(validInput == true){
             if(userType == 'A'){
-                String newID = Functions.generateID('A');
+                String newID = GenerateID.userID('A');
                 User newUser = new Administrator(newID, password, firstname, lastname);
-                FileIO.addUserToFile(newUser);
+                Augment.addUser(newUser);
                 JOptionPane.showMessageDialog(this, "Your UID: " + newUser.getUniqueID());
                 this.setVisible(false);
                 this.dispose();
             }else if(userType == 'D'){
-                String newID = Functions.generateID('D');
+                String newID = GenerateID.userID('D');
                 User newUser = new Doctor(newID, password, firstname, lastname, address);
-                FileIO.addUserToFile(newUser);
+                Augment.addUser(newUser);
                 JOptionPane.showMessageDialog(this, "Your UID: " + newUser.getUniqueID());
                 this.setVisible(false);
                 this.dispose();
             }else if(userType == 'P'){
-                String newID = Functions.generateID('P');
+                String newID = GenerateID.userID('P');
                 User newUser = new Patient(newID, password, firstname, lastname, address, sex, birthDate);
-                FileIO.addUserToFile(newUser);
+                Augment.addRequest(newUser);
                 JOptionPane.showMessageDialog(this, "Your UID: " + newUser.getUniqueID());
                 this.setVisible(false);
                 this.dispose();
             }else if(userType == 'S'){
-                String newID = Functions.generateID('S');
+                String newID = GenerateID.userID('S');
                 User newUser = new Secretary(newID, password, firstname, lastname);
-                FileIO.addUserToFile(newUser);
+                Augment.addUser(newUser);
                 JOptionPane.showMessageDialog(this, "Your UID: " + newUser.getUniqueID());
                 this.setVisible(false);
                 this.dispose();
@@ -431,8 +436,8 @@ public class Register extends javax.swing.JFrame {
 
         firstname = firstnameField.getText();
         lastname = lastnameField.getText();
-        password = Functions.convertCharToString(passwordField.getPassword());
-        checkPassword = Functions.convertCharToString(checkField.getPassword());
+        password = MainFunctions.charToString(passwordField.getPassword());
+        checkPassword = MainFunctions.charToString(checkField.getPassword());
         address = addressField.getText();
         birthDate = birthField.getText();
         

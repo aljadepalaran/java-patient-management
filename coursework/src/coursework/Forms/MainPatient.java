@@ -14,7 +14,6 @@ public class MainPatient extends javax.swing.JFrame {
         initComponents();
         this.setResizable(false); 
         userSession = _session;
-        JOptionPane.showMessageDialog(this, "You have logged in as: " + userSession.getUID());
     }
 
     @SuppressWarnings("unchecked")
@@ -37,6 +36,11 @@ public class MainPatient extends javax.swing.JFrame {
         buttonPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         rateDoctorButton.setText("Rate Doctors");
+        rateDoctorButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rateDoctorButtonActionPerformed(evt);
+            }
+        });
 
         viewRatingButton.setText("View Ratings");
 
@@ -134,6 +138,10 @@ public class MainPatient extends javax.swing.JFrame {
         this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_logoutButtonActionPerformed
+
+    private void rateDoctorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rateDoctorButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rateDoctorButtonActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {

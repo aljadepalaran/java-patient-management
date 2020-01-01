@@ -1,6 +1,6 @@
 package coursework.Forms;
 
-import Default.Functions;
+import coursework.Functions.*;
 import coursework.Objects.Session;
 import javax.swing.JOptionPane;
 
@@ -142,20 +142,22 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_registerButtonActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
+        
         String uniqueID;
         String password;
         boolean authFlag = false;       
-        //Sets values of variables - taken from the form.
+        
         uniqueID = usernameField.getText();
-        password = Functions.convertCharToString(passwordField.getPassword());        
+        password = MainFunctions.charToString(passwordField.getPassword());
+        
         if(uniqueID.compareTo("") == 0 || password.compareTo("") == 0){            
             JOptionPane.showMessageDialog(this, "One or more fields are empty.");
         }else{
-            authFlag = Functions.authenticateLogin(uniqueID, password);                     //Checks if the credentials are correct.
+            authFlag = MainFunctions.authenticateLogin(uniqueID, password);                     //Checks if the credentials are correct.
             if(authFlag == true){                                                           //If the credentials match.
                 Session userSession = Session.getInstance(uniqueID);
                 userSession.setUID(uniqueID);
-                Functions.displayMainForm(userSession);
+                MainFunctions.displayMainForm(userSession);
                 this.setVisible(false);
             }else{                                                                           //If the credentials do not match.
                 JOptionPane.showMessageDialog(this, "Login unsuccessful.");                                  
@@ -185,8 +187,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_secretaryTestActionPerformed
 
     private void doctorTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doctorTestActionPerformed
-        Session userSession = Session.getInstance("D0001");
-        userSession.setUID("D0001");
+        Session userSession = Session.getInstance("D0007");
+        userSession.setUID("D0007");
         MainDoctor newForm = new MainDoctor(userSession);
         newForm.setVisible(true);
     }//GEN-LAST:event_doctorTestActionPerformed

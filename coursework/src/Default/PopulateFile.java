@@ -1,4 +1,5 @@
 package Default;
+import coursework.Functions.FileWriter;
 import coursework.Users.*;
 import coursework.Objects.*;
 public class PopulateFile {
@@ -185,16 +186,29 @@ public class PopulateFile {
     }
     public static void populateFeedback5(){
         Feedback feedbackArray[] = new Feedback[5];
-        feedbackArray[0] = new Feedback("D0007", "P0007", "A0005", "TESTING 1");
-        feedbackArray[1] = new Feedback("D0007", "P0007", "A0005", "TESTING 2");
-        feedbackArray[2] = new Feedback("D0005", "P0007", "A0005", "TESTING 3");
-        feedbackArray[3] = new Feedback("D0003", "P0007", "A0005", "TESTING 4");
-        feedbackArray[4] = new Feedback("D0007", "P0007", "A0005", "TESTING 5");
+        feedbackArray[0] = new Feedback("1523", "D0007", "P0007", "A0005", "TESTING 1");
+        feedbackArray[1] = new Feedback("5135", "D0007", "P0007", "A0005", "TESTING 2");
+        feedbackArray[2] = new Feedback("1234", "D0005", "P0007", "A0005", "TESTING 3");
+        feedbackArray[3] = new Feedback("6432", "D0003", "P0007", "A0005", "TESTING 4");
+        feedbackArray[4] = new Feedback("3256", "D0007", "P0007", "A0005", "TESTING 5");
         try{
             FileIO.writeFeedback(feedbackArray);
         }catch(Exception e){
             
         }
         
+    }
+    public static void populateAppointment5(){
+        Appointment output[] = new Appointment[5];
+        output[0] = new Appointment("0000", "P0002", "D0007", "01012000", "testing1");
+        output[1] = new Appointment("0001", "P0003", "D0007", "01012001", "testing2");
+        output[2] = new Appointment("0002", "P0004", "D0007", "01012002", "testing3");
+        output[3] = new Appointment("0003", "P0002", "D0007", "01012003", "testing4");
+        output[4] = new Appointment("0004", "P0003", "D0007", "01012004", "testing5");
+        try{
+            FileWriter.writeAppointments(output);
+        }catch(Exception e){
+            
+        }
     }
 }

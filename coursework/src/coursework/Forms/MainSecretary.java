@@ -14,7 +14,6 @@ public class MainSecretary extends javax.swing.JFrame {
         initComponents();
         this.setResizable(false);
         userSession = _session;
-        JOptionPane.showMessageDialog(this, "You have logged in as: " + userSession.getUID());
     }
 
     @SuppressWarnings("unchecked")

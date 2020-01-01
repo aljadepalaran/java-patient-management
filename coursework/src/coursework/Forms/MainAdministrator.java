@@ -1,6 +1,10 @@
 package coursework.Forms;
 
-import Default.*;
+import coursework.Functions.Augment;
+import coursework.Functions.FileReader;
+import coursework.Functions.GenerateID;
+import coursework.Functions.MainFunctions;
+import coursework.Functions.Resize;
 import coursework.Objects.*;
 import coursework.Users.*;
 import javax.swing.DefaultListModel;
@@ -27,7 +31,6 @@ public class MainAdministrator extends javax.swing.JFrame {
         listValues = new DefaultListModel();    
         listField.setModel(listValues);
         userSession = _session;
-        JOptionPane.showMessageDialog(this, "You have logged in as: " + userSession.getUID());
         loadArrays();
     }
 
@@ -315,11 +318,11 @@ public class MainAdministrator extends javax.swing.JFrame {
            //invalid type
        }else if(removeType == 1){
            String uniqueID = doctorArray[listField.getSelectedIndex()].getUniqueID();
-           Functions.removeFromFile(uniqueID);
+           Augment.removeUser(uniqueID);
            refreshForm();
        }else if(removeType == 2){
            String uniqueID = secretaryArray[listField.getSelectedIndex()].getUniqueID();
-           Functions.removeFromFile(uniqueID);
+           Augment.removeUser(uniqueID);
            refreshForm();
        }
     }//GEN-LAST:event_confirmButtonActionPerformed
@@ -341,7 +344,7 @@ public class MainAdministrator extends javax.swing.JFrame {
         patientDropdown.removeAllItems();
         try{
             String doctorID = doctorArray[doctorDropdown.getSelectedIndex()].getUniqueID();
-            doctorRatings = Functions.getRating(doctorID); //ratings for the doctor
+            doctorRatings = MainFunctions.getRating(doctorID); //ratings for the doctor
             for(int i = 0; i < doctorRatings.length; i++){
                 patientDropdown.addItem("PATIENT:" + doctorRatings[i].getPatientID());
             }
@@ -362,13 +365,22 @@ public class MainAdministrator extends javax.swing.JFrame {
     }//GEN-LAST:event_patientDropdownActionPerformed
 
     private void feedbackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_feedbackButtonActionPerformed
-        String feedback = adminFeedback.getText();
-        Rating selectedRating = doctorRatings[patientDropdown.getSelectedIndex()];
-        String doctorID = selectedRating.getDoctorID();
-        String patientID = selectedRating.getPatientID();
-        String adminID = userSession.getUID();
-        Feedback newFeedback = new Feedback(doctorID, patientID, adminID, feedback);
-        FileIO.addFeedback(newFeedback);
+        try{
+            String feedback = adminFeedback.getText();
+            if(feedback.compareTo("") == 0){
+                JOptionPane.showMessageDialog(this, "Feedback message empty.");
+            }else{
+                Rating selectedRating = doctorRatings[patientDropdown.getSelectedIndex()];
+                String doctorID = selectedRating.getDoctorID();
+                String patientID = selectedRating.getPatientID();
+                String adminID = userSession.getUID();
+                String feedbackID = GenerateID.feedbackID();
+                Feedback newFeedback = new Feedback(feedbackID, doctorID, patientID, adminID, feedback);
+                Augment.addFeedback(newFeedback);
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, "Feedback not added."); 
+        }
     }//GEN-LAST:event_feedbackButtonActionPerformed
  
     public void refreshForm(){
@@ -396,7 +408,7 @@ public class MainAdministrator extends javax.swing.JFrame {
     }
     public void loadArrays(){
         try{
-            readArray = FileIO.readFile();
+            readArray = FileReader.readUsers();
         }catch(Exception e){
             System.out.println("Error reading from file! " + e);
         }
@@ -405,7 +417,7 @@ public class MainAdministrator extends javax.swing.JFrame {
                 if(doctorArray[doctorArray.length - 1] == null){
                     doctorArray[doctorArray.length - 1] = readArray[i];
                 }else{
-                    doctorArray = Functions.resizeArray(doctorArray, doctorArray.length + 1);
+                    doctorArray = Resize.userArray(doctorArray, doctorArray.length + 1);
                     doctorArray[doctorArray.length - 1] = readArray[i];
                 }
             }
@@ -415,7 +427,7 @@ public class MainAdministrator extends javax.swing.JFrame {
                 if(secretaryArray[secretaryArray.length - 1] == null){
                     secretaryArray[secretaryArray.length - 1] = readArray[i];
                 }else{
-                    secretaryArray = Functions.resizeArray(secretaryArray, secretaryArray.length + 1);
+                    secretaryArray = Resize.userArray(secretaryArray, secretaryArray.length + 1);
                     secretaryArray[secretaryArray.length - 1] = readArray[i];
                 }
             }
