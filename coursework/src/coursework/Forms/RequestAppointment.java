@@ -7,6 +7,8 @@ import coursework.Users.*;
 public class RequestAppointment extends javax.swing.JFrame {
 
     Session userSession;
+    Appointment proposedAppointment;
+    
     
     public RequestAppointment() {
         initComponents();
@@ -15,8 +17,34 @@ public class RequestAppointment extends javax.swing.JFrame {
     public RequestAppointment(Session _input) {
         initComponents();
         userSession = _input;
+        loadProposed();
     }
 
+    public void loadProposed(){
+        Appointment proposed[] = null;
+        User all[] = null;
+        try{
+            String doctorID = "";
+            proposed = FileReader.readProposedAppointments();
+            all = FileReader.readUsers();
+            for(int i = 0; i < proposed.length; i++){
+                if(proposed[i].getPatientID().compareTo(userSession.getUID()) == 0){
+                    dateField.setText(proposed[i].getDate());
+                    doctorID = proposed[i].getDoctorID();
+                    proposedAppointment = proposed[i];
+                }
+            }
+            System.out.println(doctorID);
+            for(int i = 0; i < all.length; i++){
+                if(all[i].getUniqueID().compareTo(doctorID) == 0){
+                    doctorField.setText(all[i].getFirstName() + " " + all[i].getLastName());
+                }
+            }     
+        }catch(Exception e){
+            System.out.println(e);
+        }
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -43,6 +71,11 @@ public class RequestAppointment extends javax.swing.JFrame {
         jLabel2.setText("PROPOSED BY: ");
 
         requestButton.setText("Request");
+        requestButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                requestButtonActionPerformed(evt);
+            }
+        });
 
         dateField.setEditable(false);
 
@@ -151,6 +184,11 @@ public class RequestAppointment extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void requestButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestButtonActionPerformed
+        Augment.addAppointmentRequest(proposedAppointment); //added to requests
+        //remove proposed appointment from file.
+    }//GEN-LAST:event_requestButtonActionPerformed
 
     public static void main(String args[]) {
 

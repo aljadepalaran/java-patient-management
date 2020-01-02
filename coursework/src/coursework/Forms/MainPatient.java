@@ -386,7 +386,7 @@ public class MainPatient extends javax.swing.JFrame {
     }//GEN-LAST:event_viewPrescriptionButtonActionPerformed
 
     private void requestAppointmentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestAppointmentButtonActionPerformed
-        RequestAppointment newForm = new RequestAppointment();
+        RequestAppointment newForm = new RequestAppointment(userSession);
         newForm.setVisible(true);
     }//GEN-LAST:event_requestAppointmentButtonActionPerformed
 

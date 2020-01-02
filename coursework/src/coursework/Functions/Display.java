@@ -112,7 +112,20 @@ public class Display {
             System.out.println(e);
         }
         for(int i = 0; i < output.length; i++){
-            System.out.println(output[i].getAppointmentID());
+            System.out.println(output[i].getAppointmentID() + ":" + output[i].getPatientID() + ":" + output[i].getDoctorID() 
+                    + ":" + output[i].getDate() + ":" + output[i].getNotes());
         }
     }//appointment requests from patient
+    public static void displayProposed(){
+        Appointment output[] = null;
+        try{
+            output = FileReader.readProposedAppointments();
+        }catch(Exception e){
+            System.out.println(e);
+        }
+        for(int i = 0; i < output.length; i++){
+            System.out.println(output[i].getAppointmentID() + ":" + output[i].getPatientID() + ":" + output[i].getDoctorID() 
+                    + ":" + output[i].getDate() + ":" + output[i].getNotes());
+        }
+    }//appointment proposals
 }

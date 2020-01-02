@@ -233,6 +233,35 @@ public class Augment {
             FileWriter.writeMedicineOrders(output);
         }catch(Exception e){}
     }
+    public static void addAppointmentRequest(Appointment _input){
+        Appointment output[] = null;
+        boolean hasNull = false;
+        
+        try{
+            output = FileReader.readAppointmentRequests();
+        }catch(Exception e){
+            System.out.println(e);
+        }
+        
+        for(int i = 0; i < output.length; i++){
+            if(output[i] == null){//if there is space
+                output[i] = _input;
+                hasNull = true;
+                break;
+            }else{}
+        }
+        
+        if(hasNull == false){//if there was no space
+            output = Resize.appointmentArray(output, output.length + 1);
+            output[output.length - 1] = _input;
+        }
+        
+        try{
+            FileWriter.writeAppointmentRequests(output);
+        }catch(Exception e){
+            System.out.println(e);
+        }
+    }
     
     //REMOVE Objects from the file.
     public static void removeUser(String _input){

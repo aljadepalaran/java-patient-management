@@ -7,11 +7,14 @@ public class Coursework {
 
     public static void main(String[] args) {   
         
-        //PopulateFile.populateMedicine5();
-        //PopulateFile.populatePrescription5();
-        //Display.displayMedicines();
-        //Display.displayPrescriptions();
-        //PopulateFile.populateTerminations();
+//        PopulateFile.populateAppRequests();
+//        PopulateFile.populateAppointment5();
+//        PopulateFile.populateProposed();
+
+        Display.displayAppRequests();
+        Display.displayAppointments();
+        Display.displayProposed();
+
         
         
         Login loginForm = new Login();

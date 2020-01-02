@@ -219,8 +219,10 @@ public class GenerateID {
         String output = "";
         Appointment appointmentArray[] = null;
         Appointment reqApps[] = null;
+        Appointment proposed[] = null;
         try{
             appointmentArray = FileReader.readAppointments();
+            proposed = FileReader.readProposedAppointments();
             reqApps = FileReader.readAppointmentRequests();
         }catch(Exception e){
             
@@ -246,6 +248,13 @@ public class GenerateID {
             }
             for(int x = 0; x < reqApps.length; x++){
                 if(reqApps[x].getAppointmentID().compareTo(checkID) == 0){
+                    state = 1;
+                }else{
+                    output = checkID;
+                }
+            }
+            for(int x = 0; x < proposed.length; x++){
+                if(proposed[x].getAppointmentID().compareTo(checkID) == 0){
                     state = 1;
                 }else{
                     output = checkID;

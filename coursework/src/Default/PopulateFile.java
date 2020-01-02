@@ -253,11 +253,11 @@ public class PopulateFile {
     }
     public static void populateAppRequests(){
         Appointment output[] = new Appointment[5];
-        output[0] = new Appointment("0000", "P0002", "D0007", "01012000", "req");
-        output[1] = new Appointment("0001", "P0003", "D0007", "01012001", "req2");
-        output[2] = new Appointment("0002", "P0004", "D0007", "01012002", "req2");
-        output[3] = new Appointment("0003", "P0002", "D0007", "01012003", "tesreq2req2req2ting4");
-        output[4] = new Appointment("0004", "P0003", "D0007", "01012004", "testreq2ing5");
+        output[0] = new Appointment("0005", "P0002", "D0007", "01012000", "req");
+        output[1] = new Appointment("0006", "P0003", "D0007", "01012001", "req2");
+        output[2] = new Appointment("0007", "P0004", "D0007", "01012002", "req2");
+        output[3] = new Appointment("0008", "P0002", "D0007", "01012003", "tesreq2req2req2ting4");
+        output[4] = new Appointment("0009", "P0003", "D0007", "01012004", "testreq2ing5");
         try{
             FileWriter.writeAppointmentRequests(output);
         }catch(Exception e){
@@ -273,5 +273,18 @@ public class PopulateFile {
         try{
             FileWriter.writeAccountTermRequests(userArray);
         }catch(Exception e){}
+    }
+    public static void populateProposed(){
+        Appointment output[] = new Appointment[5];
+        output[0] = new Appointment("0010", "P0002", "D0007", "01012000", "Proposed 1");
+        output[1] = new Appointment("0011", "P0003", "D0007", "01012001", "Proposed 2");
+        output[2] = new Appointment("0012", "P0004", "D0007", "01012002", "Proposed 3");
+        output[3] = new Appointment("0013", "P0002", "D0007", "01012003", "Proposed 4");
+        output[4] = new Appointment("0014", "P0003", "D0007", "01012004", "Proposed 5");
+        try{
+            FileWriter.writeProposedAppointments(output);
+        }catch(Exception e){
+            
+        }
     }
 }

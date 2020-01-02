@@ -173,8 +173,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_adminTestActionPerformed
 
     private void patientTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientTestActionPerformed
-        Session userSession = Session.getInstance("P0001");
-        userSession.setUID("P0001");
+        Session userSession = Session.getInstance("P0002");
+        userSession.setUID("P0002");
         MainPatient newForm = new MainPatient(userSession);
         newForm.setVisible(true);
     }//GEN-LAST:event_patientTestActionPerformed
