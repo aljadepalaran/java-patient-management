@@ -128,4 +128,16 @@ public class Display {
                     + ":" + output[i].getDate() + ":" + output[i].getNotes());
         }
     }//appointment proposals
+    public static void displayTerminationRequests(){
+        User[] output = null;
+        try{
+            output = FileReader.readAccountTerminationRequests();
+        }catch(Exception e){
+            System.out.println("Error! Flag DEFI! " + e);
+        }
+        for(int i = 0; i < output.length; i++){
+            System.out.println(output[i].getUniqueID() + ":" + output[i].getPassword()
+            + ":" + output[i].getFirstName() + ":" + output[i].getLastName());
+        }
+    }//termination requests
 }

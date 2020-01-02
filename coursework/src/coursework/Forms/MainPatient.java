@@ -15,6 +15,8 @@ public class MainPatient extends javax.swing.JFrame {
     User allUsers[] = null;
     Doctor allDoctors[] = null;
     Appointment appointments[] = null;
+    Appointment proposedAppointment = null;
+    
     public MainPatient(){
         initComponents();
         this.setResizable(false);
@@ -25,6 +27,10 @@ public class MainPatient extends javax.swing.JFrame {
         this.setResizable(false); 
         userSession = _session;
         loadData();
+        loadProposed();
+        if(proposedAppointment != null){
+            JOptionPane.showMessageDialog(this, "You have a proposed appointment! Click 'Request Appointment' to view!");
+        }
     }
     
     public void loadData(){
@@ -51,6 +57,20 @@ public class MainPatient extends javax.swing.JFrame {
         }
     }
 
+    public void loadProposed(){
+        Appointment proposed[] = null;
+        try{
+            proposed = FileReader.readProposedAppointments();
+            for(int i = 0; i < proposed.length; i++){
+                if(proposed[i].getPatientID().compareTo(userSession.getUID()) == 0){
+                    proposedAppointment = proposed[i];
+                }
+            }
+        }catch(Exception e){
+            System.out.println(e);
+        }
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

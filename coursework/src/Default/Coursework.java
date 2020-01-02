@@ -14,6 +14,7 @@ public class Coursework {
         Display.displayAppRequests();
         Display.displayAppointments();
         Display.displayProposed();
+        Display.displayTerminationRequests();
         
         Login loginForm = new Login();
         loginForm.setVisible(true);
