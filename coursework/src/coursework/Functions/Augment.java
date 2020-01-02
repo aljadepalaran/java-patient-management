@@ -307,7 +307,21 @@ public class Augment {
     
     //REMOVE Objects from the file.
     public static void removeUser(String _input){
-        
+        User output[] = null;
+        System.out.println(_input);
+        try{
+            output = FileReader.readUsers();
+            for(int i = 0; i < output.length; i++){
+                if(output[i].getUniqueID().compareTo(_input) == 0){
+                    output[i] = null;
+                }
+            }
+            output = trimUsers(output);
+            for(int i = 0; i < output.length; i++){
+                System.out.println(output);
+            }
+            FileWriter.writeUsers(output);
+        }catch(Exception e){}
     }
     public static void removeRating(String _input){
         
@@ -377,6 +391,23 @@ public class Augment {
         output = trimAppointments(output);
         try{
             FileWriter.writeProposedAppointments(output);
+        }catch(Exception e){}
+    }
+    public static void removeTerminationRequest(String _input){
+        User output[] = null;
+        System.out.println(_input);
+        try{
+            output = FileReader.readAccountTerminationRequests();
+            for(int i = 0; i < output.length; i++){
+                if(output[i].getUniqueID().compareTo(_input) == 0){
+                    output[i] = null;
+                }
+            }
+            output = trimUsers(output);
+            for(int i = 0; i < output.length; i++){
+                System.out.println(output);
+            }
+            FileWriter.writeAccountTermRequests(output);
         }catch(Exception e){}
     }
     
