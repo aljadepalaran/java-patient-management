@@ -66,9 +66,9 @@ public class MainFunctions {
     public static boolean validateDate(String _date){                                                                                   //Verifies correct date format
         boolean output = false;
         if(_date.length() == 8){
-            if(Integer.parseInt(_date.substring(0, 2)) < 30 && Integer.parseInt(_date.substring(0,2)) > 0){
-                if(Integer.parseInt(_date.substring(2,4)) < 12 && Integer.parseInt(_date.substring(2,4)) > 0){
-                    if(Integer.parseInt(_date.substring(4,8)) > 1900 && Integer.parseInt(_date.substring(4,8)) < 2050){
+            if(Integer.parseInt(_date.substring(0, 2)) < 32 && Integer.parseInt(_date.substring(0,2)) > 0){
+                if(Integer.parseInt(_date.substring(2,4)) < 13 && Integer.parseInt(_date.substring(2,4)) > 0){
+                    if(Integer.parseInt(_date.substring(4,8)) > 1900 && Integer.parseInt(_date.substring(4,8)) < 2020){
                         output = true;
                     }else{}
                 }else{}
