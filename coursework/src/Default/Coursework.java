@@ -10,7 +10,7 @@ public class Coursework {
         //PopulateFile.populateMedicine5();
         //PopulateFile.populatePrescription5();
         //Display.displayMedicines();
-        Display.displayRatings();
+        //Display.displayPrescriptions();
         //PopulateFile.populateTerminations();
         
         
