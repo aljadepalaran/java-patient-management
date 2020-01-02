@@ -354,8 +354,6 @@ public class MainPatient extends javax.swing.JFrame {
                 thisUser = allUsers[i]; 
             }
         }
-        
-        
         try{
             pendingAccounts = FileReader.readAccountTerminationRequests();
             output = new User[pendingAccounts.length + 1];

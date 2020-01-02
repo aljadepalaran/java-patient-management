@@ -402,6 +402,13 @@ public class MainSecretary extends javax.swing.JFrame {
     }//GEN-LAST:event_orderStockButtonActionPerformed
 
     private void approveTerminationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_approveTerminationButtonActionPerformed
+        try{
+            String remID = termSelect.getSelectedItem().toString().substring(4,9);
+            Augment.removeTerminationRequest(remID);
+            Augment.removeUser(remID);
+        }catch(Exception e){
+            System.out.println(e);
+        }
         
     }//GEN-LAST:event_approveTerminationButtonActionPerformed
 
