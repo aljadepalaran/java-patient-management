@@ -308,7 +308,6 @@ public class Augment {
     //REMOVE Objects from the file.
     public static void removeUser(String _input){
         User output[] = null;
-        System.out.println(_input);
         try{
             output = FileReader.readUsers();
             for(int i = 0; i < output.length; i++){
@@ -317,9 +316,6 @@ public class Augment {
                 }
             }
             output = trimUsers(output);
-            for(int i = 0; i < output.length; i++){
-                System.out.println(output);
-            }
             FileWriter.writeUsers(output);
         }catch(Exception e){}
     }

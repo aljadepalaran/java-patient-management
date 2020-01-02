@@ -11,10 +11,10 @@ public class Coursework {
 //        PopulateFile.populateAppointment5();
 //        PopulateFile.populateProposed();
 
-        Display.displayAppRequests();
-        Display.displayAppointments();
-        Display.displayProposed();
-        Display.displayTerminationRequests();
+//        Display.displayAppRequests();
+//        Display.displayAppointments();
+//        Display.displayProposed();
+//        Display.displayTerminationRequests();
         
         Login loginForm = new Login();
         loginForm.setVisible(true);
