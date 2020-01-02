@@ -1,18 +1,19 @@
 package coursework.Objects;
 
 import java.io.Serializable;
+import coursework.Objects.*;
 
 public class Prescription implements Serializable{
     
     private String patientID;
     private String doctorID;
     private String notes;
-    private String medicineID;
+    private Medicine medicineID;
     private int quantity;
     private String dosage;
     
     public Prescription(String _patientID, String _doctorID, String _notes, 
-            String _medicineID, int _quantity, String _dosage){
+            Medicine _medicineID, int _quantity, String _dosage){
         
         this.patientID = _patientID;
         this.doctorID = _doctorID;
@@ -47,11 +48,11 @@ public class Prescription implements Serializable{
         this.notes = notes;
     }
 
-    public String getMedicineID() {
+    public Medicine getMedicineID() {
         return medicineID;
     }
 
-    public void setMedicineID(String medicineID) {
+    public void setMedicineID(Medicine medicineID) {
         this.medicineID = medicineID;
     }
 
