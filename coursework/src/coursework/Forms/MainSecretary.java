@@ -304,6 +304,10 @@ public class MainSecretary extends javax.swing.JFrame {
         Patient selectedPatient = approvals[patientSelect.getSelectedIndex()];
         Augment.addUser(selectedPatient);
         Augment.removeApproval(selectedPatient.getUniqueID());
+        patientSelect.removeAllItems();
+        readApprovals();
+        loadAll();
+        
     }//GEN-LAST:event_approveAccountButtonActionPerformed
 
     private void patientSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientSelectActionPerformed
@@ -342,6 +346,9 @@ public class MainSecretary extends javax.swing.JFrame {
         Appointment selectedAppointment = requests[appSelect.getSelectedIndex()];
         Augment.addAppointment(selectedAppointment);
         Augment.removeAppointmentRequest(selectedAppointment.getAppointmentID());
+        appSelect.removeAllItems();
+        readApprovals();
+        loadAll();
     }//GEN-LAST:event_approveAppointmentButtonActionPerformed
 
     private void orderStockButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderStockButtonActionPerformed
