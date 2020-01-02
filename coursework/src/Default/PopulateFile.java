@@ -14,7 +14,7 @@ public class PopulateFile {
         userArray[2] = patientTest;
         userArray[3] = secretaryTest;
         try{
-            FileIO.writeUsersToFile(userArray);
+            FileWriter.writeUsers(userArray);
         }catch(Exception e){
             System.out.println("E: POP4! " + e);
         }
@@ -26,7 +26,7 @@ public class PopulateFile {
             userArray[i] = newUser;
         }
         try{
-            FileIO.writeUsersToFile(userArray);
+            FileWriter.writeUsers(userArray);
         }catch(Exception e){
             System.out.println("E: POP100");
         }
@@ -39,7 +39,7 @@ public class PopulateFile {
             userArray[i] = newUser;
         }
         try{
-            FileIO.writeUsersToFile(userArray);
+            FileWriter.writeUsers(userArray);
         }catch(Exception e){
             System.out.println("E: POP100");
         }
@@ -165,7 +165,7 @@ public class PopulateFile {
             userArray[i] = newUser;
         }
         try{
-            FileIO.writeUsersToFile(userArray);
+            FileWriter.writeUsers(userArray);
         }catch(Exception e){
             System.out.println("E: POPF");
         }
@@ -179,7 +179,7 @@ public class PopulateFile {
         ratingArray[4] = new Rating("D0006", "P0003", 3, "Testing #5");
         
         try{
-            FileIO.writeRatings(ratingArray);
+            FileWriter.writeRatings(ratingArray);
         }catch(Exception e){
             
         }
@@ -192,7 +192,7 @@ public class PopulateFile {
         feedbackArray[3] = new Feedback("6432", "D0003", "P0007", "A0005", "TESTING 4");
         feedbackArray[4] = new Feedback("3256", "D0007", "P0007", "A0005", "TESTING 5");
         try{
-            FileIO.writeFeedback(feedbackArray);
+            FileWriter.writeFeedbacks(feedbackArray);
         }catch(Exception e){
             
         }
