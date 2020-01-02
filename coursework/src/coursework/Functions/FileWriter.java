@@ -46,4 +46,8 @@ public class FileWriter {
         ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("OrderRequests.txt"));
         outputStream.writeObject(_array);   
     }
+    public static void writeProposedAppointments(Appointment[] _array) throws IOException{                           //Request for appointments.
+        ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("ProposedAppointments.txt"));
+        outputStream.writeObject(_array);
+    }
 }

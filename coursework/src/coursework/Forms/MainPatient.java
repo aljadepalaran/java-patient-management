@@ -85,6 +85,11 @@ public class MainPatient extends javax.swing.JFrame {
         });
 
         requestAppointmentButton.setText("Request Appointment");
+        requestAppointmentButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                requestAppointmentButtonActionPerformed(evt);
+            }
+        });
 
         viewPrescriptionButton.setText("View Prescription");
         viewPrescriptionButton.addActionListener(new java.awt.event.ActionListener() {
@@ -379,6 +384,11 @@ public class MainPatient extends javax.swing.JFrame {
         ViewPrescription newForm = new ViewPrescription(userSession);
         newForm.setVisible(true);
     }//GEN-LAST:event_viewPrescriptionButtonActionPerformed
+
+    private void requestAppointmentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestAppointmentButtonActionPerformed
+        RequestAppointment newForm = new RequestAppointment();
+        newForm.setVisible(true);
+    }//GEN-LAST:event_requestAppointmentButtonActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {

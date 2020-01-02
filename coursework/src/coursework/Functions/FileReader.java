@@ -56,4 +56,9 @@ public class FileReader {
         Medicine output[] = (Medicine[]) inputStream.readObject();                                                       
         return output;
     }
+    public static Appointment[] readProposedAppointments() throws IOException, ClassNotFoundException{
+        ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("ProposedAppointments.txt"));
+        Appointment output[] = (Appointment[]) inputStream.readObject();
+        return output;
+    }   //reads patient appointment requests
 }
