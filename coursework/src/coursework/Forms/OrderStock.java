@@ -19,7 +19,7 @@ public class OrderStock extends javax.swing.JFrame {
     
     public void loadRequests(){
         try{
-            stockRequests = FileReader.readOrders();
+            stockRequests = FileReader.readOrderRequests();
         }catch(Exception e){}
         for(int i = 0; i < stockRequests.length; i++){
             medSelect.addItem(stockRequests[i].getMedicineName());

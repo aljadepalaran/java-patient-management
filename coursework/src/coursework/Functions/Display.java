@@ -96,7 +96,7 @@ public class Display {
     public static void displayOrders(){
         Medicine output[] = null;
         try{
-            output = FileReader.readOrders();
+            output = FileReader.readOrderRequests();
         }catch(Exception e){
             System.out.println(e);
         }

@@ -103,7 +103,7 @@ public class OrderForm extends javax.swing.JFrame {
             }
             
             try{
-                orders = FileReader.readOrders();
+                orders = FileReader.readOrderRequests();
             }catch(Exception e){
                 continueState = 1;
             }

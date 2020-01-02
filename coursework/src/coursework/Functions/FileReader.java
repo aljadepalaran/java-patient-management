@@ -41,7 +41,7 @@ public class FileReader {
         Appointment output[] = (Appointment[]) inputStream.readObject();
         return output;
     }   //reads patient appointment requests
-    public static User[] readAccountTermRequests() throws IOException, ClassNotFoundException{                   //for termination of accounts  
+    public static User[] readAccountTerminationRequests() throws IOException, ClassNotFoundException{                   //for termination of accounts  
         ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("Terminations.txt"));
         User output[] = (User[]) inputStream.readObject();                                                       
         return output;
@@ -51,7 +51,7 @@ public class FileReader {
         Medicine output[] = (Medicine[]) inputStream.readObject();                                                       
         return output;
     }   //read medicines in the system
-    public static Medicine[] readOrders() throws IOException, ClassNotFoundException{
+    public static Medicine[] readOrderRequests() throws IOException, ClassNotFoundException{
         ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("OrderRequests.txt"));
         Medicine output[] = (Medicine[]) inputStream.readObject();                                                       
         return output;

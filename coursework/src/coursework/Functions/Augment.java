@@ -214,7 +214,7 @@ public class Augment {
         Medicine output[] = null;
         boolean hasNull = false;
         try{
-            output = FileReader.readOrders();
+            output = FileReader.readOrderRequests();
         }catch(Exception e){}
         for(int i = 0; i < output.length; i++){
             if(output[i] == null){
@@ -280,18 +280,19 @@ public class Augment {
     public static void removeMedicineOrder(String _input){
         Medicine output[] = null;
         try{
-            output = FileReader.readOrders();
+            output = FileReader.readOrderRequests();
         }catch(Exception e){}
         for(int i = 0; i < output.length; i++){
             if(output[i].getMedicineName().compareTo(_input) == 0){
                 output[i] = null;
             }
         }
-        output = trimMedicines(output);
+        
+        output = trimMedicines(output); //removes null at the end of the file.
         try{
             FileWriter.writeMedicineOrders(output);
         }catch(Exception e){}
-    }
+    }   //remove medicine from orders based on the name.
     
     //TRIM NULL Elements.
     public static User[] trimUsers(User[] _input){
@@ -379,17 +380,27 @@ public class Augment {
         return output;
     }
     public static Medicine[] trimMedicines(Medicine[] _input){
-        Medicine output[] = _input;
+        Medicine output[];
         for(int i = 0; i < _input.length; i++){
             if(_input[i] == null && i != _input.length - 1){
                 _input[i] = _input[i + 1];
                 _input[i+1] = null;
             }else{}
         }
-        while(_input[_input.length - 1] == null){
-            _input = Resize.shortenMedicines(_input);
+        
+        int notnull = 0;
+        
+        for(int i = 0; i < _input.length; i++){
+            if(_input[i] != null){
+                notnull++;
+            }
         }
-        output = _input;
+        System.out.println(notnull);
+        output = new Medicine[notnull];
+        for(int i = 0; i < output.length; i++){
+            output[i] = _input[i];
+        }
+        
         return output;
     }
 }
