@@ -4,14 +4,25 @@ import coursework.Forms.*;
 import coursework.Functions.*;
 import coursework.Objects.*;
 import coursework.Users.*;
+import java.util.HashSet;
+import java.util.Set;
+import javax.swing.JOptionPane;
 
 public class PrescribeForm extends javax.swing.JFrame {
     Medicine meds[] = null;
     User allUsers[] = null;
+    Session userSession;
     public PrescribeForm() {
         initComponents();
         selectPatient.removeAllItems();
         selectMedicine.removeAllItems();
+        loadArrays();
+    }
+    public PrescribeForm(Session _input) {
+        initComponents();
+        selectPatient.removeAllItems();
+        selectMedicine.removeAllItems();
+        userSession = _input;
         loadArrays();
     }
     
@@ -53,9 +64,9 @@ public class PrescribeForm extends javax.swing.JFrame {
         quantityField = new javax.swing.JTextField();
         noteField = new javax.swing.JTextField();
         dosageField = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        prescribeButton = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -173,7 +184,12 @@ public class PrescribeForm extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jButton1.setText("Prescribe");
+        prescribeButton.setText("Prescribe");
+        prescribeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prescribeButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -185,7 +201,7 @@ public class PrescribeForm extends javax.swing.JFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(prescribeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -198,7 +214,7 @@ public class PrescribeForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(prescribeButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -228,6 +244,53 @@ public class PrescribeForm extends javax.swing.JFrame {
         }catch(Exception e){}
     }//GEN-LAST:event_selectPatientActionPerformed
 
+    private void prescribeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prescribeButtonActionPerformed
+        int qty = 0;
+        String notes = "";
+        String dosage = "";
+        String doctorID = "";
+        String patientID = "";
+        Medicine selectedMed = null;
+        boolean valid = true;
+        try{
+            //retrieves input
+            qty = Integer.parseInt(quantityField.getText());
+            notes = noteField.getText();
+            dosage = dosageField.getText();
+            doctorID = userSession.getUID();
+            patientID = selectPatient.getSelectedItem().toString().substring(1,6);
+            selectedMed = meds[selectMedicine.getSelectedIndex()];
+            
+            if(qty > selectedMed.getStock()){
+                valid = false;
+                JOptionPane.showMessageDialog(this, "Not enough stock.");
+            }
+            if(qty < 1){
+                valid = false;
+                JOptionPane.showMessageDialog(this, "You cannot prescribe QTY<1");
+            }
+            if(notes.compareTo("") == 0){
+                valid = false;
+                JOptionPane.showMessageDialog(this, "You must enter a note.");
+            }
+            if(dosage.compareTo("") == 0){
+                valid = false;
+                JOptionPane.showMessageDialog(this, "You must enter dosage.");
+            }
+            if(valid == true){
+                //creates prescription
+                PrescriptionCreator creator = new PrescriptionCreator(patientID, 
+                        doctorID, notes, selectedMed, qty, dosage);
+                Prescription newPrescription = creator.createPrescription();
+                Augment.addPrescription(newPrescription);
+                meds[selectMedicine.getSelectedIndex()].setStock(meds[selectMedicine.getSelectedIndex()].getStock() - qty);
+                FileWriter.writeMedicines(meds);
+                JOptionPane.showMessageDialog(this, "Prescription added.");
+            }else{}
+        }catch(Exception e){}
+        
+    }//GEN-LAST:event_prescribeButtonActionPerformed
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -241,7 +304,6 @@ public class PrescribeForm extends javax.swing.JFrame {
     private javax.swing.JLabel birthText;
     private javax.swing.JTextField dosageField;
     private javax.swing.JLabel genderText;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -250,6 +312,7 @@ public class PrescribeForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel nameText;
     private javax.swing.JTextField noteField;
+    private javax.swing.JButton prescribeButton;
     private javax.swing.JTextField quantityField;
     private javax.swing.JComboBox<String> selectMedicine;
     private javax.swing.JComboBox<String> selectPatient;
