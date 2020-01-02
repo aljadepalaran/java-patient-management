@@ -3,11 +3,12 @@ package coursework.Forms;
 import coursework.Objects.*;
 import coursework.Functions.*;
 import coursework.Users.*;
+import javax.swing.JOptionPane;
 
 public class RequestAppointment extends javax.swing.JFrame {
 
     Session userSession;
-    Appointment proposedAppointment;
+    Appointment proposedAppointment = null;
     
     
     public RequestAppointment() {
@@ -186,8 +187,13 @@ public class RequestAppointment extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void requestButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestButtonActionPerformed
-        Augment.addAppointmentRequest(proposedAppointment); //added to requests
-        //remove proposed appointment from file.
+        try{
+            Augment.addAppointmentRequest(proposedAppointment); //added to requests
+            Augment.removeProposedAppointment(proposedAppointment.getAppointmentID());
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, "You have no proposed appointment.");
+        }
+        
     }//GEN-LAST:event_requestButtonActionPerformed
 
     public static void main(String args[]) {

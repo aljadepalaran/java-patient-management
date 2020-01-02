@@ -222,14 +222,20 @@ public class Creator extends javax.swing.JFrame {
     }//GEN-LAST:event_patientSelectActionPerformed
 
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
-        //PROPOSE
+        
         String patientID = patientSelect.getSelectedItem().toString();              
         String doctorID = userSession.getUID();
         String newID = GenerateID.appointmentID();
+        boolean check = false;
         if(MainFunctions.validateDate(setDateField.getText())){
             String date = setDateField.getText();
             Appointment newAppointment = new Appointment(newID, patientID, doctorID, date, "");
-            Augment.addAppointment(newAppointment);
+            check = Augment.addProposedAppointment(newAppointment);
+            if(check == true){
+                JOptionPane.showMessageDialog(this, "Proposal created.");
+            }else{
+                JOptionPane.showMessageDialog(this, "You have already created a proposal for this patient.");
+            }
             this.setVisible(false);
             this.dispose();
         }else{

@@ -42,7 +42,7 @@ public class MainDoctor extends javax.swing.JFrame {
         buttonPanel = new javax.swing.JLayeredPane();
         viewAppointmentButton = new javax.swing.JButton();
         viewHistoryButton = new javax.swing.JButton();
-        createAppointmentButton = new javax.swing.JButton();
+        proposeAppointmentButton = new javax.swing.JButton();
         prescribeButton = new javax.swing.JButton();
         logoutButton = new javax.swing.JButton();
         orderMedButton = new javax.swing.JButton();
@@ -87,10 +87,10 @@ public class MainDoctor extends javax.swing.JFrame {
             }
         });
 
-        createAppointmentButton.setText("Create Appointment");
-        createAppointmentButton.addActionListener(new java.awt.event.ActionListener() {
+        proposeAppointmentButton.setText("Propose Appointment");
+        proposeAppointmentButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createAppointmentButtonActionPerformed(evt);
+                proposeAppointmentButtonActionPerformed(evt);
             }
         });
 
@@ -117,7 +117,7 @@ public class MainDoctor extends javax.swing.JFrame {
 
         buttonPanel.setLayer(viewAppointmentButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
         buttonPanel.setLayer(viewHistoryButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        buttonPanel.setLayer(createAppointmentButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        buttonPanel.setLayer(proposeAppointmentButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
         buttonPanel.setLayer(prescribeButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
         buttonPanel.setLayer(logoutButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
         buttonPanel.setLayer(orderMedButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -130,7 +130,7 @@ public class MainDoctor extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(logoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(createAppointmentButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                    .addComponent(proposeAppointmentButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
                     .addComponent(viewHistoryButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(viewAppointmentButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(prescribeButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -145,7 +145,7 @@ public class MainDoctor extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(viewHistoryButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(createAppointmentButton)
+                .addComponent(proposeAppointmentButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(prescribeButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -399,10 +399,10 @@ public class MainDoctor extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_logoutButtonActionPerformed
 
-    private void createAppointmentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAppointmentButtonActionPerformed
+    private void proposeAppointmentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proposeAppointmentButtonActionPerformed
         Creator newForm = new Creator(userSession);
         newForm.setVisible(true);
-    }//GEN-LAST:event_createAppointmentButtonActionPerformed
+    }//GEN-LAST:event_proposeAppointmentButtonActionPerformed
 
     private void makeNoteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_makeNoteButtonActionPerformed
         String output = noteField.getText();
@@ -512,7 +512,6 @@ public class MainDoctor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLayeredPane buttonPanel;
-    private javax.swing.JButton createAppointmentButton;
     private javax.swing.JButton createMedButton;
     private javax.swing.JTextField dateText;
     private javax.swing.JTextField doctorText;
@@ -537,6 +536,7 @@ public class MainDoctor extends javax.swing.JFrame {
     private javax.swing.JButton orderMedButton;
     private javax.swing.JComboBox<String> patientSelect;
     private javax.swing.JButton prescribeButton;
+    private javax.swing.JButton proposeAppointmentButton;
     private javax.swing.JButton viewAppointmentButton;
     private javax.swing.JButton viewHistoryButton;
     // End of variables declaration//GEN-END:variables

@@ -2,6 +2,7 @@ package coursework.Functions;
 
 import coursework.Objects.*;
 import coursework.Users.User;
+import javax.swing.JOptionPane;
 
 public class Augment {
     //ADD Objects to the file.
@@ -262,6 +263,47 @@ public class Augment {
             System.out.println(e);
         }
     }
+    public static boolean addProposedAppointment(Appointment _input){
+        Appointment output[] = null;
+        boolean hasNull = false;
+        boolean exists = false;
+        boolean created = false;
+        try{
+            output = FileReader.readProposedAppointments();
+        }catch(Exception e){
+            System.out.println(e);
+        }
+        for(int i = 0; i < output.length; i++){
+            if(output[i].getDoctorID().compareTo(_input.getDoctorID()) == 0){
+                if(output[i].getPatientID().compareTo(_input.getPatientID()) == 0){
+                    exists = true;
+                }
+            }
+        }
+        //if already exists
+        if(exists == false){
+            for(int i = 0; i < output.length; i++){
+                if(output[i] == null){//if there is space
+                    output[i] = _input;
+                    hasNull = true;
+                    break;
+                }else{}
+            }
+            if(hasNull == false){//if there was no space
+                output = Resize.appointmentArray(output, output.length + 1);
+                output[output.length - 1] = _input;
+            }
+            try{
+                FileWriter.writeProposedAppointments(output);
+            }catch(Exception e){
+                System.out.println(e);
+            }
+            created = true;
+        }else{
+            created = false;
+        }
+        return created;
+    }
     
     //REMOVE Objects from the file.
     public static void removeUser(String _input){
@@ -322,6 +364,21 @@ public class Augment {
             FileWriter.writeMedicineOrders(output);
         }catch(Exception e){}
     }   //remove medicine from orders based on the name.
+    public static void removeProposedAppointment(String _input){
+        Appointment output[] = null;
+        try{
+            output = FileReader.readProposedAppointments();
+        }catch(Exception e){}
+        for(int i = 0; i < output.length; i++){
+            if(output[i].getAppointmentID().compareTo(_input) == 0){
+                output[i] = null;
+            }
+        }
+        output = trimAppointments(output);
+        try{
+            FileWriter.writeProposedAppointments(output);
+        }catch(Exception e){}
+    }
     
     //TRIM NULL Elements.
     public static User[] trimUsers(User[] _input){
