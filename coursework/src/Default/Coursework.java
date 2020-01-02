@@ -1,7 +1,7 @@
 package Default;
 import coursework.Forms.Login;
-import coursework.Functions.Augment;
-import coursework.Objects.Medicine;
+import coursework.Functions.*;
+import coursework.Users.User;
 public class Coursework {
 
 
@@ -10,9 +10,9 @@ public class Coursework {
         //PopulateFile.populateMedicine5();
         //PopulateFile.populatePrescription5();
         //Display.displayMedicines();
-        //Display.displayOrders();
-        //PopulateFile.populateOrders5();
-        //test();
+        Display.displayRatings();
+        //PopulateFile.populateTerminations();
+        
         
         Login loginForm = new Login();
         loginForm.setVisible(true);

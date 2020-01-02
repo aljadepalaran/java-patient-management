@@ -264,4 +264,14 @@ public class PopulateFile {
             
         }
     }
+    public static void populateTerminations(){
+        User[] userArray = new User[4];
+        userArray[0] = new Patient("P0001", "pass", "Patient", "One", "Plymouth", 'M', "19022000");
+        userArray[1] = new Patient("P0002", "pass", "Patient", "tw", "Plymouth", 'M', "19022000");
+        userArray[2] = new Patient("P0003", "pass", "Patient", "three", "Plymouth", 'M', "19022000");
+        userArray[3] = new Patient("P0004", "pass", "Patient", "four", "Plymouth", 'M', "19022000");
+        try{
+            FileWriter.writeAccountTermRequests(userArray);
+        }catch(Exception e){}
+    }
 }

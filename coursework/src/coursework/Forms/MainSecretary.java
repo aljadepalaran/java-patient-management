@@ -6,56 +6,69 @@ import coursework.Users.*;
 import coursework.Functions.*;
 
 public class MainSecretary extends javax.swing.JFrame {
+
     Session userSession;
     Patient approvals[];
     Appointment requests[];
+    User termReq[];
     public MainSecretary() {
         initComponents();
         this.setResizable(false);
     }
-    
+
     public MainSecretary(Session _session) {
         initComponents();
         this.setResizable(false);
         userSession = _session;
-        readApprovals();
+        readAll();
         patientSelect.removeAllItems();
         appSelect.removeAllItems();
-        if(approvals.length > 0 || requests.length > 0){
-            JOptionPane.showMessageDialog(this, "You have " + approvals.length 
+        termSelect.removeAllItems();
+        if (approvals.length > 0 || requests.length > 0) {
+            JOptionPane.showMessageDialog(this, "You have " + approvals.length
                     + " patient approvals & " + requests.length + " appointment approvals");
         }
-        loadAll();
+        displayAll();
     }
-    
-    public void readApprovals(){
+
+    public void readAll() {
         User all[] = null;
-        try{
+        try {
             all = FileReader.readRequests();
-        }catch(Exception e){}
+        } catch (Exception e) {}
         approvals = new Patient[all.length];
-        for(int i = 0; i < all.length; i++){
-            approvals[i] = (Patient)all[i];
+        for (int i = 0; i < all.length; i++) {
+            approvals[i] = (Patient) all[i];
+        }
+        try {
+            requests = FileReader.readAppointmentRequests();
+        } catch (Exception e) {
         }
         try{
-            requests = FileReader.readAppointmentRequests();
+            termReq = FileReader.readAccountTerminationRequests();
+        }catch(Exception e){}
+
+    }
+
+    public void displayAll() {
+        try{
+            if(approvals.length > 0) {
+                for (int i = 0; i < approvals.length; i++) {
+                    patientSelect.addItem(approvals[i].getUniqueID());
+                }
+            } else {
+            }
+            if (requests.length > 0) {
+                for (int i = 0; i < requests.length; i++) {
+                    appSelect.addItem("ID: " + requests[i].getAppointmentID());
+                }
+            }
+            for(int i = 0; i < termReq.length; i++){
+                termSelect.addItem("ID: " + termReq[i].getUniqueID());
+            }
         }catch(Exception e){}
         
     }
-    
-    public void loadAll(){
-        if(approvals.length > 0){
-            for(int i = 0; i < approvals.length; i++){
-                patientSelect.addItem(approvals[i].getUniqueID());
-            }
-        }else{}
-        if(requests.length > 0){
-            for(int i = 0; i < requests.length; i++){
-                appSelect.addItem("ID: " + requests[i].getAppointmentID());
-            }
-        }
-    }
-    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -80,6 +93,8 @@ public class MainSecretary extends javax.swing.JFrame {
         doctorText = new javax.swing.JLabel();
         patientText = new javax.swing.JLabel();
         dateText = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        termSelect = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Secretary Form");
@@ -133,11 +148,11 @@ public class MainSecretary extends javax.swing.JFrame {
                 .addComponent(removePatientButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(orderStockButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(giveMedicineButton)
-                .addGap(82, 82, 82)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(approveTerminationButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(logoutButton)
                 .addContainerGap())
         );
@@ -263,6 +278,27 @@ public class MainSecretary extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        termSelect.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(termSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(termSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(68, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -273,7 +309,8 @@ public class MainSecretary extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -286,7 +323,8 @@ public class MainSecretary extends javax.swing.JFrame {
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -305,41 +343,43 @@ public class MainSecretary extends javax.swing.JFrame {
         Augment.addUser(selectedPatient);
         Augment.removeApproval(selectedPatient.getUniqueID());
         patientSelect.removeAllItems();
-        readApprovals();
-        loadAll();
-        
+        readAll();
+        displayAll();
+
     }//GEN-LAST:event_approveAccountButtonActionPerformed
 
     private void patientSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientSelectActionPerformed
-        
-        try{
+
+        try {
             Patient selectedPatient = approvals[patientSelect.getSelectedIndex()];
             String gender = "";
-            nameText.setText("NAME: " + selectedPatient.getFirstName() + " " 
+            nameText.setText("NAME: " + selectedPatient.getFirstName() + " "
                     + selectedPatient.getLastName());
             addressText.setText("ADDRESS: " + selectedPatient.getAddress());
-            dobText.setText("DOB: " + selectedPatient.getDOB().substring(0,2) + "/" 
-                        + selectedPatient.getDOB().substring(2,4) + "/" 
-                    + selectedPatient.getDOB().substring(4,8));
-            if(selectedPatient.getSex() == 'M'){
+            dobText.setText("DOB: " + selectedPatient.getDOB().substring(0, 2) + "/"
+                    + selectedPatient.getDOB().substring(2, 4) + "/"
+                    + selectedPatient.getDOB().substring(4, 8));
+            if (selectedPatient.getSex() == 'M') {
                 gender = "Male";
-            }else{
+            } else {
                 gender = "Female";
             }
             genderText.setText("GENDER: " + gender);
-        }catch(Exception e){}
-        
+        } catch (Exception e) {
+        }
+
     }//GEN-LAST:event_patientSelectActionPerformed
 
     private void appSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_appSelectActionPerformed
-        try{
+        try {
             Appointment selected = requests[appSelect.getSelectedIndex()];
             doctorText.setText("DOCTOR: " + selected.getDoctorID());
             patientText.setText("PATIENT: " + selected.getPatientID());
-            dateText.setText("DATE: " + selected.getDate().substring(0,2) + "/" 
-                        + selected.getDate().substring(2,4) + "/" 
-                    + selected.getDate().substring(4,8));
-        }catch(Exception e){}
+            dateText.setText("DATE: " + selected.getDate().substring(0, 2) + "/"
+                    + selected.getDate().substring(2, 4) + "/"
+                    + selected.getDate().substring(4, 8));
+        } catch (Exception e) {
+        }
     }//GEN-LAST:event_appSelectActionPerformed
 
     private void approveAppointmentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_approveAppointmentButtonActionPerformed
@@ -347,8 +387,8 @@ public class MainSecretary extends javax.swing.JFrame {
         Augment.addAppointment(selectedAppointment);
         Augment.removeAppointmentRequest(selectedAppointment.getAppointmentID());
         appSelect.removeAllItems();
-        readApprovals();
-        loadAll();
+        readAll();
+        displayAll();
     }//GEN-LAST:event_approveAppointmentButtonActionPerformed
 
     private void orderStockButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderStockButtonActionPerformed
@@ -378,11 +418,13 @@ public class MainSecretary extends javax.swing.JFrame {
     private javax.swing.JButton giveMedicineButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JButton logoutButton;
     private javax.swing.JLabel nameText;
     private javax.swing.JButton orderStockButton;
     private javax.swing.JComboBox<String> patientSelect;
     private javax.swing.JLabel patientText;
     private javax.swing.JButton removePatientButton;
+    private javax.swing.JComboBox<String> termSelect;
     // End of variables declaration//GEN-END:variables
 }
