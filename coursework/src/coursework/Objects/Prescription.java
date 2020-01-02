@@ -8,7 +8,7 @@ public class Prescription implements Serializable{
     private String patientID;
     private String doctorID;
     private String notes;
-    private Medicine medicineID;
+    private Medicine medicineType;
     private int quantity;
     private String dosage;
     
@@ -18,7 +18,7 @@ public class Prescription implements Serializable{
         this.patientID = _patientID;
         this.doctorID = _doctorID;
         this.notes = _notes;
-        this.medicineID = _medicineID;
+        this.medicineType = _medicineID;
         this.quantity = _quantity;
         this.dosage = _dosage;
         
@@ -48,12 +48,12 @@ public class Prescription implements Serializable{
         this.notes = notes;
     }
 
-    public Medicine getMedicineID() {
-        return medicineID;
+    public Medicine getMedicineType() {
+        return medicineType;
     }
 
-    public void setMedicineID(Medicine medicineID) {
-        this.medicineID = medicineID;
+    public void setMedicineType(Medicine medicineType) {
+        this.medicineType = medicineType;
     }
 
     public int getQuantity() {

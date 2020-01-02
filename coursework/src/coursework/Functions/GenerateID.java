@@ -39,13 +39,9 @@ public class GenerateID {
                     checkString = "A" + Integer.toString(increment);
                 }
                 for(int arrCount = 0; arrCount < lengthArr; arrCount++){                                                                //Loops through all the objects found in the file.
-                    if(checkArray[arrCount].getUniqueID().compareTo(checkString) == 0){           
-                        System.out.println("FILE:" + checkArray[arrCount].getUniqueID() 
-                                + " GEN:" + checkString + " > SKIP");
+                    if(checkArray[arrCount].getUniqueID().compareTo(checkString) == 0){         
                         state = 1;                                                                                                      //Sets state to found.
-                    }else{
-                        System.out.println("FILE:" + checkArray[arrCount].getUniqueID() 
-                                + " GEN:" + checkString + " > RETURN VALUE");                        
+                    }else{             
                         outputID = checkString;                       
                     }
                 }                
@@ -82,13 +78,9 @@ public class GenerateID {
                     checkString = "D" + Integer.toString(increment);
                 }
                 for(int arrCount = 0; arrCount < lengthArr; arrCount++){              
-                    if(checkArray[arrCount].getUniqueID().compareTo(checkString) == 0){           
-                        System.out.println("FILE:" + checkArray[arrCount].getUniqueID() 
-                                + " GEN:" + checkString + " > SKIP");
+                    if(checkArray[arrCount].getUniqueID().compareTo(checkString) == 0){
                         state = 1;
                     }else{
-                        System.out.println("FILE:" + checkArray[arrCount].getUniqueID() 
-                                + " GEN:" + checkString + " > RETURN VALUE");
                         outputID = checkString;
                     }
                 }             
@@ -124,13 +116,9 @@ public class GenerateID {
                     checkString = "P" + Integer.toString(increment);
                 }
                 for(int arrCount = 0; arrCount < lengthArr; arrCount++){           
-                    if(checkArray[arrCount].getUniqueID().compareTo(checkString) == 0){           
-                        System.out.println("FILE:" + checkArray[arrCount].getUniqueID() 
-                                + " GEN:" + checkString + " > SKIP");
+                    if(checkArray[arrCount].getUniqueID().compareTo(checkString) == 0){    
                         state = 1; 
                     }else{
-                        System.out.println("FILE:" + checkArray[arrCount].getUniqueID() 
-                                + " GEN:" + checkString + " > RETURN VALUE");
                         outputID = checkString; 
                     }
                 }
@@ -178,13 +166,9 @@ public class GenerateID {
                     checkString = "S" + Integer.toString(increment);
                 }
                 for(int arrCount = 0; arrCount < lengthArr; arrCount++){              
-                    if(checkArray[arrCount].getUniqueID().compareTo(checkString) == 0){           
-                        System.out.println("FILE:" + checkArray[arrCount].getUniqueID() 
-                                + " GEN:" + checkString + " > SKIP");
+                    if(checkArray[arrCount].getUniqueID().compareTo(checkString) == 0){ 
                         state = 1;
                     }else{
-                        System.out.println("FILE:" + checkArray[arrCount].getUniqueID() 
-                                + " GEN:" + checkString + " > RETURN VALUE");
                         outputID = checkString;
                     }
                 }             
@@ -234,8 +218,10 @@ public class GenerateID {
     public static String appointmentID(){
         String output = "";
         Appointment appointmentArray[] = null;
+        Appointment reqApps[] = null;
         try{
             appointmentArray = FileReader.readAppointments();
+            reqApps = FileReader.readAppointmentRequests();
         }catch(Exception e){
             
         }
@@ -253,6 +239,13 @@ public class GenerateID {
             }
             for(int x = 0; x < appointmentArray.length; x++){
                 if(appointmentArray[x].getAppointmentID().compareTo(checkID) == 0){
+                    state = 1;
+                }else{
+                    output = checkID;
+                }
+            }
+            for(int x = 0; x < reqApps.length; x++){
+                if(reqApps[x].getAppointmentID().compareTo(checkID) == 0){
                     state = 1;
                 }else{
                     output = checkID;

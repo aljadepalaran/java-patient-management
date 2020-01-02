@@ -1,5 +1,5 @@
 package Default;
-import coursework.Functions.FileWriter;
+import coursework.Functions.*;
 import coursework.Users.*;
 import coursework.Objects.*;
 public class PopulateFile {
@@ -207,6 +207,59 @@ public class PopulateFile {
         output[4] = new Appointment("0004", "P0003", "D0007", "01012004", "testing5");
         try{
             FileWriter.writeAppointments(output);
+        }catch(Exception e){
+            
+        }
+    }
+    public static void populateMedicine5(){
+        Medicine arr[] = new Medicine[6];
+        arr[0] = new Medicine("Paracetamol", "detail 1", 100);
+        arr[1] = new Medicine("Ibruprofen", "detail 2", 100);
+        arr[2] = new Medicine("Aspirin", "detail 3", 100);
+        arr[3] = new Medicine("Adderall", "detail 4", 100);
+        arr[4] = new Medicine("Morphine", "detail 5", 100);
+        arr[5] = new Medicine("Amoxicillin", "amox", 0);
+        try{
+            FileWriter.writeMedicines(arr);
+        }catch(Exception e){}
+    }
+    public static void populateOrders5(){
+        Medicine arr[] = new Medicine[5];
+        arr[0] = new Medicine("Paracetamol", "detail 1", 5);
+        arr[1] = new Medicine("Ibruprofen", "detail 2", 13);
+        arr[2] = new Medicine("Aspirin", "detail 3", 6);
+        arr[3] = new Medicine("Adderall", "detail 4", 134);
+        arr[4] = new Medicine("Morphine", "detail 5", 5);
+        try{
+            FileWriter.writeMedicineOrders(arr);
+        }catch(Exception e){}
+    }
+    public static void populatePrescription5(){
+        Prescription arr[] = new Prescription[5];
+        Medicine meds[] = null;
+        try{
+            meds = FileReader.readMedicines();
+        }catch(Exception e){
+            
+        }
+        arr[0] = new Prescription("P0002", "D0007", "Testing", meds[1], 2, "Dosage 1");
+        arr[1] = new Prescription("P0002", "D0007", "Testing 2", meds[1], 2, "Dosage 2");
+        arr[2] = new Prescription("P0002", "D0007", "Testing 3", meds[1], 2, "Dosage 3");
+        arr[3] = new Prescription("P0002", "D0007", "Testing 4", meds[1], 2, "Dosage 5");
+        arr[4] = new Prescription("P0002", "D0007", "Testing 5", meds[1], 2, "Dosage 6");
+        try{
+            FileWriter.writePrescriptions(arr);
+        }catch(Exception e){}
+    }
+    public static void populateAppRequests(){
+        Appointment output[] = new Appointment[5];
+        output[0] = new Appointment("0000", "P0002", "D0007", "01012000", "req");
+        output[1] = new Appointment("0001", "P0003", "D0007", "01012001", "req2");
+        output[2] = new Appointment("0002", "P0004", "D0007", "01012002", "req2");
+        output[3] = new Appointment("0003", "P0002", "D0007", "01012003", "tesreq2req2req2ting4");
+        output[4] = new Appointment("0004", "P0003", "D0007", "01012004", "testreq2ing5");
+        try{
+            FileWriter.writeAppointmentRequests(output);
         }catch(Exception e){
             
         }

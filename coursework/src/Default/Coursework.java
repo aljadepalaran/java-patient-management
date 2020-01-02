@@ -9,17 +9,11 @@ public class Coursework {
 
     public static void main(String[] args) {   
         
-        //PopulateFile.populateAppointment5();
-        //Display.displayAppointments();
-        
-//        User arr[] = new User[1];
-//        User test = new Patient("P0008", "patientP4SS", "Patient", "One", "Plymouth", 'M', "19022000");
-//        arr[0] = test;
-//        try{
-//            FileWriter.writeRequests(arr);
-//        }catch(Exception e){}
-
-        //Display.displayRequests();
+        //PopulateFile.populateMedicine5();
+        //PopulateFile.populatePrescription5();
+        //Display.displayMedicines();
+        //PopulateFile.populateAppRequests();
+        Display.displayOrders();
         Login loginForm = new Login();
         loginForm.setVisible(true);
         

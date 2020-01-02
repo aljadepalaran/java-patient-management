@@ -1,7 +1,7 @@
 package coursework.Functions;
 
 import coursework.Objects.*;
-import coursework.Users.User;
+import coursework.Users.*;
 
 public class Resize {
     
@@ -48,6 +48,20 @@ public class Resize {
         }
         return output;
     }
+    public static Medicine[] medicineArray(Medicine[] _array, int _size){
+        Medicine output[] = new Medicine[_size];
+        for(int i = 0; i < _array.length; i++){
+            output[i] = _array[i];
+        }
+        return output;
+    }
+    public static Patient[] patientArray(Patient[] _array, int _size){
+        Patient output[] = new Patient[_size];
+        for(int i = 0; i < _array.length; i++){
+            output[i] = _array[i];
+        }
+        return output;
+    }
     
     //REMOVE
     public static User[] shortenUsers(User[] _input){
@@ -80,6 +94,13 @@ public class Resize {
     }
     public static Prescription[] shortenPrescription(Prescription[] _input){
         Prescription output[] = new Prescription[_input.length - 1];                
+        for(int i = 0; i < output.length - 1; i++){
+            output[i] = _input[i];                                      
+        }
+        return output;
+    }
+    public static Medicine[] shortenMedicines(Medicine[] _input){
+        Medicine output[] = new Medicine[_input.length - 1];
         for(int i = 0; i < output.length - 1; i++){
             output[i] = _input[i];                                      
         }

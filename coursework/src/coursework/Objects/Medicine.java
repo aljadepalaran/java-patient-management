@@ -4,22 +4,22 @@ import java.io.Serializable;
 
 public class Medicine implements Serializable{
     
-    private String medicineID;
+    private String medicineName;
     private String details;
     private int stock;
     
     public Medicine(String _medicineID, String _details, int _stock){
-        this.medicineID = _medicineID;
+        this.medicineName = _medicineID;
         this.details = _details;
         this.stock = _stock;
     }
 
-    public String getMedicineID() {
-        return medicineID;
+    public String getMedicineName() {
+        return medicineName;
     }
 
     public void setMedicineID(String medicineID) {
-        this.medicineID = medicineID;
+        this.medicineName = medicineID;
     }
 
     public String getDetails() {
