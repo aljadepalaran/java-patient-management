@@ -6,8 +6,8 @@ public class Rating implements Serializable{
     
     private String doctorID;
     private String patientID;
-    private String message;
     private int ratingValue;//max value = 5
+    private String message;
     
     public Rating(String _doctorID, String _patientID, int _ratingValue, String _message){
         this.doctorID = _doctorID;

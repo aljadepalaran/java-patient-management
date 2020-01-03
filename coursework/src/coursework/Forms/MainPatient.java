@@ -42,7 +42,7 @@ public class MainPatient extends javax.swing.JFrame {
             for(int i = 0; i < allUsers.length; i++){
                 if(allUsers[i].getUniqueID().substring(0,1).compareTo("D") == 0){
                     selectDoctor.addItem(allUsers[i].getUniqueID() + ":" + allUsers[i].getFirstName() 
-                            + ":" + allUsers[i].getLastName());
+                            + " " + allUsers[i].getLastName());
                 }
             }
             appointments = FileReader.readAppointments();
@@ -241,7 +241,7 @@ public class MainPatient extends javax.swing.JFrame {
                         .addComponent(dateLabel))
                     .addComponent(doctorLabel)
                     .addComponent(noteLabel))
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -284,7 +284,8 @@ public class MainPatient extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pack();
+        setSize(new java.awt.Dimension(542, 389));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed

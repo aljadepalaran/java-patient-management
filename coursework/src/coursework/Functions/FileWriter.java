@@ -8,7 +8,7 @@ public class FileWriter {
     
     public static void writeUsers(User[] _array) throws IOException{                                            //Writes the array of users into a file.
         ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("Users.txt"));
-        outputStream.writeObject(_array);       
+        outputStream.writeObject(_array);
     }
     public static void writeRatings(Rating[] _array) throws IOException{                                        //Writes the array of ratings into a file.
         ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("Ratings.txt"));
