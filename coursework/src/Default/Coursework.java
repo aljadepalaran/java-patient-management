@@ -11,7 +11,7 @@ public class Coursework {
 //        PopulateFile.populateAppointment5();
 //        PopulateFile.populateProposed();
 
-        Display.displayAppRequests();
+          Display.displayPrescriptionRequests();
 //        Display.displayAppointments();
 //        Display.displayProposed();
 //        Display.displayTerminationRequests();

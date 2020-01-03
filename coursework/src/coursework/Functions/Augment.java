@@ -514,10 +514,16 @@ public class Augment {
                 _input[i+1] = null;
             }else{}
         }
-        while(_input[_input.length - 1] == null){
-            _input = Resize.shortenPrescription(_input);
+        int notnull = 0;
+        for(int i = 0; i < _input.length; i++){
+            if(_input[i] != null){
+                notnull++;
+            }
         }
-        output = _input;
+        output = new Prescription[notnull];
+        for(int i = 0; i < output.length; i++){
+            output[i] = _input[i];
+        }
         return output;
     }
     public static Appointment[] trimAppointments(Appointment[] _input){

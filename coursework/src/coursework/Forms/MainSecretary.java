@@ -107,6 +107,11 @@ public class MainSecretary extends javax.swing.JFrame {
         buttonPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         giveMedicineButton.setText("Give Medicine");
+        giveMedicineButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                giveMedicineButtonActionPerformed(evt);
+            }
+        });
 
         orderStockButton.setText("Order Stock");
         orderStockButton.addActionListener(new java.awt.event.ActionListener() {
@@ -455,6 +460,11 @@ public class MainSecretary extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Patient removal failed.");
         }
     }//GEN-LAST:event_removeButtonActionPerformed
+
+    private void giveMedicineButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_giveMedicineButtonActionPerformed
+        GiveMedicine newForm = new GiveMedicine(userSession);
+        newForm.setVisible(true);
+    }//GEN-LAST:event_giveMedicineButtonActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {

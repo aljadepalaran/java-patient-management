@@ -139,7 +139,7 @@ public class PrescribeForm extends javax.swing.JFrame {
 
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel1.setText("Medicine Quanity:");
+        jLabel1.setText("Medicine Quantity:");
 
         jLabel2.setText("Notes: ");
 
@@ -155,15 +155,15 @@ public class PrescribeForm extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(quantityField, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE))
+                        .addComponent(quantityField, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3))
-                        .addGap(63, 63, 63)
+                        .addGap(67, 67, 67)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(dosageField)
-                            .addComponent(noteField))))
+                            .addComponent(noteField)
+                            .addComponent(dosageField))))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -252,9 +252,14 @@ public class PrescribeForm extends javax.swing.JFrame {
         String patientID = "";
         Medicine selectedMed = null;
         boolean valid = true;
+        boolean quantityValid = true;
         try{
-            //retrieves input
             qty = Integer.parseInt(quantityField.getText());
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, "Invalid quantity");
+            quantityValid = false;
+        }
+        try{
             notes = noteField.getText();
             dosage = dosageField.getText();
             doctorID = userSession.getUID();
@@ -262,8 +267,11 @@ public class PrescribeForm extends javax.swing.JFrame {
             selectedMed = meds[selectMedicine.getSelectedIndex()];
             
             if(qty < 1){
+                if(quantityValid == false){
+                }else{
+                    JOptionPane.showMessageDialog(this, "Invalid quantity");
+                }
                 valid = false;
-                JOptionPane.showMessageDialog(this, "You cannot prescribe QTY<1");
             }
             if(notes.compareTo("") == 0){
                 valid = false;
@@ -280,6 +288,8 @@ public class PrescribeForm extends javax.swing.JFrame {
                 Prescription newPrescription = creator.createPrescription();
                 Augment.addPrescriptionRequest(newPrescription);
                 JOptionPane.showMessageDialog(this, "Prescription added.");
+                this.setVisible(false);
+                this.dispose();
             }else{}
         }catch(Exception e){}
         

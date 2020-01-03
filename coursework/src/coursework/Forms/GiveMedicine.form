@@ -23,7 +23,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel1" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -53,19 +53,27 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="patientLabel" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="medLabel" max="32767" attributes="0"/>
-                              <Component id="qtyLabel" alignment="0" pref="274" max="32767" attributes="0"/>
-                              <Component id="dosageLabel" alignment="0" max="32767" attributes="0"/>
-                              <Component id="noteLabel" alignment="0" max="32767" attributes="0"/>
-                              <Component id="doctorLabel" max="32767" attributes="0"/>
+                              <Component id="selectPrescription" max="32767" attributes="0"/>
+                              <Component id="giveButton" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="patientLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="doctorLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="notesLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="medicineLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="qtyLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="stockLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="dosageLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="0" pref="152" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -75,69 +83,88 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
+                  <Component id="selectPrescription" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="patientLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="doctorLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="noteLabel" min="-2" max="-2" attributes="0"/>
+                  <Component id="notesLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="medLabel" min="-2" max="-2" attributes="0"/>
+                  <Component id="medicineLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="qtyLabel" min="-2" pref="19" max="-2" attributes="0"/>
+                  <Component id="qtyLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="dosageLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="stockLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="dosageLabel" min="-2" pref="16" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="giveButton" pref="41" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
+        <Component class="javax.swing.JComboBox" name="selectPrescription">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="4">
+                <StringItem index="0" value="Item 1"/>
+                <StringItem index="1" value="Item 2"/>
+                <StringItem index="2" value="Item 3"/>
+                <StringItem index="3" value="Item 4"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="selectPrescriptionActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="giveButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Give"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="giveButtonActionPerformed"/>
+          </Events>
+        </Component>
         <Component class="javax.swing.JLabel" name="patientLabel">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dosis" size="14" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="PATIENT: "/>
+            <Property name="text" type="java.lang.String" value="PATIENT:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="doctorLabel">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dosis" size="14" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="DOCTOR: "/>
+            <Property name="text" type="java.lang.String" value="DOCTOR:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="noteLabel">
+        <Component class="javax.swing.JLabel" name="notesLabel">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dosis" size="14" style="1"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="NOTES:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="medLabel">
+        <Component class="javax.swing.JLabel" name="medicineLabel">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dosis" size="14" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="MEDICINE: "/>
+            <Property name="text" type="java.lang.String" value="MEDICINE:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="qtyLabel">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dosis" size="14" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="QUANTITY: "/>
+            <Property name="text" type="java.lang.String" value="REQUESTED QTY:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="dosageLabel">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dosis" size="14" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="DOSAGE: "/>
+            <Property name="text" type="java.lang.String" value="DOSAGE:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="stockLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="CURRENT STOCK:"/>
           </Properties>
         </Component>
       </SubComponents>
