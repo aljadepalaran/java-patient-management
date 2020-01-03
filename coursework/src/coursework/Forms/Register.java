@@ -139,37 +139,28 @@ public class Register extends javax.swing.JFrame {
                 genderWarning.setVisible(false);
             }
         }else if(_userType == 'S'){}
-        
+            
         if(validInput == true){
+            String newID = "";
             if(userType == 'A'){
-                String newID = GenerateID.userID('A');
-                User newUser = new Administrator(newID, password, firstname, lastname);
-                Augment.addUser(newUser);
-                JOptionPane.showMessageDialog(this, "Your UID: " + newUser.getUniqueID());
+                newID = GenerateID.userID('A');
                 this.setVisible(false);
                 this.dispose();
             }else if(userType == 'D'){
-                String newID = GenerateID.userID('D');
-                User newUser = new Doctor(newID, password, firstname, lastname, address);
-                Augment.addUser(newUser);
-                JOptionPane.showMessageDialog(this, "Your UID: " + newUser.getUniqueID());
+                newID = GenerateID.userID('D');
                 this.setVisible(false);
                 this.dispose();
             }else if(userType == 'P'){
-                String newID = GenerateID.userID('P');
-                User newUser = new Patient(newID, password, firstname, lastname, address, sex, birthDate);
-                Augment.addRequest(newUser);
-                JOptionPane.showMessageDialog(this, "Your UID: " + newUser.getUniqueID());
+                newID = GenerateID.userID('P');
                 this.setVisible(false);
                 this.dispose();
             }else if(userType == 'S'){
-                String newID = GenerateID.userID('S');
-                User newUser = new Secretary(newID, password, firstname, lastname);
-                Augment.addUser(newUser);
-                JOptionPane.showMessageDialog(this, "Your UID: " + newUser.getUniqueID());
+                newID = GenerateID.userID('S');
                 this.setVisible(false);
                 this.dispose();
             }
+            UserCreator.addUserToSystem(newID, password, firstname, lastname, address, sex, birthDate);
+            JOptionPane.showMessageDialog(this, "Your UID: " + newID);
         }else{
             JOptionPane.showMessageDialog(this, "Register incomplete: One or more fields are empty.");
         }

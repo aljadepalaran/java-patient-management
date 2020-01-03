@@ -1,25 +1,13 @@
 package Default;
-import coursework.Forms.Login;
+import coursework.Forms.*;
 import coursework.Functions.*;
-import coursework.Users.User;
+import coursework.Users.*;
 public class Coursework {
 
 
     public static void main(String[] args) {   
-        
-//        PopulateFile.populateAppRequests();
-//        PopulateFile.populateAppointment5();
-//        PopulateFile.populateProposed();
 
-          Display.displayPrescriptionRequests();
-//        Display.displayAppointments();
-//        Display.displayProposed();
-//        Display.displayTerminationRequests();
-        //PopulateFile.populateRequestedPrescriptions();
-        //Display.displayPrescriptions();
-        //Display.displayPrescriptionRequests();
-        //PopulateFile.populatePrescription5();
-//        System.out.println(GenerateID.prescriptionID());
+        Display.displayUsers();
         
         Login loginForm = new Login();
         loginForm.setVisible(true);
