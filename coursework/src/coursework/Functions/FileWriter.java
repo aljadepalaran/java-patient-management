@@ -50,4 +50,8 @@ public class FileWriter {
         ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("ProposedAppointments.txt"));
         outputStream.writeObject(_array);
     }
+    public static void writePrescriptionRequests(Prescription[] _array) throws IOException{
+        ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("PrescriptionRequests.txt"));
+        outputStream.writeObject(_array);  
+    }
 }

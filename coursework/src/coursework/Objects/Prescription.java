@@ -1,10 +1,10 @@
 package coursework.Objects;
 
 import java.io.Serializable;
-import coursework.Objects.*;
 
 public class Prescription implements Serializable{
     
+    private String prescriptionID;
     private String patientID;
     private String doctorID;
     private String notes;
@@ -12,9 +12,9 @@ public class Prescription implements Serializable{
     private int quantity;
     private String dosage;
     
-    public Prescription(String _patientID, String _doctorID, String _notes, 
+    public Prescription(String _prescriptionID, String _patientID, String _doctorID, String _notes, 
             Medicine _medicineID, int _quantity, String _dosage){
-        
+        this.prescriptionID = _prescriptionID;
         this.patientID = _patientID;
         this.doctorID = _doctorID;
         this.notes = _notes;
@@ -22,6 +22,14 @@ public class Prescription implements Serializable{
         this.quantity = _quantity;
         this.dosage = _dosage;
         
+    }
+
+    public String getPrescriptionID() {
+        return prescriptionID;
+    }
+
+    public void setPrescriptionID(String prescriptionID) {
+        this.prescriptionID = prescriptionID;
     }
 
     public String getPatientID() {

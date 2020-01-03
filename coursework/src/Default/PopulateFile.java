@@ -242,11 +242,11 @@ public class PopulateFile {
         }catch(Exception e){
             
         }
-        arr[0] = new Prescription("P0002", "D0007", "Testing", meds[1], 2, "Dosage 1");
-        arr[1] = new Prescription("P0002", "D0007", "Testing 2", meds[1], 2, "Dosage 2");
-        arr[2] = new Prescription("P0002", "D0007", "Testing 3", meds[1], 2, "Dosage 3");
-        arr[3] = new Prescription("P0002", "D0007", "Testing 4", meds[1], 2, "Dosage 5");
-        arr[4] = new Prescription("P0002", "D0007", "Testing 5", meds[1], 2, "Dosage 6");
+        arr[0] = new Prescription("0000", "P0002", "D0007", "Testing", meds[1], 2, "Dosage 1");
+        arr[1] = new Prescription("0001", "P0002", "D0007", "Testing 2", meds[1], 2, "Dosage 2");
+        arr[2] = new Prescription("0002", "P0002", "D0007", "Testing 3", meds[1], 2, "Dosage 3");
+        arr[3] = new Prescription("0003", "P0002", "D0007", "Testing 4", meds[1], 2, "Dosage 5");
+        arr[4] = new Prescription("0004", "P0002", "D0007", "Testing 5", meds[1], 2, "Dosage 6");
         try{
             FileWriter.writePrescriptions(arr);
         }catch(Exception e){}
@@ -286,5 +286,22 @@ public class PopulateFile {
         }catch(Exception e){
             
         }
+    }
+    public static void populateRequestedPrescriptions(){
+        Prescription arr[] = new Prescription[5];
+        Medicine meds[] = null;
+        try{
+            meds = FileReader.readMedicines();
+        }catch(Exception e){
+            
+        }
+        arr[0] = new Prescription("0005", "P0015", "D0007", "Testing req", meds[1], 2, "Dosage 1");
+        arr[1] = new Prescription("0006", "P0015", "D0008", "Testing Testing req", meds[1], 2, "Dosage 2");
+        arr[2] = new Prescription("0007", "P0002", "D0005", "Testing requetststs", meds[1], 2, "Dosage 3");
+        arr[3] = new Prescription("0008", "P0024", "D0003", "Testing tested", meds[1], 2, "Dosage 5");
+        arr[4] = new Prescription("0009", "P0002", "D0007", "Testing another", meds[1], 2, "Dosage 6");
+        try{
+            FileWriter.writePrescriptionRequests(arr);
+        }catch(Exception e){}
     }
 }

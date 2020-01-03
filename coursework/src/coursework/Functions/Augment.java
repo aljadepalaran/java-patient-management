@@ -406,6 +406,21 @@ public class Augment {
             FileWriter.writeAccountTermRequests(output);
         }catch(Exception e){}
     }
+    public static void removePrescriptionRequest(String _input){
+        Prescription output[] = null;
+        try{
+            output = FileReader.readRequestedPrescriptions();
+        }catch(Exception e){}
+        for(int i = 0; i < output.length; i++){
+            if(output[i].getPrescriptionID().compareTo(_input) == 0){
+                output[i] = null;
+            }
+        }
+        output = trimPrescriptions(output);
+        try{
+            FileWriter.writePrescriptionRequests(output);
+        }catch(Exception e){}
+    }//remove prescriptions from prescription requests
     
     //TRIM NULL Elements.
     public static User[] trimUsers(User[] _input){

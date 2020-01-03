@@ -268,4 +268,48 @@ public class GenerateID {
         }
         return output;
     }
+    public static String prescriptionID(){
+        String output = "";
+        Prescription allPrescriptions[] = null;
+        Prescription requestedPrescriptions[] = null;
+        try{
+            allPrescriptions = FileReader.readPrescriptions();
+            requestedPrescriptions = FileReader.readRequestedPrescriptions();
+        }catch(Exception e){
+            
+        }
+        for(int i = 0; i < 9999; i++){
+            String checkID = "";
+            int state = 0;
+            if(i < 10){
+                checkID = "000" + Integer.toString(i);
+            }else if(i < 100){
+                checkID = "00" + Integer.toString(i);
+            }else if(i < 1000){
+                checkID = "0" + Integer.toString(i);
+            }else{
+                checkID = "" + Integer.toString(i);
+            }
+            for(int x = 0; x < allPrescriptions.length; x++){
+                if(allPrescriptions[x].getPrescriptionID().compareTo(checkID) == 0){
+                    state = 1;
+                }else{
+                    output = checkID;
+                }
+            }
+            for(int x = 0; x < requestedPrescriptions.length; x++){
+                if(requestedPrescriptions[x].getPrescriptionID().compareTo(checkID) == 0){
+                    state = 1;
+                }else{
+                    output = checkID;
+                }
+            }
+            if(state == 1){
+                //do nothing
+            }else if(state == 0){
+                return output;
+            }
+        }
+        return output;
+    }
 }

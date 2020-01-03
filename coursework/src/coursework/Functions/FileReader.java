@@ -61,4 +61,10 @@ public class FileReader {
         Appointment output[] = (Appointment[]) inputStream.readObject();
         return output;
     }   //reads patient appointment requests
+    public static Prescription[] readRequestedPrescriptions() throws IOException, ClassNotFoundException{
+        ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("PrescriptionRequests.txt"));
+        Prescription output[] = (Prescription[]) inputStream.readObject();
+        return output;
+       //reads all prescriptions in the system
+    }
 }

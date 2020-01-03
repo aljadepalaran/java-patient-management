@@ -1,6 +1,7 @@
 package coursework.Objects;
 
 import coursework.*;
+import coursework.Functions.GenerateID;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -27,7 +28,8 @@ public class PrescriptionCreator {
     
     public Prescription createPrescription(){
         Medicine med = new Medicine("", "" , 0);
-        Prescription output = new Prescription("", "", "", med, 0, "");
+        String prescriptionID = GenerateID.prescriptionID();
+        Prescription output = new Prescription(prescriptionID, "", "", "", med, 0, "");
         output.setPatientID(this.patientID);
         output.setDoctorID(this.doctorID);
         output.setNotes(this.notes);
