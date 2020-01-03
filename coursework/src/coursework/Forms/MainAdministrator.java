@@ -33,7 +33,7 @@ public class MainAdministrator extends javax.swing.JFrame {
         listValues = new DefaultListModel();    
         listField.setModel(listValues);
         userSession = _session;
-        loadArrays();
+        loadArrays();   //loads data into the global variables
     }
 
     @SuppressWarnings("unchecked")
@@ -368,11 +368,11 @@ public class MainAdministrator extends javax.swing.JFrame {
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
        if(removeType == 0){
            //invalid type
-       }else if(removeType == 1){
+       }else if(removeType == 1){   //removal of doctor
            String uniqueID = doctorArray[listField.getSelectedIndex()].getUniqueID();
            Augment.removeUser(uniqueID);
            refreshForm();
-       }else if(removeType == 2){
+       }else if(removeType == 2){   //removal of secretary
            String uniqueID = secretaryArray[listField.getSelectedIndex()].getUniqueID();
            Augment.removeUser(uniqueID);
            refreshForm();
@@ -384,7 +384,7 @@ public class MainAdministrator extends javax.swing.JFrame {
     }//GEN-LAST:event_refreshButtonActionPerformed
 
     private void viewRatingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewRatingsButtonActionPerformed
-        doctorDropdown.removeAllItems();
+        doctorDropdown.removeAllItems();    //displays all the rating selections
         for(int i = 0; i < doctorArray.length; i++){
             Doctor displayDoctor = (Doctor)doctorArray[i];
             doctorDropdown.addItem(displayDoctor.getUniqueID() + ":" + 
@@ -393,7 +393,7 @@ public class MainAdministrator extends javax.swing.JFrame {
     }//GEN-LAST:event_viewRatingsButtonActionPerformed
 
     private void doctorDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doctorDropdownActionPerformed
-        patientDropdown.removeAllItems();
+        patientDropdown.removeAllItems();   //displays all the rating details
         try{
             String doctorID = doctorArray[doctorDropdown.getSelectedIndex()].getUniqueID();
             doctorRatings = MainFunctions.getRating(doctorID); //ratings for the doctor
@@ -407,7 +407,7 @@ public class MainAdministrator extends javax.swing.JFrame {
     }//GEN-LAST:event_doctorDropdownActionPerformed
 
     private void patientDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientDropdownActionPerformed
-        try{
+        try{    //displays the rating value and message
             Rating selectedRating = doctorRatings[patientDropdown.getSelectedIndex()];
             ratingLabel.setText(selectedRating.getRatingValue() + "*");
             messageBox.setText(selectedRating.getMessage());
@@ -417,7 +417,7 @@ public class MainAdministrator extends javax.swing.JFrame {
     }//GEN-LAST:event_patientDropdownActionPerformed
 
     private void feedbackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_feedbackButtonActionPerformed
-        try{
+        try{    //submits feedback based on the rating given
             String feedback = adminFeedback.getText();
             if(feedback.compareTo("") == 0){
                 JOptionPane.showMessageDialog(this, "Feedback message empty.");
@@ -440,7 +440,7 @@ public class MainAdministrator extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_messageBoxActionPerformed
  
-    public void refreshForm(){
+    public void refreshForm(){  //refreshes the form by closing and reopening
         MainAdministrator reloadForm = new MainAdministrator(userSession);
         reloadForm.setVisible(true);
         this.setVisible(false);
@@ -451,7 +451,7 @@ public class MainAdministrator extends javax.swing.JFrame {
         listValues = new DefaultListModel();    
         listField.setModel(listValues);
         for(int i = 0; i < secretaryArray.length; i++){
-            listValues.addElement(secretaryArray[i].getUniqueID() + ":" + secretaryArray[i].getFirstName() + ":" + secretaryArray[i].getLastName()); 
+            listValues.addElement(secretaryArray[i].getUniqueID() + ":" + secretaryArray[i].getFirstName() + " " + secretaryArray[i].getLastName()); 
         }
     }
     public void displayDoctors(){
@@ -459,11 +459,11 @@ public class MainAdministrator extends javax.swing.JFrame {
         listField.setModel(listValues);
         for(int i = 0; i < doctorArray.length; i++){
             Doctor displayDoctor = (Doctor)doctorArray[i];
-            listValues.addElement(displayDoctor.getUniqueID() + ":" + displayDoctor.getFirstName() + ":" + displayDoctor.getLastName()
+            listValues.addElement(displayDoctor.getUniqueID() + ":" + displayDoctor.getFirstName() + " " + displayDoctor.getLastName()
             + ":" + displayDoctor.getAddress()); 
         }
     }
-    public void loadArrays(){
+    public void loadArrays(){   //loads all the data into the arrays
         try{
             readArray = FileReader.readUsers();
         }catch(Exception e){

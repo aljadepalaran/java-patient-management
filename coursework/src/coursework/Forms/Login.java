@@ -104,16 +104,16 @@ public class Login extends javax.swing.JFrame {
         uniqueID = usernameField.getText();
         password = MainFunctions.charToString(passwordField.getPassword());
         
-        if(uniqueID.compareTo("") == 0 || password.compareTo("") == 0){            
+        if(uniqueID.compareTo("") == 0 || password.compareTo("") == 0){ //checks if there are blank fields.            
             JOptionPane.showMessageDialog(this, "One or more fields are empty.");
         }else{
-            authFlag = MainFunctions.authenticateLogin(uniqueID, password);                     //Checks if the credentials are correct.
-            if(authFlag == true){                                                           //If the credentials match.
-                Session userSession = Session.getInstance(uniqueID);
+            authFlag = MainFunctions.authenticateLogin(uniqueID, password); //checks if the password and username matches
+            if(authFlag == true){                                                         
+                Session userSession = Session.getInstance(uniqueID);    //creates a singleton object for the session
                 userSession.setUID(uniqueID);
-                MainFunctions.displayMainForm(userSession);
+                MainFunctions.displayMainForm(userSession); //runs a function to decide which form to show
                 this.setVisible(false);
-            }else{                                                                           //If the credentials do not match.
+            }else{  //error if the credentials do not match                                                                           
                 JOptionPane.showMessageDialog(this, "Login unsuccessful.");                                  
             }
         }

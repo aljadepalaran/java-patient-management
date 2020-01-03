@@ -8,8 +8,8 @@ import javax.swing.JOptionPane;
 public class Creator extends javax.swing.JFrame {
 
     Session userSession;
-    Patient patientArray[];
-    User readArray[] = null;
+    Patient[] patientArray;
+    User[] allUsers = null;
     
     public Creator() {
         initComponents();
@@ -18,26 +18,18 @@ public class Creator extends javax.swing.JFrame {
     public Creator(Session _input) {
         initComponents();
         userSession = _input;
-        patientSelect.removeAllItems();
-        firstnameText.setText("");
-        lastnameText.setText("");
-        addressText.setText("");
-        dobText.setText("");
-        maleRadio.setSelected(false);
-        femaleRadio.setSelected(false);
+        clearForm();
         try{
-            readArray = FileReader.readUsers();
-        }catch(Exception e){}
-        try{
+            allUsers = FileReader.readUsers();
             int counter = 0;
-            for(int i = 0; i < readArray.length; i++){
+            for(int i = 0; i < allUsers.length; i++){
                 counter++;
             }
             int newCounter = 0;
             patientArray = new Patient[counter];
-            for(int i = 0; i < readArray.length; i++){
-                if(readArray[i].getUniqueID().substring(0,1).compareTo("P") == 0){
-                    patientArray[newCounter] = (Patient)readArray[i];
+            for(int i = 0; i < allUsers.length; i++){
+                if(allUsers[i].getUniqueID().substring(0,1).compareTo("P") == 0){
+                    patientArray[newCounter] = (Patient)allUsers[i];
                     newCounter++;
                 }else{}
             }
@@ -45,6 +37,16 @@ public class Creator extends javax.swing.JFrame {
                 patientSelect.addItem((patientArray[i].getUniqueID()));
             }
         }catch(Exception e){}
+    }
+    
+    public void clearForm(){
+        patientSelect.removeAllItems();
+        firstnameText.setText("");
+        lastnameText.setText("");
+        addressText.setText("");
+        dobText.setText("");
+        maleRadio.setSelected(false);
+        femaleRadio.setSelected(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -230,10 +232,10 @@ public class Creator extends javax.swing.JFrame {
             String newID = GenerateID.appointmentID();
             boolean check = false;
             boolean doctorBusy = false;
-            if(MainFunctions.validateDate(setDateField.getText())){
+            if(MainFunctions.validateDate(setDateField.getText())){ //checks if the date is in the correct format.
                 String date = setDateField.getText();
                 for(int i = 0; i < allAppointments.length; i++){
-                    if(allAppointments[i].getDoctorID().compareTo(doctorID) == 0){
+                    if(allAppointments[i].getDoctorID().compareTo(doctorID) == 0){  //checks if the doctor is busy.
                         if(allAppointments[i].getDate().compareTo(date) == 0){
                             doctorBusy = true;
                         }

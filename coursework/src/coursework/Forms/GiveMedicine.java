@@ -160,24 +160,25 @@ public class GiveMedicine extends javax.swing.JFrame {
     private void selectPrescriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectPrescriptionActionPerformed
         try{
             String selectedID = selectPrescription.getSelectedItem().toString();
-            for(int i = 0; i < allPrescriptions.length; i++){
+            for(int i = 0; i < allPrescriptions.length; i++){   //retrieves the selected prescription
                 if(allPrescriptions[i].getPrescriptionID().compareTo(selectedID) == 0){
                     selectedPrescription = allPrescriptions[i];
                 }
             }
-            for(int i = 0; i < allMeds.length; i++){
+            for(int i = 0; i < allMeds.length; i++){    //retrieves the selected medicine for the prescription
                 if(allMeds[i].getMedicineName().compareTo(selectedPrescription.getMedicineType().getMedicineName()) == 0){
                     selectedMedicine = allMeds[i];
                 }
             }
-            for(int i = 0; i < allUsers.length; i++){
-                if(allUsers[i].getUniqueID().compareTo(selectedPrescription.getPatientID()) == 0){
+            for(int i = 0; i < allUsers.length; i++){   
+                if(allUsers[i].getUniqueID().compareTo(selectedPrescription.getPatientID()) == 0){  //retrieves the patient and displays their name
                     patientLabel.setText("PATIENT: " + allUsers[i].getFirstName() + " " + allUsers[i].getLastName());
                 }
-                if(allUsers[i].getUniqueID().compareTo(selectedPrescription.getDoctorID()) == 0){
+                if(allUsers[i].getUniqueID().compareTo(selectedPrescription.getDoctorID()) == 0){   //retrieves the doctor and displays their name
                     doctorLabel.setText("DOCTOR: " + allUsers[i].getFirstName() + " " + allUsers[i].getLastName());
                 }
             }
+            //sets the information for the prescription onto the labels.
             notesLabel.setText("NOTES: " + selectedPrescription.getNotes());
             medicineLabel.setText("MEDICINE: " + selectedPrescription.getMedicineType().getMedicineName());
             qtyLabel.setText("REQUESTED QTY: " + selectedPrescription.getQuantity());
@@ -188,17 +189,17 @@ public class GiveMedicine extends javax.swing.JFrame {
 
     private void giveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_giveButtonActionPerformed
         try{
-            if(selectedPrescription.getQuantity() > selectedMedicine.getStock()){
+            if(selectedPrescription.getQuantity() > selectedMedicine.getStock()){   //checks if there is enough stock for the prescription
                 JOptionPane.showMessageDialog(this, "Not enough stock.");
             }else if(selectedPrescription.getQuantity() < selectedMedicine.getStock()){
                 Augment.removePrescriptionRequest(selectedPrescription.getPrescriptionID());
                 Augment.addPrescription(selectedPrescription);
                 for(int i = 0; i < allMeds.length; i++){
-                    if(allMeds[i].getMedicineName().compareTo(selectedMedicine.getMedicineName()) == 0){
+                    if(allMeds[i].getMedicineName().compareTo(selectedMedicine.getMedicineName()) == 0){//removes the quantity given from the stock
                         allMeds[i].setStock(allMeds[i].getStock() - selectedPrescription.getQuantity());
                     }
                 }
-                FileWriter.writeMedicines(allMeds);
+                FileWriter.writeMedicines(allMeds);//writes the new stock into the file
                 JOptionPane.showMessageDialog(this, "Prescription fulfilled.");
                 this.setVisible(false);
                 this.dispose();
