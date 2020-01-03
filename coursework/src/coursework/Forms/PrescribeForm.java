@@ -261,10 +261,6 @@ public class PrescribeForm extends javax.swing.JFrame {
             patientID = selectPatient.getSelectedItem().toString().substring(1,6);
             selectedMed = meds[selectMedicine.getSelectedIndex()];
             
-            if(qty > selectedMed.getStock()){
-                valid = false;
-                JOptionPane.showMessageDialog(this, "Not enough stock.");
-            }
             if(qty < 1){
                 valid = false;
                 JOptionPane.showMessageDialog(this, "You cannot prescribe QTY<1");
@@ -282,9 +278,7 @@ public class PrescribeForm extends javax.swing.JFrame {
                 PrescriptionCreator creator = new PrescriptionCreator(patientID, 
                         doctorID, notes, selectedMed, qty, dosage);
                 Prescription newPrescription = creator.createPrescription();
-                Augment.addPrescription(newPrescription);
-                meds[selectMedicine.getSelectedIndex()].setStock(meds[selectMedicine.getSelectedIndex()].getStock() - qty);
-                FileWriter.writeMedicines(meds);
+                Augment.addPrescriptionRequest(newPrescription);
                 JOptionPane.showMessageDialog(this, "Prescription added.");
             }else{}
         }catch(Exception e){}

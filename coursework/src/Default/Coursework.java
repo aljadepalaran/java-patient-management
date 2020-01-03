@@ -11,14 +11,15 @@ public class Coursework {
 //        PopulateFile.populateAppointment5();
 //        PopulateFile.populateProposed();
 
-//        Display.displayAppRequests();
+        Display.displayAppRequests();
 //        Display.displayAppointments();
 //        Display.displayProposed();
 //        Display.displayTerminationRequests();
         //PopulateFile.populateRequestedPrescriptions();
-        Display.displayPrescriptions();
+        //Display.displayPrescriptions();
+        //Display.displayPrescriptionRequests();
         //PopulateFile.populatePrescription5();
-        System.out.println(GenerateID.prescriptionID());
+//        System.out.println(GenerateID.prescriptionID());
         
         Login loginForm = new Login();
         loginForm.setVisible(true);

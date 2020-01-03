@@ -304,6 +304,35 @@ public class Augment {
         }
         return created;
     }
+    public static void addPrescriptionRequest(Prescription _input){
+        Prescription output[] = null;
+        boolean hasNull = false;
+        
+        try{
+            output = FileReader.readRequestedPrescriptions();
+        }catch(Exception e){
+            System.out.println(e);
+        }
+        
+        for(int i = 0; i < output.length; i++){
+            if(output[i] == null){//if there is space
+                output[i] = _input;
+                hasNull = true;
+                break;
+            }else{}
+        }
+        
+        if(hasNull == false){//if there was no space
+            output = Resize.prescriptionArray(output, output.length + 1);
+            output[output.length - 1] = _input;
+        }
+        
+        try{
+            FileWriter.writePrescriptionRequests(output);
+        }catch(Exception e){
+            System.out.println(e);
+        }
+    }
     
     //REMOVE Objects from the file.
     public static void removeUser(String _input){
@@ -326,7 +355,19 @@ public class Augment {
         
     }
     public static void removePrescription(String _input){
-        
+        Prescription output[] = null;
+        try{
+            output = FileReader.readPrescriptions();
+        }catch(Exception e){}
+        for(int i = 0; i < output.length; i++){
+            if(output[i].getPrescriptionID().compareTo(_input) == 0){
+                output[i] = null;
+            }
+        }
+        output = trimPrescriptions(output);
+        try{
+            FileWriter.writePrescriptions(output);
+        }catch(Exception e){}
     }
     public static void removeAppointmentRequest(String _input){
         Appointment output[] = null;

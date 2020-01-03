@@ -53,7 +53,7 @@ public class Display {
             System.out.println(e);
         }
         for(int i = 0; i < output.length; i++){
-            System.out.println(output[i].getPatientID() + ":" + output[i].getDoctorID() 
+            System.out.println(output[i].getPrescriptionID() + ":" + output[i].getPatientID() + ":" + output[i].getDoctorID() 
                     + ":" + output[i].getNotes() + ":" + output[i].getMedicineType()
                     + ":" + output[i].getQuantity()+ ":" + output[i].getDosage());
         }
@@ -140,4 +140,17 @@ public class Display {
             + ":" + output[i].getFirstName() + ":" + output[i].getLastName());
         }
     }//termination requests
+    public static void displayPrescriptionRequests(){
+        Prescription output[] =  null;
+        try{
+            output = FileReader.readRequestedPrescriptions();
+        }catch(Exception e){
+            System.out.println(e);
+        }
+        for(int i = 0; i < output.length; i++){
+            System.out.println(output[i].getPrescriptionID() + ":" + output[i].getPatientID() + ":" + output[i].getDoctorID() 
+                    + ":" + output[i].getNotes() + ":" + output[i].getMedicineType()
+                    + ":" + output[i].getQuantity()+ ":" + output[i].getDosage());
+        }
+    }
 }
