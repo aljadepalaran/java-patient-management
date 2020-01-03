@@ -154,7 +154,8 @@ public class Register extends javax.swing.JFrame {
                 this.setVisible(false);
                 this.dispose();
             }
-            UserCreator.addUserToSystem(newID, password, firstname, lastname, address, sex, birthDate);
+            UserCreator creator = new UserCreator();
+            creator.addUserToSystem(newID, password, firstname, lastname, address, sex, birthDate);
             JOptionPane.showMessageDialog(this, "Your UID: " + newID);
         }else{
             JOptionPane.showMessageDialog(this, "Register incomplete: One or more fields are empty.");
