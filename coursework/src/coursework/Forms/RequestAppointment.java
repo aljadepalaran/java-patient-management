@@ -231,22 +231,37 @@ public class RequestAppointment extends javax.swing.JFrame {
 
     private void requestButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestButton2ActionPerformed
         try{
+            Appointment allAppointments[] = FileReader.readAppointments();
             String date = dateInput.getText();
         
             boolean valid = true;
+            boolean doctorBusy = false;
             if(MainFunctions.validateDate(date)){
-
             }else{
                 valid = false;
             }
+            
             if(valid == true){
                 String appID = GenerateID.appointmentID();
                 String doctorID = doctorSelect.getSelectedItem().toString();
-                Appointment newApp = new Appointment(appID, userSession.getUID(), doctorID, date, "");
-                Augment.addAppointmentRequest(newApp);
-                JOptionPane.showMessageDialog(this, "Appointment request added.");
-                this.setVisible(false);
-                this.dispose();
+                
+                for(int i = 0; i < allAppointments.length; i++){
+                    if(allAppointments[i].getDoctorID().compareTo(doctorID) == 0){
+                        if(allAppointments[i].getDate().compareTo(date) == 0){
+                            doctorBusy = true;
+                        }
+                    }
+                }
+                if(doctorBusy == false){
+                    Appointment newApp = new Appointment(appID, userSession.getUID(), doctorID, date, "");
+                    Augment.addAppointmentRequest(newApp);
+                    JOptionPane.showMessageDialog(this, "Appointment request added.");
+                    this.setVisible(false);
+                    this.dispose();
+                }else{
+                    JOptionPane.showMessageDialog(this, "The doctor is busy on this date.");
+                }
+                
             }else{
             JOptionPane.showMessageDialog(this, "Appointment request not submitted.");}
         }catch(Exception e){

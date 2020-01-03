@@ -223,26 +223,39 @@ public class Creator extends javax.swing.JFrame {
     }//GEN-LAST:event_patientSelectActionPerformed
 
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
-        
-        String patientID = patientSelect.getSelectedItem().toString();              
-        String doctorID = userSession.getUID();
-        String newID = GenerateID.appointmentID();
-        boolean check = false;
-        if(MainFunctions.validateDate(setDateField.getText())){
-            String date = setDateField.getText();
-            Appointment newAppointment = new Appointment(newID, patientID, doctorID, date, "");
-            check = Augment.addProposedAppointment(newAppointment);
-            if(check == true){
-                JOptionPane.showMessageDialog(this, "Proposal created.");
+        try{
+            Appointment allAppointments[] = FileReader.readAppointments();
+            String patientID = patientSelect.getSelectedItem().toString();              
+            String doctorID = userSession.getUID();
+            String newID = GenerateID.appointmentID();
+            boolean check = false;
+            boolean doctorBusy = false;
+            if(MainFunctions.validateDate(setDateField.getText())){
+                String date = setDateField.getText();
+                for(int i = 0; i < allAppointments.length; i++){
+                    if(allAppointments[i].getDoctorID().compareTo(doctorID) == 0){
+                        if(allAppointments[i].getDate().compareTo(date) == 0){
+                            doctorBusy = true;
+                        }
+                    }
+                }
+                if(doctorBusy == false){
+                    Appointment newAppointment = new Appointment(newID, patientID, doctorID, date, "");
+                    check = Augment.addProposedAppointment(newAppointment);
+                    if(check == true){
+                        JOptionPane.showMessageDialog(this, "Proposal created.");
+                    }else{
+                        JOptionPane.showMessageDialog(this, "You have already created a proposal for this patient.");
+                    }
+                    this.setVisible(false);
+                    this.dispose();
+                }else{
+                    JOptionPane.showMessageDialog(this, "You are busy on this date.");
+                }
             }else{
-                JOptionPane.showMessageDialog(this, "You have already created a proposal for this patient.");
+                JOptionPane.showMessageDialog(this, "Incorrect date format.");
             }
-            this.setVisible(false);
-            this.dispose();
-        }else{
-            JOptionPane.showMessageDialog(this, "Incorrect date format.");
-        }
-        
+        }catch(Exception e){}
     }//GEN-LAST:event_createButtonActionPerformed
 
     public static void main(String args[]) {
