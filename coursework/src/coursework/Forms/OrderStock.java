@@ -9,12 +9,21 @@ public class OrderStock extends javax.swing.JFrame {
     
     Medicine allMeds[] = null;  //stores all meds in the system
     Medicine stockRequests[] = null; //stores the stock requests
+    Session userSession;
     
     public OrderStock() {
         initComponents();
         medSelect.removeAllItems();
         loadRequests();
         loadAllMeds();
+    }
+    
+    public OrderStock(Session _input) {
+        initComponents();
+        medSelect.removeAllItems();
+        loadRequests();
+        loadAllMeds();
+        userSession = _input;
     }
     
     public void loadRequests(){
@@ -44,6 +53,11 @@ public class OrderStock extends javax.swing.JFrame {
         requestedText = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -132,6 +146,9 @@ public class OrderStock extends javax.swing.JFrame {
             }
             FileWriter.writeMedicines(allMeds);
             Augment.removeMedicineOrder(selected.getMedicineName());
+            this.setVisible(false);
+            this.dispose();
+            JOptionPane.showMessageDialog(this, "Stock ordered.");
         }catch(Exception e){}
     }//GEN-LAST:event_orderButtonActionPerformed
 
@@ -149,6 +166,11 @@ public class OrderStock extends javax.swing.JFrame {
             currentText.setText("CURRENT STOCK: " + currentStock);
         }catch(Exception e){}
     }//GEN-LAST:event_medSelectActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        MainSecretary newForm = new MainSecretary(userSession);
+        newForm.setVisible(true);
+    }//GEN-LAST:event_formWindowClosed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
