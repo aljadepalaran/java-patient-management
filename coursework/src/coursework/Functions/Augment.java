@@ -373,16 +373,19 @@ public class Augment {
         Appointment output[] = null;
         try{
             output = FileReader.readAppointmentRequests();
-        }catch(Exception e){}
-        for(int i = 0; i < output.length; i++){
-            if(output[i].getAppointmentID().compareTo(_input) == 0){
-                output[i] = null;
+        
+            for(int i = 0; i < output.length; i++){
+                if(output[i].getAppointmentID().compareTo(_input) == 0){
+                    output[i] = null;
+                }
             }
-        }
-        output = trimAppointments(output);
-        try{
+
+            output = trimAppointments(output);
+        
             FileWriter.writeAppointmentRequests(output);
-        }catch(Exception e){}
+        }catch(Exception e){
+            System.out.println(e);
+        }
     }//for appointment approvals
     public static void removeApproval(String _input){
         User output[] = null;
@@ -432,7 +435,6 @@ public class Augment {
     }
     public static void removeTerminationRequest(String _input){
         User output[] = null;
-        System.out.println(_input);
         try{
             output = FileReader.readAccountTerminationRequests();
             for(int i = 0; i < output.length; i++){
@@ -441,9 +443,6 @@ public class Augment {
                 }
             }
             output = trimUsers(output);
-            for(int i = 0; i < output.length; i++){
-                System.out.println(output);
-            }
             FileWriter.writeAccountTermRequests(output);
         }catch(Exception e){}
     }
