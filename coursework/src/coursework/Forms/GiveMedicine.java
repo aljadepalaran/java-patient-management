@@ -53,6 +53,11 @@ public class GiveMedicine extends javax.swing.JFrame {
         stockLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -188,12 +193,23 @@ public class GiveMedicine extends javax.swing.JFrame {
             }else if(selectedPrescription.getQuantity() < selectedMedicine.getStock()){
                 Augment.removePrescriptionRequest(selectedPrescription.getPrescriptionID());
                 Augment.addPrescription(selectedPrescription);
+                for(int i = 0; i < allMeds.length; i++){
+                    if(allMeds[i].getMedicineName().compareTo(selectedMedicine.getMedicineName()) == 0){
+                        allMeds[i].setStock(allMeds[i].getStock() - selectedPrescription.getQuantity());
+                    }
+                }
+                FileWriter.writeMedicines(allMeds);
                 JOptionPane.showMessageDialog(this, "Prescription fulfilled.");
                 this.setVisible(false);
                 this.dispose();
             }
         }catch(Exception e){}
     }//GEN-LAST:event_giveButtonActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        MainSecretary newForm = new MainSecretary(userSession);
+        newForm.setVisible(true);
+    }//GEN-LAST:event_formWindowClosed
 
     public static void main(String args[]) {
         
