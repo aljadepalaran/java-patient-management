@@ -13,13 +13,11 @@ public class OrderStock extends javax.swing.JFrame {
     
     public OrderStock() {
         initComponents();
-        medSelect.removeAllItems();
-        loadRequests();
-        loadAllMeds();
     }
     
     public OrderStock(Session _input) {
         initComponents();
+        this.setResizable(false);
         medSelect.removeAllItems();
         loadRequests();
         loadAllMeds();

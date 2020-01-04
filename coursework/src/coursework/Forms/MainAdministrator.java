@@ -22,7 +22,6 @@ public class MainAdministrator extends javax.swing.JFrame {
     
     public MainAdministrator() {
         initComponents();
-        this.setResizable(false);
     }
     
     public MainAdministrator(Session _session) {

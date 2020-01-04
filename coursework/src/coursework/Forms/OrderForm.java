@@ -14,6 +14,7 @@ public class OrderForm extends javax.swing.JFrame {
     
     public OrderForm() {
         initComponents();
+        this.setResizable(false);
         selectMedicine.removeAllItems();
         try{
             medArray = FileReader.readMedicines();

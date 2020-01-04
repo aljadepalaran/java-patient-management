@@ -10,6 +10,7 @@ public class ViewRatings extends javax.swing.JFrame {
     
     public ViewRatings() {
         initComponents();
+        this.setResizable(false);
         loadDoctors();
         
     }

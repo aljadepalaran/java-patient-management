@@ -11,6 +11,8 @@ import coursework.Users.User;
 import javax.swing.JOptionPane;
 
 public class MainPatient extends javax.swing.JFrame {
+    
+    //GLOBAL VARIABLES
     Session userSession;
     User allUsers[] = null;
     Doctor allDoctors[] = null;
@@ -19,7 +21,6 @@ public class MainPatient extends javax.swing.JFrame {
     
     public MainPatient(){
         initComponents();
-        this.setResizable(false);
     }
     
     public MainPatient(Session _session){

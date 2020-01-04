@@ -14,6 +14,7 @@ public class ViewPrescription extends javax.swing.JFrame {
     
     public ViewPrescription(Session _input) {
         initComponents();
+        this.setResizable(false);
         userSession = _input;
         showData();
     }

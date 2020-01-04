@@ -17,6 +17,7 @@ public class Creator extends javax.swing.JFrame {
     
     public Creator(Session _input) {
         initComponents();
+        this.setResizable(false);
         userSession = _input;
         clearForm();
         try{

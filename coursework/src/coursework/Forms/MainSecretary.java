@@ -9,6 +9,7 @@ import java.util.Set;
 
 public class MainSecretary extends javax.swing.JFrame {
 
+    //GLOBAL VARIABLES
     Session userSession;
     Patient approvals[];
     Appointment[] appointmentRequests;
@@ -20,7 +21,6 @@ public class MainSecretary extends javax.swing.JFrame {
     
     public MainSecretary() {
         initComponents();
-        this.setResizable(false);
     }
 
     public MainSecretary(Session _session) {

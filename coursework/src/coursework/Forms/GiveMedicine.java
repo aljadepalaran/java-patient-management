@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 
 public class GiveMedicine extends javax.swing.JFrame {
 
+    //GLOBAL VARIABLES
     Session userSession;
     Prescription allPrescriptions[] = null;
     Prescription selectedPrescription;
@@ -20,6 +21,7 @@ public class GiveMedicine extends javax.swing.JFrame {
 
     public GiveMedicine(Session _input) {
         initComponents();
+        this.setResizable(false);
         userSession = _input;
         selectPrescription.removeAllItems();
         loadData();

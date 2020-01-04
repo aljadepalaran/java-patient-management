@@ -20,7 +20,6 @@ public class MainDoctor extends javax.swing.JFrame {
     
     public MainDoctor() {
         initComponents();
-        this.setResizable(false);
     }
     
     public MainDoctor(Session _session) {

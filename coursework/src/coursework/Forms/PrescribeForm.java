@@ -9,15 +9,16 @@ import java.util.Set;
 import javax.swing.JOptionPane;
 
 public class PrescribeForm extends javax.swing.JFrame {
+    
+    //GLOBAL VARIABLES
     Medicine meds[] = null;
     User allUsers[] = null;
     Session userSession;
+    
     public PrescribeForm() {
         initComponents();
-        selectPatient.removeAllItems();
-        selectMedicine.removeAllItems();
-        loadArrays();
     }
+    
     public PrescribeForm(Session _input) {
         initComponents();
         selectPatient.removeAllItems();

@@ -5,6 +5,8 @@ import coursework.Users.*;
 import javax.swing.JOptionPane;
 
 public class Register extends javax.swing.JFrame {
+    
+    //GLOBAL VARIABLES
     String firstname;
     String lastname;
     String password;
@@ -13,11 +15,14 @@ public class Register extends javax.swing.JFrame {
     String birthDate;
     char sex = 'N';
     char userType;
+    
     public Register() {
         initComponents();
     }
+    
     public Register(char _userType) {
         initComponents();
+        this.setResizable(false);
         firstnameWarning.setVisible(false);
         lastnameWarning.setVisible(false);
         passwordWarning.setVisible(false);
