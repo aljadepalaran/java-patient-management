@@ -27,21 +27,59 @@ public class MainDoctor extends javax.swing.JFrame {
         initComponents();
         this.setResizable(false);
         userSession = _session;
-        patientSelect.removeAllItems();
-        historyPatient.removeAllItems();
-        historyDate.removeAllItems();
+        clearForm();
         try{
             readArray = FileReader.readAppointments();
         }catch(Exception e){}
+        loadAppointments();
+        loadHistory();
     }
-
+    
+    //Clears the data stored in the form.
+    public void clearForm(){
+        patientSelect.removeAllItems();
+        historyPatient.removeAllItems();
+        historyDate.removeAllItems();
+    }
+    
+    public void loadAppointments(){
+        try{
+            readArray = FileReader.readAppointments();
+        }catch(Exception e){}
+        
+        for(int i = 0; i < readArray.length; i++){
+            System.out.println(readArray[i].getAppointmentID());
+            if(readArray[i].getDoctorID().compareTo(userSession.getUID()) == 0){
+                if(doctorAppointments[doctorAppointments.length - 1] == null){
+                    doctorAppointments[doctorAppointments.length - 1] = readArray[i];
+                }else{
+                    doctorAppointments = Resize.appointmentArray(doctorAppointments, doctorAppointments.length + 1);
+                    doctorAppointments[doctorAppointments.length - 1] = readArray[i];
+                }
+            }
+        }
+        for(int i = 0; i < doctorAppointments.length; i++){
+            patientSelect.addItem(doctorAppointments[i].getPatientID() + ":" + doctorAppointments[i].getDate());
+        }
+    }
+    
+    public void loadHistory(){
+        historyPatient.removeAllItems();
+        try{
+            userArray = FileReader.readUsers();
+        }catch(Exception e){}
+        for(int i = 0; i < userArray.length; i++){
+            if(userArray[i].getUniqueID().substring(0,1).compareTo("P") == 0){
+                historyPatient.addItem((userArray[i].getUniqueID()));
+            }
+        }
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         buttonPanel = new javax.swing.JLayeredPane();
-        viewAppointmentButton = new javax.swing.JButton();
-        viewHistoryButton = new javax.swing.JButton();
         proposeAppointmentButton = new javax.swing.JButton();
         prescribeButton = new javax.swing.JButton();
         logoutButton = new javax.swing.JButton();
@@ -73,20 +111,6 @@ public class MainDoctor extends javax.swing.JFrame {
 
         buttonPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        viewAppointmentButton.setText("View Appointments");
-        viewAppointmentButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewAppointmentButtonActionPerformed(evt);
-            }
-        });
-
-        viewHistoryButton.setText("Patient History");
-        viewHistoryButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewHistoryButtonActionPerformed(evt);
-            }
-        });
-
         proposeAppointmentButton.setText("Propose Appointment");
         proposeAppointmentButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,8 +139,6 @@ public class MainDoctor extends javax.swing.JFrame {
             }
         });
 
-        buttonPanel.setLayer(viewAppointmentButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        buttonPanel.setLayer(viewHistoryButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
         buttonPanel.setLayer(proposeAppointmentButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
         buttonPanel.setLayer(prescribeButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
         buttonPanel.setLayer(logoutButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -130,21 +152,15 @@ public class MainDoctor extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(logoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(proposeAppointmentButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                    .addComponent(viewHistoryButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(viewAppointmentButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(prescribeButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(orderMedButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(proposeAppointmentButton, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                    .addComponent(orderMedButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         buttonPanelLayout.setVerticalGroup(
             buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(buttonPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(viewAppointmentButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(viewHistoryButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(proposeAppointmentButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(prescribeButton)
@@ -371,28 +387,6 @@ public class MainDoctor extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void viewAppointmentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewAppointmentButtonActionPerformed
-        
-        try{
-            readArray = FileReader.readAppointments();
-        }catch(Exception e){}
-        
-        for(int i = 0; i < readArray.length; i++){
-            System.out.println(readArray[i].getAppointmentID());
-            if(readArray[i].getDoctorID().compareTo(userSession.getUID()) == 0){
-                if(doctorAppointments[doctorAppointments.length - 1] == null){
-                    doctorAppointments[doctorAppointments.length - 1] = readArray[i];
-                }else{
-                    doctorAppointments = Resize.appointmentArray(doctorAppointments, doctorAppointments.length + 1);
-                    doctorAppointments[doctorAppointments.length - 1] = readArray[i];
-                }
-            }
-        }
-        for(int i = 0; i < doctorAppointments.length; i++){
-            patientSelect.addItem(doctorAppointments[i].getPatientID() + ":" + doctorAppointments[i].getDate());
-        }
-    }//GEN-LAST:event_viewAppointmentButtonActionPerformed
-
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
         Login loginForm = new Login();
         loginForm.setVisible(true);
@@ -432,21 +426,12 @@ public class MainDoctor extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_patientSelectActionPerformed
-    
-    private void viewHistoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewHistoryButtonActionPerformed
-        historyPatient.removeAllItems();
-        try{
-            userArray = FileReader.readUsers();
-        }catch(Exception e){}
-        for(int i = 0; i < userArray.length; i++){
-            if(userArray[i].getUniqueID().substring(0,1).compareTo("P") == 0){
-                historyPatient.addItem((userArray[i].getUniqueID()));
-            }
-        }
-    }//GEN-LAST:event_viewHistoryButtonActionPerformed
-    
+        
     private void historyPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historyPatientActionPerformed
+        //Clears the data
         historyDate.removeAllItems();
+        historyNote.setText("");
+        doctorText.setText("");
         try{
             for(int i = 0; i < readArray.length; i++){
                 if(readArray[i].getPatientID().compareTo(historyPatient.getSelectedItem().toString()) == 0){
@@ -538,7 +523,5 @@ public class MainDoctor extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> patientSelect;
     private javax.swing.JButton prescribeButton;
     private javax.swing.JButton proposeAppointmentButton;
-    private javax.swing.JButton viewAppointmentButton;
-    private javax.swing.JButton viewHistoryButton;
     // End of variables declaration//GEN-END:variables
 }

@@ -75,11 +75,9 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                       <Component id="logoutButton" alignment="1" max="32767" attributes="0"/>
-                      <Component id="proposeAppointmentButton" alignment="0" pref="170" max="32767" attributes="0"/>
-                      <Component id="viewHistoryButton" alignment="0" max="32767" attributes="0"/>
-                      <Component id="viewAppointmentButton" alignment="0" max="32767" attributes="0"/>
                       <Component id="prescribeButton" alignment="0" max="32767" attributes="0"/>
-                      <Component id="orderMedButton" max="32767" attributes="0"/>
+                      <Component id="proposeAppointmentButton" alignment="1" pref="170" max="32767" attributes="0"/>
+                      <Component id="orderMedButton" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -88,10 +86,6 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="viewAppointmentButton" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="viewHistoryButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="proposeAppointmentButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -106,22 +100,6 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="viewAppointmentButton">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="View Appointments"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewAppointmentButtonActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="viewHistoryButton">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Patient History"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewHistoryButtonActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JButton" name="proposeAppointmentButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Propose Appointment"/>
