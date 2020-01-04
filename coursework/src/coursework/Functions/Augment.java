@@ -36,7 +36,7 @@ public class Augment {
             System.out.println(e);
         }
         
-    }   //adds a user to the system
+    }                               //Adds a user to the system.
     public static void addRating(Rating _input){
         
         Rating output[] = null;
@@ -66,7 +66,7 @@ public class Augment {
         }catch(Exception e){
             System.out.println(e);
         }
-    }   //adds a rating to the system
+    }                           //Adds a rating to the system.
     public static void addFeedback(Feedback _input){
         
         Feedback output[] = null;
@@ -96,7 +96,7 @@ public class Augment {
         }catch(Exception e){
             System.out.println(e);
         }
-    }   //adds a feedback to the system
+    }                       //Adds a feedback to the system.
     public static void addPrescription(Prescription _input){
         
         Prescription output[] = null;
@@ -126,7 +126,7 @@ public class Augment {
         }catch(Exception e){
             System.out.println(e);
         }
-    }   //adds a prescription to the system
+    }               //Adds a prescription to the system.
     public static void addAppointment(Appointment _input){
         
         Appointment output[] = null;
@@ -156,7 +156,7 @@ public class Augment {
         }catch(Exception e){
             System.out.println(e);
         }
-    }   //adds an appointment to the system
+    }                 //Adds an appointment to the system.
     public static void addRequest(User _input){
         
         User output[] = null;
@@ -187,7 +187,7 @@ public class Augment {
             System.out.println(e);
         }
         
-    }   //adds a user to the account creation requests
+    }                            //Adds a user to the account creation requests.
     public static void addMedicine(Medicine _input){
         Medicine output[] = null;
         boolean hasNull = false;
@@ -210,7 +210,7 @@ public class Augment {
         try{
             FileWriter.writeMedicines(output);
         }catch(Exception e){}
-    }   
+    }                       //Adds a medicine to the system.
     public static void addOrder(Medicine _input){
         Medicine output[] = null;
         boolean hasNull = false;
@@ -233,7 +233,7 @@ public class Augment {
         try{
             FileWriter.writeMedicineOrders(output);
         }catch(Exception e){}
-    }
+    }                          //Adds an order for medicine to the system.
     public static void addAppointmentRequest(Appointment _input){
         Appointment output[] = null;
         boolean hasNull = false;
@@ -262,7 +262,7 @@ public class Augment {
         }catch(Exception e){
             System.out.println(e);
         }
-    }
+    }          //Adds an appointment request by the user.
     public static boolean addProposedAppointment(Appointment _input){
         Appointment output[] = null;
         boolean hasNull = false;
@@ -303,7 +303,7 @@ public class Augment {
             created = false;
         }
         return created;
-    }
+    }      //Adds a proposed appointment by the doctor.
     public static void addPrescriptionRequest(Prescription _input){
         Prescription output[] = null;
         boolean hasNull = false;
@@ -332,7 +332,7 @@ public class Augment {
         }catch(Exception e){
             System.out.println(e);
         }
-    }
+    }        //Adds a prescription request by the doctor.
     
     //REMOVE Objects from the file.
     public static void removeUser(String _input){
@@ -347,13 +347,7 @@ public class Augment {
             output = trimUsers(output);
             FileWriter.writeUsers(output);
         }catch(Exception e){}
-    }
-    public static void removeRating(String _input){
-        
-    }
-    public static void removeFeedback(String _input){
-        
-    }
+    }                          //Remove a user.
     public static void removePrescription(String _input){
         Prescription output[] = null;
         try{
@@ -368,7 +362,7 @@ public class Augment {
         try{
             FileWriter.writePrescriptions(output);
         }catch(Exception e){}
-    }
+    }                  //Remove a prescription.
     public static void removeAppointmentRequest(String _input){
         Appointment output[] = null;
         try{
@@ -386,7 +380,7 @@ public class Augment {
         }catch(Exception e){
             System.out.println(e);
         }
-    }//for appointment approvals
+    }            //Remove a request for an appointment.
     public static void removeApproval(String _input){
         User output[] = null;
         try{
@@ -401,7 +395,7 @@ public class Augment {
         try{
             FileWriter.writeAccountRequests(output);
         }catch(Exception e){}
-    }//for patient approvals
+    }                      //Remove patient from approvals.
     public static void removeMedicineOrder(String _input){
         Medicine output[] = null;
         try{
@@ -417,7 +411,7 @@ public class Augment {
         try{
             FileWriter.writeMedicineOrders(output);
         }catch(Exception e){}
-    }   //remove medicine from orders based on the name.
+    }                 //Remove a medicine ordered by the doctor.
     public static void removeProposedAppointment(String _input){
         Appointment output[] = null;
         try{
@@ -432,7 +426,7 @@ public class Augment {
         try{
             FileWriter.writeProposedAppointments(output);
         }catch(Exception e){}
-    }
+    }           //Remove an appointment proposed by the doctor.
     public static void removeTerminationRequest(String _input){
         User output[] = null;
         try{
@@ -445,7 +439,7 @@ public class Augment {
             output = trimUsers(output);
             FileWriter.writeAccountTermRequests(output);
         }catch(Exception e){}
-    }
+    }            //Remove a termination request.
     public static void removePrescriptionRequest(String _input){
         Prescription output[] = null;
         try{
@@ -460,7 +454,7 @@ public class Augment {
         try{
             FileWriter.writePrescriptionRequests(output);
         }catch(Exception e){}
-    }//remove prescriptions from prescription requests
+    }           //remove prescriptions from prescription requests
     
     //TRIM NULL Elements.
     public static User[] trimUsers(User[] _input){
@@ -476,7 +470,7 @@ public class Augment {
         }
         output = _input;
         return output;
-    }
+    }                         //Trim the User[] array.
     public static Rating[] trimRatings(Rating[] _input){
         Rating[] output = _input;
         for(int i = 0; i < _input.length; i++){
@@ -490,7 +484,7 @@ public class Augment {
         }
         output = _input;
         return output;
-    }
+    }                   //Trim the Rating[] array.
     public static Feedback[] trimFeedback(Feedback[] _input){
         Feedback[] output = _input;
         for(int i = 0; i < _input.length; i++){
@@ -504,7 +498,7 @@ public class Augment {
         }
         output = _input;
         return output;
-    }
+    }              //Trim the Feedback[] array.
     public static Prescription[] trimPrescriptions(Prescription[] _input){
         Prescription[] output = _input;
         for(int i = 0; i < _input.length; i++){
@@ -524,7 +518,7 @@ public class Augment {
             output[i] = _input[i];
         }
         return output;
-    }
+    } //Trim the prescription array.
     public static Appointment[] trimAppointments(Appointment[] _input){
         Appointment[] output = _input;
         for(int i = 0; i < _input.length; i++){
@@ -544,7 +538,7 @@ public class Augment {
             output[i] = _input[i];
         }
         return output;
-    }
+    }    //Trim the Appointment[] array.
     public static User[] trimRequests(User[] _input){
         User[] output = _input;
         for(int i = 0; i < _input.length; i++){
@@ -558,7 +552,7 @@ public class Augment {
         }
         output = _input;
         return output;
-    }
+    }                      //Trim the User[] array - redundant.
     public static Medicine[] trimMedicines(Medicine[] _input){
         Medicine output[];
         for(int i = 0; i < _input.length; i++){
@@ -581,5 +575,5 @@ public class Augment {
         }
         
         return output;
-    }
+    }             //Trim the Medicine[] array.
 }
