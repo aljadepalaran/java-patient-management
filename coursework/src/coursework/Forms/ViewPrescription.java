@@ -16,10 +16,11 @@ public class ViewPrescription extends javax.swing.JFrame {
         initComponents();
         this.setResizable(false);
         userSession = _input;
-        showData();
+        displayData();
     }
     
-    public void showData(){
+    //A controller to fetch data for patients, doctors and the medicine.
+    public void displayData(){
         try{
             User allUsers[] = FileReader.readUsers();
             Prescription all[] = FileReader.readPrescriptions();

@@ -58,6 +58,7 @@ public class MainSecretary extends javax.swing.JFrame {
         orderQty.setText("");
     }
 
+    //A controller to load all the data needed for the secretary functions.
     public void readAll() {
         User[] allRequests = null;
         try {

@@ -24,10 +24,11 @@ public class PrescribeForm extends javax.swing.JFrame {
         selectPatient.removeAllItems();
         selectMedicine.removeAllItems();
         userSession = _input;
-        loadArrays();
+        loadData();
     }
     
-    public void loadArrays(){
+    //A controller that loads the data for medicines and patients into the form.
+    public void loadData(){
         try{
             allUsers = FileReader.readUsers();
             for(int i = 0; i < allUsers.length; i++){

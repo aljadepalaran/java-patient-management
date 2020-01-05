@@ -34,6 +34,7 @@ public class MainPatient extends javax.swing.JFrame {
         }
     }
     
+    //A controller to load all the data needed for the patient functions.
     public void loadData(){
         selectDoctor.removeAllItems();
         ratingSelect.removeAllItems();

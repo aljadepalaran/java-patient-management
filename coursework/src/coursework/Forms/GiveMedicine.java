@@ -27,6 +27,7 @@ public class GiveMedicine extends javax.swing.JFrame {
         loadData();
     }
     
+    //A controller to load in the prescription, medicine and user information.
     public void loadData(){
         try{
             allPrescriptions = FileReader.readRequestedPrescriptions();

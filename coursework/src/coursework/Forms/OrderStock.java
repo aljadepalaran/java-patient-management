@@ -19,26 +19,21 @@ public class OrderStock extends javax.swing.JFrame {
         initComponents();
         this.setResizable(false);
         medSelect.removeAllItems();
-        loadRequests();
-        loadAllMeds();
+        loadData();
         userSession = _input;
     }
     
-    public void loadRequests(){
+    //A controller that loads stock requests and medicine data into the form.
+    public void loadData(){
         try{
             stockRequests = FileReader.readOrderRequests();
-        }catch(Exception e){}
-        for(int i = 0; i < stockRequests.length; i++){
-            medSelect.addItem(stockRequests[i].getMedicineName());
-        }
-    }
-    
-    public void loadAllMeds(){
-        try{
             allMeds = FileReader.readMedicines();
+            for(int i = 0; i < stockRequests.length; i++){
+                medSelect.addItem(stockRequests[i].getMedicineName());
+            }
         }catch(Exception e){}
     }
-
+  
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

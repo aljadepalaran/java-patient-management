@@ -22,7 +22,8 @@ public class RequestAppointment extends javax.swing.JFrame {
         loadProposed();
         loadDoctors();
     }
-
+    
+    //A controller to load proposed appointments from the data file and display it into the form.
     public void loadProposed(){
         Appointment proposed[] = null;
         User all[] = null;

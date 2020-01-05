@@ -15,6 +15,7 @@ public class ViewRatings extends javax.swing.JFrame {
         
     }
     
+    //A controller to fetch the doctor data and display it into the combo box.
     public void loadDoctors(){
         doctorSelect.removeAllItems();
         try{
@@ -22,7 +23,7 @@ public class ViewRatings extends javax.swing.JFrame {
             for(int i = 0; i < allUsers.length; i++){
                 if(allUsers[i].getUniqueID().substring(0,1).compareTo("D") == 0){
                     doctorSelect.addItem(allUsers[i].getUniqueID() + ":" + allUsers[i].getFirstName() 
-                            + ":" + allUsers[i].getLastName());
+                            + " " + allUsers[i].getLastName());
                 }
             }
         }catch(Exception e){}

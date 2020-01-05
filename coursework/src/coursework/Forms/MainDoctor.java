@@ -27,11 +27,7 @@ public class MainDoctor extends javax.swing.JFrame {
         this.setResizable(false);
         userSession = _session;
         clearForm();
-        try{
-            readArray = FileReader.readAppointments();
-        }catch(Exception e){}
-        loadAppointments();
-        loadHistory();
+        loadData();
     }
     
     //Clears the data stored in the form.
@@ -41,37 +37,34 @@ public class MainDoctor extends javax.swing.JFrame {
         historyDate.removeAllItems();
     }
     
-    public void loadAppointments(){
+    //A controller to load all the data needed for the doctor functions.
+    public void loadData(){
         try{
+            //APPOINTMENTS
             readArray = FileReader.readAppointments();
-        }catch(Exception e){}
-        
-        for(int i = 0; i < readArray.length; i++){
-            System.out.println(readArray[i].getAppointmentID());
-            if(readArray[i].getDoctorID().compareTo(userSession.getUID()) == 0){
-                if(doctorAppointments[doctorAppointments.length - 1] == null){
-                    doctorAppointments[doctorAppointments.length - 1] = readArray[i];
-                }else{
-                    doctorAppointments = Resize.appointmentArray(doctorAppointments, doctorAppointments.length + 1);
-                    doctorAppointments[doctorAppointments.length - 1] = readArray[i];
+            for(int i = 0; i < readArray.length; i++){
+                System.out.println(readArray[i].getAppointmentID());
+                if(readArray[i].getDoctorID().compareTo(userSession.getUID()) == 0){
+                    if(doctorAppointments[doctorAppointments.length - 1] == null){
+                        doctorAppointments[doctorAppointments.length - 1] = readArray[i];
+                    }else{
+                        doctorAppointments = Resize.appointmentArray(doctorAppointments, doctorAppointments.length + 1);
+                        doctorAppointments[doctorAppointments.length - 1] = readArray[i];
+                    }
                 }
             }
-        }
-        for(int i = 0; i < doctorAppointments.length; i++){
-            patientSelect.addItem(doctorAppointments[i].getPatientID() + ":" + doctorAppointments[i].getDate());
-        }
-    }
-    
-    public void loadHistory(){
-        historyPatient.removeAllItems();
-        try{
-            userArray = FileReader.readUsers();
-        }catch(Exception e){}
-        for(int i = 0; i < userArray.length; i++){
-            if(userArray[i].getUniqueID().substring(0,1).compareTo("P") == 0){
-                historyPatient.addItem((userArray[i].getUniqueID()));
+            for(int i = 0; i < doctorAppointments.length; i++){
+                patientSelect.addItem(doctorAppointments[i].getPatientID() + ":" + doctorAppointments[i].getDate());
             }
-        }
+            //HISTORY
+            historyPatient.removeAllItems();
+            userArray = FileReader.readUsers();
+            for(int i = 0; i < userArray.length; i++){
+                if(userArray[i].getUniqueID().substring(0,1).compareTo("P") == 0){
+                    historyPatient.addItem((userArray[i].getUniqueID()));
+                }
+            }   
+        }catch(Exception e){}
     }
     
     @SuppressWarnings("unchecked")
