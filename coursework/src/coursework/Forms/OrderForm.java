@@ -109,7 +109,6 @@ public class OrderForm extends javax.swing.JFrame {
             }catch(Exception e){
                 continueState = 1;
             }
-            JOptionPane.showMessageDialog(this, "STATE: " + continueState);
             if(continueState == 0){
                 for(int i = 0; i < orders.length; i++){
                     if(orders[i].getMedicineName().compareTo(selectedMedicine.getMedicineName()) == 0){
@@ -129,10 +128,8 @@ public class OrderForm extends javax.swing.JFrame {
                     selectedMedicine.setStock(selectedMedicine.getStock() + orderStock);
                     Augment.addOrder(selectedMedicine);
                 }
-                JOptionPane.showMessageDialog(this, "Continued");
             }
             else{
-                JOptionPane.showMessageDialog(this, "STOPPED");
             }
         }else{
             
