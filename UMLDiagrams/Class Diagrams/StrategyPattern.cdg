@@ -2,148 +2,52 @@
 
 <ClassDiagram name="Multi-file class diagram">
   <ClassDiagramComponents>
-    <Class name="Administrator" package="coursework.Models.Users" visibility="public" xPosition="297.0" yPosition="629.0">
-      <Fields/>
-      <Constructors>
-        <Constructor visibility="public">
-          <Argument type="String" name="_uniqueID"/>
-          <Argument type="String" name="_password"/>
-          <Argument type="String" name="_firstName"/>
-          <Argument type="String" name="_lastName"/>
-        </Constructor>
-      </Constructors>
+    <Interface name="UserCreator" package="" visibility="public" xPosition="607.0" yPosition="317.0">
       <Methods/>
-    </Class>
-    <Class name="Doctor" package="coursework.Models.Users" visibility="public" xPosition="630.0" yPosition="243.0">
-      <Fields>
-        <Field name="address" type="String" visibility="private"/>
-      </Fields>
-      <Constructors>
-        <Constructor visibility="public">
-          <Argument type="String" name="_uniqueID"/>
-          <Argument type="String" name="_password"/>
-          <Argument type="String" name="_firstName"/>
-          <Argument type="String" name="_lastName"/>
-          <Argument type="String" name="_address"/>
-        </Constructor>
-      </Constructors>
-      <Methods>
-        <Method name="getAddress" returnType="String" visibility="public"/>
-        <Method name="setAddress" returnType="void" visibility="public">
-          <Argument type="String" name="_address"/>
-        </Method>
-      </Methods>
-    </Class>
-    <Class name="Patient" package="coursework.Models.Users" visibility="public" xPosition="20.0" yPosition="1017.0">
-      <Fields>
-        <Field name="address" type="String" visibility="private"/>
-        <Field name="sex" type="char" visibility="private"/>
-        <Field name="dateOfBirth" type="String" visibility="private"/>
-      </Fields>
-      <Constructors>
-        <Constructor visibility="public">
-          <Argument type="String" name="_uniqueID"/>
-          <Argument type="String" name="_password"/>
-          <Argument type="String" name="_firstName"/>
-          <Argument type="String" name="_lastName"/>
-          <Argument type="String" name="_address"/>
-          <Argument type="char" name="_sex"/>
-          <Argument type="String" name="_dateOfBirth"/>
-        </Constructor>
-      </Constructors>
-      <Methods>
-        <Method name="getAddress" returnType="String" visibility="public"/>
-        <Method name="getSex" returnType="char" visibility="public"/>
-        <Method name="getDOB" returnType="String" visibility="public"/>
-        <Method name="setAddress" returnType="void" visibility="public">
-          <Argument type="String" name="_address"/>
-        </Method>
-        <Method name="setSex" returnType="void" visibility="public">
-          <Argument type="char" name="_sex"/>
-        </Method>
-        <Method name="setDOB" returnType="void" visibility="public">
-          <Argument type="String" name="_dateOfBirth"/>
-        </Method>
-      </Methods>
-    </Class>
-    <Class name="Secretary" package="coursework.Models.Users" visibility="public" xPosition="1461.0" yPosition="366.0">
-      <Fields/>
-      <Constructors>
-        <Constructor visibility="public">
-          <Argument type="String" name="_uniqueID"/>
-          <Argument type="String" name="_password"/>
-          <Argument type="String" name="_firstName"/>
-          <Argument type="String" name="_lastName"/>
-        </Constructor>
-      </Constructors>
-      <Methods/>
-    </Class>
-    <Class name="User" package="coursework.Models.Users" visibility="public" xPosition="1123.0" yPosition="950.0">
-      <Fields>
-        <Field name="uniqueID" type="String" visibility="private"/>
-        <Field name="password" type="String" visibility="private"/>
-        <Field name="firstName" type="String" visibility="private"/>
-        <Field name="lastName" type="String" visibility="private"/>
-        <Field name="accessKey" type="char" visibility="private"/>
-        <Field name="hasObservable" type="boolean" visibility="private"/>
-      </Fields>
-      <Constructors>
-        <Constructor visibility="public">
-          <Argument type="String" name="_uniqueID"/>
-          <Argument type="String" name="_password"/>
-          <Argument type="String" name="_firstName"/>
-          <Argument type="String" name="_lastName"/>
-          <Argument type="char" name="_accessKey"/>
-        </Constructor>
-      </Constructors>
-      <Methods>
-        <Method name="getUniqueID" returnType="String" visibility="public"/>
-        <Method name="getPassword" returnType="String" visibility="public"/>
-        <Method name="getFirstName" returnType="String" visibility="public"/>
-        <Method name="getLastName" returnType="String" visibility="public"/>
-        <Method name="getAccessKey" returnType="char" visibility="public"/>
-        <Method name="getHasObservable" returnType="boolean" visibility="public"/>
-        <Method name="setUniqueID" returnType="void" visibility="public">
-          <Argument type="String" name="_uniqueID"/>
-        </Method>
-        <Method name="setPassword" returnType="void" visibility="public">
-          <Argument type="String" name="_password"/>
-        </Method>
-        <Method name="setFirstName" returnType="void" visibility="public">
-          <Argument type="String" name="_firstName"/>
-        </Method>
-        <Method name="setLastName" returnType="void" visibility="public">
-          <Argument type="String" name="_lastName"/>
-        </Method>
-        <Method name="setAccessKey" returnType="void" visibility="public">
-          <Argument type="char" name="_accessKey"/>
-        </Method>
-        <Method name="update" returnType="void" visibility="public">
-          <Argument type="boolean" name="_input"/>
-        </Method>
-      </Methods>
-    </Class>
-    <Class name="UserCreator" package="coursework.Models.Users" visibility="public" xPosition="1782.0" yPosition="731.0">
+    </Interface>
+    <Class name="abstractSimple" package="" visibility="public" xPosition="334.0" yPosition="529.0">
       <Fields/>
       <Constructors/>
-      <Methods>
-        <Method name="addUserToSystem" returnType="void" visibility="public">
-          <Argument type="String" name="_uniqueID"/>
-          <Argument type="String" name="_password"/>
-          <Argument type="String" name="_first"/>
-          <Argument type="String" name="_second"/>
-          <Argument type="String" name="_address"/>
-          <Argument type="char" name="_sex"/>
-          <Argument type="String" name="_date"/>
-        </Method>
-      </Methods>
+      <Methods/>
+    </Class>
+    <Class name="abstractDoctor" package="" visibility="public" xPosition="567.0" yPosition="562.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="abstractPatient" package="" visibility="public" xPosition="834.0" yPosition="540.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="adminCreator" package="" visibility="public" xPosition="199.0" yPosition="798.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="secretaryCreator" package="" visibility="public" xPosition="409.0" yPosition="798.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="doctorCreator" package="" visibility="public" xPosition="676.0" yPosition="798.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="patientCreator" package="" visibility="public" xPosition="932.0" yPosition="788.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
     </Class>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
-    <IsRelation name="is" source="coursework.Models.Users.Secretary" target="coursework.Models.Users.User"/>
-    <IsRelation name="is" source="coursework.Models.Users.Patient" target="coursework.Models.Users.User"/>
-    <IsRelation name="is" source="coursework.Models.Users.Doctor" target="coursework.Models.Users.User"/>
-    <UseRelation name="creates" source="coursework.Models.Users.UserCreator" target="coursework.Models.Users.User" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <IsRelation name="is" source="coursework.Models.Users.Administrator" target="coursework.Models.Users.User"/>
+    <IsRelation name="is" source="patientCreator" target="abstractPatient"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="abstractDoctor" target="UserCreator"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="abstractPatient" target="UserCreator"/>
+    <IsRelation name="is" source="adminCreator" target="abstractSimple"/>
+    <IsRelation name="is" source="secretaryCreator" target="abstractSimple"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="abstractSimple" target="UserCreator"/>
+    <IsRelation name="is" source="doctorCreator" target="abstractDoctor"/>
   </ClassDiagramRelations>
 </ClassDiagram>
