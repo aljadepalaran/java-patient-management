@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Multi-file class diagram">
+  <ClassDiagramComponents>
+    <Class name="Doctor" package="coursework.Models.Users" visibility="public" xPosition="843.0" yPosition="228.0">
+      <Fields>
+        <Field name="address" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="_uniqueID"/>
+          <Argument type="String" name="_password"/>
+          <Argument type="String" name="_firstName"/>
+          <Argument type="String" name="_lastName"/>
+          <Argument type="String" name="_address"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getAddress" returnType="String" visibility="public"/>
+        <Method name="setAddress" returnType="void" visibility="public">
+          <Argument type="String" name="_address"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Patient" package="coursework.Models.Users" visibility="public" xPosition="843.0" yPosition="1314.0">
+      <Fields>
+        <Field name="address" type="String" visibility="private"/>
+        <Field name="sex" type="char" visibility="private"/>
+        <Field name="dateOfBirth" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="_uniqueID"/>
+          <Argument type="String" name="_password"/>
+          <Argument type="String" name="_firstName"/>
+          <Argument type="String" name="_lastName"/>
+          <Argument type="String" name="_address"/>
+          <Argument type="char" name="_sex"/>
+          <Argument type="String" name="_dateOfBirth"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getAddress" returnType="String" visibility="public"/>
+        <Method name="getSex" returnType="char" visibility="public"/>
+        <Method name="getDOB" returnType="String" visibility="public"/>
+        <Method name="setAddress" returnType="void" visibility="public">
+          <Argument type="String" name="_address"/>
+        </Method>
+        <Method name="setSex" returnType="void" visibility="public">
+          <Argument type="char" name="_sex"/>
+        </Method>
+        <Method name="setDOB" returnType="void" visibility="public">
+          <Argument type="String" name="_dateOfBirth"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="User" package="coursework.Models.Users" visibility="public" xPosition="1404.0" yPosition="624.0">
+      <Fields>
+        <Field name="uniqueID" type="String" visibility="private"/>
+        <Field name="password" type="String" visibility="private"/>
+        <Field name="firstName" type="String" visibility="private"/>
+        <Field name="lastName" type="String" visibility="private"/>
+        <Field name="accessKey" type="char" visibility="private"/>
+        <Field name="hasObservable" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="_uniqueID"/>
+          <Argument type="String" name="_password"/>
+          <Argument type="String" name="_firstName"/>
+          <Argument type="String" name="_lastName"/>
+          <Argument type="char" name="_accessKey"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getUniqueID" returnType="String" visibility="public"/>
+        <Method name="getPassword" returnType="String" visibility="public"/>
+        <Method name="getFirstName" returnType="String" visibility="public"/>
+        <Method name="getLastName" returnType="String" visibility="public"/>
+        <Method name="getAccessKey" returnType="char" visibility="public"/>
+        <Method name="getHasObservable" returnType="boolean" visibility="public"/>
+        <Method name="setUniqueID" returnType="void" visibility="public">
+          <Argument type="String" name="_uniqueID"/>
+        </Method>
+        <Method name="setPassword" returnType="void" visibility="public">
+          <Argument type="String" name="_password"/>
+        </Method>
+        <Method name="setFirstName" returnType="void" visibility="public">
+          <Argument type="String" name="_firstName"/>
+        </Method>
+        <Method name="setLastName" returnType="void" visibility="public">
+          <Argument type="String" name="_lastName"/>
+        </Method>
+        <Method name="setAccessKey" returnType="void" visibility="public">
+          <Argument type="char" name="_accessKey"/>
+        </Method>
+        <Method name="update" returnType="void" visibility="public">
+          <Argument type="boolean" name="_input"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Appointment" package="coursework.Models.Objects" visibility="public" xPosition="267.0" yPosition="583.0">
+      <Fields>
+        <Field name="appointmentID" type="String" visibility="private"/>
+        <Field name="patientID" type="String" visibility="private"/>
+        <Field name="doctorID" type="String" visibility="private"/>
+        <Field name="date" type="String" visibility="private"/>
+        <Field name="notes" type="String" visibility="private"/>
+        <Field name="observerList" type="String[]" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="_appointmentID"/>
+          <Argument type="String" name="_patientID"/>
+          <Argument type="String" name="_doctorID"/>
+          <Argument type="String" name="_date"/>
+          <Argument type="String" name="_notes"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getAppointmentID" returnType="String" visibility="public"/>
+        <Method name="setAppointmentID" returnType="void" visibility="public">
+          <Argument type="String" name="appointmentID"/>
+        </Method>
+        <Method name="getPatientID" returnType="String" visibility="public"/>
+        <Method name="setPatientID" returnType="void" visibility="public">
+          <Argument type="String" name="patientID"/>
+        </Method>
+        <Method name="getDoctorID" returnType="String" visibility="public"/>
+        <Method name="setDoctorID" returnType="void" visibility="public">
+          <Argument type="String" name="doctorID"/>
+        </Method>
+        <Method name="getDate" returnType="String" visibility="public"/>
+        <Method name="setDate" returnType="void" visibility="public">
+          <Argument type="String" name="date"/>
+        </Method>
+        <Method name="getNotes" returnType="String" visibility="public"/>
+        <Method name="setNotes" returnType="void" visibility="public">
+          <Argument type="String" name="notes"/>
+        </Method>
+        <Method name="getObserverOne" returnType="String" visibility="public"/>
+        <Method name="getObserverTwo" returnType="String" visibility="public"/>
+        <Method name="registerObserver" returnType="void" visibility="public">
+          <Argument type="String" name="_input"/>
+        </Method>
+        <Method name="removeObserver" returnType="void" visibility="public">
+          <Argument type="String" name="_input"/>
+        </Method>
+        <Method name="notifyObserver" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="Observable" package="coursework.Models.Objects" visibility="public" xPosition="994.0" yPosition="624.0">
+      <Methods>
+        <Method name="registerObserver" returnType="void" visibility="public">
+          <Argument type="String" name="_input"/>
+        </Method>
+        <Method name="removeObserver" returnType="void" visibility="public">
+          <Argument type="String" name="_input"/>
+        </Method>
+        <Method name="notifyObserver" returnType="void" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Interface name="Observer" package="coursework.Models.Objects" visibility="public" xPosition="1035.0" yPosition="866.0">
+      <Methods>
+        <Method name="update" returnType="void" visibility="public">
+          <Argument type="boolean" name="_input"/>
+        </Method>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="coursework.Models.Users.Patient" target="coursework.Models.Users.User"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="coursework.Models.Objects.Appointment" target="coursework.Models.Objects.Observable"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="coursework.Models.Users.User" target="coursework.Models.Objects.Observer"/>
+    <HasRelation name="has" source="coursework.Models.Users.Doctor" target="coursework.Models.Objects.Appointment" type="Default" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <IsRelation name="is" source="coursework.Models.Users.Doctor" target="coursework.Models.Users.User"/>
+    <HasRelation name="has" source="coursework.Models.Users.Patient" target="coursework.Models.Objects.Appointment" type="Default" sourceCardinality="0..1" targetCardinality="0..*" collectionType="ArrayList"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

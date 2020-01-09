@@ -1,0 +1,1467 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Multi-package class diagram">
+  <ClassDiagramComponents>
+    <Class name="Augment" package="coursework.Controllers" visibility="public" xPosition="10748.0" yPosition="3412.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="addUser" returnType="void" visibility="public" isStatic="true">
+          <Argument type="User" name="_input"/>
+        </Method>
+        <Method name="addRating" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Rating" name="_input"/>
+        </Method>
+        <Method name="addFeedback" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Feedback" name="_input"/>
+        </Method>
+        <Method name="addPrescription" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Prescription" name="_input"/>
+        </Method>
+        <Method name="addAppointment" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Appointment" name="_input"/>
+        </Method>
+        <Method name="addRequest" returnType="void" visibility="public" isStatic="true">
+          <Argument type="User" name="_input"/>
+        </Method>
+        <Method name="addMedicine" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Medicine" name="_input"/>
+        </Method>
+        <Method name="addOrder" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Medicine" name="_input"/>
+        </Method>
+        <Method name="addAppointmentRequest" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Appointment" name="_input"/>
+        </Method>
+        <Method name="addProposedAppointment" returnType="boolean" visibility="public" isStatic="true">
+          <Argument type="Appointment" name="_input"/>
+        </Method>
+        <Method name="addPrescriptionRequest" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Prescription" name="_input"/>
+        </Method>
+        <Method name="removeUser" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="_input"/>
+        </Method>
+        <Method name="removePrescription" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="_input"/>
+        </Method>
+        <Method name="removeAppointmentRequest" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="_input"/>
+        </Method>
+        <Method name="removeApproval" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="_input"/>
+        </Method>
+        <Method name="removeMedicineOrder" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="_input"/>
+        </Method>
+        <Method name="removeProposedAppointment" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="_input"/>
+        </Method>
+        <Method name="removeTerminationRequest" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="_input"/>
+        </Method>
+        <Method name="removePrescriptionRequest" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="_input"/>
+        </Method>
+        <Method name="trimUsers" returnType="User[]" visibility="public" isStatic="true">
+          <Argument type="User[]" name="_input"/>
+        </Method>
+        <Method name="trimRatings" returnType="Rating[]" visibility="public" isStatic="true">
+          <Argument type="Rating[]" name="_input"/>
+        </Method>
+        <Method name="trimFeedback" returnType="Feedback[]" visibility="public" isStatic="true">
+          <Argument type="Feedback[]" name="_input"/>
+        </Method>
+        <Method name="trimPrescriptions" returnType="Prescription[]" visibility="public" isStatic="true">
+          <Argument type="Prescription[]" name="_input"/>
+        </Method>
+        <Method name="trimAppointments" returnType="Appointment[]" visibility="public" isStatic="true">
+          <Argument type="Appointment[]" name="_input"/>
+        </Method>
+        <Method name="trimRequests" returnType="User[]" visibility="public" isStatic="true">
+          <Argument type="User[]" name="_input"/>
+        </Method>
+        <Method name="trimMedicines" returnType="Medicine[]" visibility="public" isStatic="true">
+          <Argument type="Medicine[]" name="_input"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Display" package="coursework.Controllers" visibility="public" xPosition="11539.0" yPosition="9881.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="displayUsers" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="displayRatings" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="displayFeedback" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="displayPrescriptions" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="displayAppointments" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="displayRequests" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="displayMedicines" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="displayOrders" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="displayAppRequests" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="displayProposed" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="displayTerminationRequests" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="displayPrescriptionRequests" returnType="void" visibility="public" isStatic="true"/>
+      </Methods>
+    </Class>
+    <Class name="FileReader" package="coursework.Controllers" visibility="public" xPosition="7763.0" yPosition="4304.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="readUsers" returnType="User[]" visibility="public" isStatic="true"/>
+        <Method name="readRatings" returnType="Rating[]" visibility="public" isStatic="true"/>
+        <Method name="readFeedback" returnType="Feedback[]" visibility="public" isStatic="true"/>
+        <Method name="readPrescriptions" returnType="Prescription[]" visibility="public" isStatic="true"/>
+        <Method name="readAppointments" returnType="Appointment[]" visibility="public" isStatic="true"/>
+        <Method name="readRequests" returnType="User[]" visibility="public" isStatic="true"/>
+        <Method name="readAppointmentRequests" returnType="Appointment[]" visibility="public" isStatic="true"/>
+        <Method name="readAccountTerminationRequests" returnType="User[]" visibility="public" isStatic="true"/>
+        <Method name="readMedicines" returnType="Medicine[]" visibility="public" isStatic="true"/>
+        <Method name="readOrderRequests" returnType="Medicine[]" visibility="public" isStatic="true"/>
+        <Method name="readProposedAppointments" returnType="Appointment[]" visibility="public" isStatic="true"/>
+        <Method name="readRequestedPrescriptions" returnType="Prescription[]" visibility="public" isStatic="true"/>
+      </Methods>
+    </Class>
+    <Class name="FileWriter" package="coursework.Controllers" visibility="public" xPosition="7591.0" yPosition="9432.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="writeUsers" returnType="void" visibility="public" isStatic="true">
+          <Argument type="User[]" name="_array"/>
+        </Method>
+        <Method name="writeRatings" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Rating[]" name="_array"/>
+        </Method>
+        <Method name="writeFeedbacks" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Feedback[]" name="_array"/>
+        </Method>
+        <Method name="writePrescriptions" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Prescription[]" name="_array"/>
+        </Method>
+        <Method name="writeAppointments" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Appointment[]" name="_array"/>
+        </Method>
+        <Method name="writeAccountRequests" returnType="void" visibility="public" isStatic="true">
+          <Argument type="User[]" name="_array"/>
+        </Method>
+        <Method name="writeAppointmentRequests" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Appointment[]" name="_array"/>
+        </Method>
+        <Method name="writeAccountTermRequests" returnType="void" visibility="public" isStatic="true">
+          <Argument type="User[]" name="_array"/>
+        </Method>
+        <Method name="writeMedicines" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Medicine[]" name="_array"/>
+        </Method>
+        <Method name="writeMedicineOrders" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Medicine[]" name="_array"/>
+        </Method>
+        <Method name="writeProposedAppointments" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Appointment[]" name="_array"/>
+        </Method>
+        <Method name="writePrescriptionRequests" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Prescription[]" name="_array"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="GenerateID" package="coursework.Controllers" visibility="public" xPosition="11643.0" yPosition="3738.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="userID" returnType="String" visibility="public" isStatic="true">
+          <Argument type="char" name="_class"/>
+        </Method>
+        <Method name="feedbackID" returnType="String" visibility="public" isStatic="true"/>
+        <Method name="appointmentID" returnType="String" visibility="public" isStatic="true"/>
+        <Method name="prescriptionID" returnType="String" visibility="public" isStatic="true"/>
+      </Methods>
+    </Class>
+    <Class name="MainFunctions" package="coursework.Controllers" visibility="public" xPosition="6942.0" yPosition="9128.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="charToString" returnType="String" visibility="public" isStatic="true">
+          <Argument type="char[]" name="_input"/>
+        </Method>
+        <Method name="authenticateLogin" returnType="boolean" visibility="public" isStatic="true">
+          <Argument type="String" name="_uniqueID"/>
+          <Argument type="String" name="_password"/>
+        </Method>
+        <Method name="getUser" returnType="User" visibility="public" isStatic="true">
+          <Argument type="String" name="_uniqueID"/>
+        </Method>
+        <Method name="displayMainForm" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Session" name="_session"/>
+        </Method>
+        <Method name="validateDate" returnType="boolean" visibility="public" isStatic="true">
+          <Argument type="String" name="_date"/>
+        </Method>
+        <Method name="getRating" returnType="Rating[]" visibility="public" isStatic="true">
+          <Argument type="String" name="_doctorID"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Populate" package="coursework.Controllers" visibility="public" xPosition="11294.0" yPosition="3758.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="populateFile" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="populateUsers" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="populateAppointments" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="populateFeedbacks" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="populateMedicines" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="populatePrescriptions" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="populateRatings" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="populateTerminationRequests" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="populateProposedAppointments" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="populateAppointmentRequests" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="populateOrders" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="populatePrescriptionRequests" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="populateAccountRequests" returnType="void" visibility="public" isStatic="true"/>
+      </Methods>
+    </Class>
+    <Class name="Resize" package="coursework.Controllers" visibility="public" xPosition="8283.0" yPosition="3942.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="userArray" returnType="User[]" visibility="public" isStatic="true">
+          <Argument type="User[]" name="_array"/>
+          <Argument type="int" name="_newSize"/>
+        </Method>
+        <Method name="ratingArray" returnType="Rating[]" visibility="public" isStatic="true">
+          <Argument type="Rating[]" name="_array"/>
+          <Argument type="int" name="_size"/>
+        </Method>
+        <Method name="feedbackArray" returnType="Feedback[]" visibility="public" isStatic="true">
+          <Argument type="Feedback[]" name="_array"/>
+          <Argument type="int" name="_size"/>
+        </Method>
+        <Method name="appointmentArray" returnType="Appointment[]" visibility="public" isStatic="true">
+          <Argument type="Appointment[]" name="_array"/>
+          <Argument type="int" name="_size"/>
+        </Method>
+        <Method name="prescriptionArray" returnType="Prescription[]" visibility="public" isStatic="true">
+          <Argument type="Prescription[]" name="_array"/>
+          <Argument type="int" name="_size"/>
+        </Method>
+        <Method name="stringArray" returnType="String[]" visibility="public" isStatic="true">
+          <Argument type="String[]" name="_array"/>
+          <Argument type="int" name="_size"/>
+        </Method>
+        <Method name="medicineArray" returnType="Medicine[]" visibility="public" isStatic="true">
+          <Argument type="Medicine[]" name="_array"/>
+          <Argument type="int" name="_size"/>
+        </Method>
+        <Method name="patientArray" returnType="Patient[]" visibility="public" isStatic="true">
+          <Argument type="Patient[]" name="_array"/>
+          <Argument type="int" name="_size"/>
+        </Method>
+        <Method name="shortenUsers" returnType="User[]" visibility="public" isStatic="true">
+          <Argument type="User[]" name="_input"/>
+        </Method>
+        <Method name="shortenRatings" returnType="Rating[]" visibility="public" isStatic="true">
+          <Argument type="Rating[]" name="_input"/>
+        </Method>
+        <Method name="shortenFeedback" returnType="Feedback[]" visibility="public" isStatic="true">
+          <Argument type="Feedback[]" name="_input"/>
+        </Method>
+        <Method name="shortenAppointment" returnType="Appointment[]" visibility="public" isStatic="true">
+          <Argument type="Appointment[]" name="_input"/>
+        </Method>
+        <Method name="shortenPrescription" returnType="Prescription[]" visibility="public" isStatic="true">
+          <Argument type="Prescription[]" name="_input"/>
+        </Method>
+        <Method name="shortenMedicines" returnType="Medicine[]" visibility="public" isStatic="true">
+          <Argument type="Medicine[]" name="_input"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Appointment" package="coursework.Models.Objects" visibility="public" xPosition="13561.0" yPosition="8788.0">
+      <Fields>
+        <Field name="appointmentID" type="String" visibility="private"/>
+        <Field name="patientID" type="String" visibility="private"/>
+        <Field name="doctorID" type="String" visibility="private"/>
+        <Field name="date" type="String" visibility="private"/>
+        <Field name="notes" type="String" visibility="private"/>
+        <Field name="observerList" type="String[]" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="_appointmentID"/>
+          <Argument type="String" name="_patientID"/>
+          <Argument type="String" name="_doctorID"/>
+          <Argument type="String" name="_date"/>
+          <Argument type="String" name="_notes"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getAppointmentID" returnType="String" visibility="public"/>
+        <Method name="setAppointmentID" returnType="void" visibility="public">
+          <Argument type="String" name="appointmentID"/>
+        </Method>
+        <Method name="getPatientID" returnType="String" visibility="public"/>
+        <Method name="setPatientID" returnType="void" visibility="public">
+          <Argument type="String" name="patientID"/>
+        </Method>
+        <Method name="getDoctorID" returnType="String" visibility="public"/>
+        <Method name="setDoctorID" returnType="void" visibility="public">
+          <Argument type="String" name="doctorID"/>
+        </Method>
+        <Method name="getDate" returnType="String" visibility="public"/>
+        <Method name="setDate" returnType="void" visibility="public">
+          <Argument type="String" name="date"/>
+        </Method>
+        <Method name="getNotes" returnType="String" visibility="public"/>
+        <Method name="setNotes" returnType="void" visibility="public">
+          <Argument type="String" name="notes"/>
+        </Method>
+        <Method name="getObserverOne" returnType="String" visibility="public"/>
+        <Method name="getObserverTwo" returnType="String" visibility="public"/>
+        <Method name="registerObserver" returnType="void" visibility="public">
+          <Argument type="String" name="_input"/>
+        </Method>
+        <Method name="removeObserver" returnType="void" visibility="public">
+          <Argument type="String" name="_input"/>
+        </Method>
+        <Method name="notifyObserver" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Feedback" package="coursework.Models.Objects" visibility="public" xPosition="6116.0" yPosition="7878.0">
+      <Fields>
+        <Field name="feedbackID" type="String" visibility="private"/>
+        <Field name="doctorID" type="String" visibility="private"/>
+        <Field name="patientID" type="String" visibility="private"/>
+        <Field name="adminID" type="String" visibility="private"/>
+        <Field name="feedback" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="_feedbackID"/>
+          <Argument type="String" name="_doctorID"/>
+          <Argument type="String" name="_patientID"/>
+          <Argument type="String" name="_adminID"/>
+          <Argument type="String" name="_feedback"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getFeedbackID" returnType="String" visibility="public"/>
+        <Method name="setFeedbackID" returnType="void" visibility="public">
+          <Argument type="String" name="feedbackID"/>
+        </Method>
+        <Method name="getDoctorID" returnType="String" visibility="public"/>
+        <Method name="setDoctorID" returnType="void" visibility="public">
+          <Argument type="String" name="doctorID"/>
+        </Method>
+        <Method name="getPatientID" returnType="String" visibility="public"/>
+        <Method name="setPatientID" returnType="void" visibility="public">
+          <Argument type="String" name="patientID"/>
+        </Method>
+        <Method name="getAdminID" returnType="String" visibility="public"/>
+        <Method name="setAdminID" returnType="void" visibility="public">
+          <Argument type="String" name="adminID"/>
+        </Method>
+        <Method name="getFeedback" returnType="String" visibility="public"/>
+        <Method name="setFeedback" returnType="void" visibility="public">
+          <Argument type="String" name="feedback"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Medicine" package="coursework.Models.Objects" visibility="public" xPosition="7041.0" yPosition="5124.0">
+      <Fields>
+        <Field name="medicineName" type="String" visibility="private"/>
+        <Field name="details" type="String" visibility="private"/>
+        <Field name="stock" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="_medicineName"/>
+          <Argument type="String" name="_details"/>
+          <Argument type="int" name="_stock"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getMedicineName" returnType="String" visibility="public"/>
+        <Method name="getDetails" returnType="String" visibility="public"/>
+        <Method name="setDetails" returnType="void" visibility="public">
+          <Argument type="String" name="details"/>
+        </Method>
+        <Method name="getStock" returnType="int" visibility="public"/>
+        <Method name="setStock" returnType="void" visibility="public">
+          <Argument type="int" name="stock"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Prescription" package="coursework.Models.Objects" visibility="public" xPosition="6181.0" yPosition="6373.0">
+      <Fields>
+        <Field name="prescriptionID" type="String" visibility="private"/>
+        <Field name="patientID" type="String" visibility="private"/>
+        <Field name="doctorID" type="String" visibility="private"/>
+        <Field name="notes" type="String" visibility="private"/>
+        <Field name="medicineType" type="Medicine" visibility="private"/>
+        <Field name="quantity" type="int" visibility="private"/>
+        <Field name="dosage" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="_prescriptionID"/>
+          <Argument type="String" name="_patientID"/>
+          <Argument type="String" name="_doctorID"/>
+          <Argument type="String" name="_notes"/>
+          <Argument type="Medicine" name="_medicineID"/>
+          <Argument type="int" name="_quantity"/>
+          <Argument type="String" name="_dosage"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getPrescriptionID" returnType="String" visibility="public"/>
+        <Method name="setPrescriptionID" returnType="void" visibility="public">
+          <Argument type="String" name="prescriptionID"/>
+        </Method>
+        <Method name="getPatientID" returnType="String" visibility="public"/>
+        <Method name="setPatientID" returnType="void" visibility="public">
+          <Argument type="String" name="patientID"/>
+        </Method>
+        <Method name="getDoctorID" returnType="String" visibility="public"/>
+        <Method name="setDoctorID" returnType="void" visibility="public">
+          <Argument type="String" name="doctorID"/>
+        </Method>
+        <Method name="getNotes" returnType="String" visibility="public"/>
+        <Method name="setNotes" returnType="void" visibility="public">
+          <Argument type="String" name="notes"/>
+        </Method>
+        <Method name="getMedicineType" returnType="Medicine" visibility="public"/>
+        <Method name="setMedicineType" returnType="void" visibility="public">
+          <Argument type="Medicine" name="medicineType"/>
+        </Method>
+        <Method name="getQuantity" returnType="int" visibility="public"/>
+        <Method name="setQuantity" returnType="void" visibility="public">
+          <Argument type="int" name="quantity"/>
+        </Method>
+        <Method name="getDosage" returnType="String" visibility="public"/>
+        <Method name="setDosage" returnType="void" visibility="public">
+          <Argument type="String" name="dosage"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PrescriptionCreator" package="coursework.Models.Objects" visibility="public" xPosition="6559.0" yPosition="5584.0">
+      <Fields>
+        <Field name="patientID" type="String" visibility="private"/>
+        <Field name="doctorID" type="String" visibility="private"/>
+        <Field name="notes" type="String" visibility="private"/>
+        <Field name="medicineType" type="Medicine" visibility="private"/>
+        <Field name="quantity" type="int" visibility="private"/>
+        <Field name="dosage" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="_patientID"/>
+          <Argument type="String" name="_doctorID"/>
+          <Argument type="String" name="_notes"/>
+          <Argument type="Medicine" name="_medicineID"/>
+          <Argument type="int" name="_quantity"/>
+          <Argument type="String" name="_dosage"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="createPrescription" returnType="Prescription" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Rating" package="coursework.Models.Objects" visibility="public" xPosition="14181.0" yPosition="6409.0">
+      <Fields>
+        <Field name="doctorID" type="String" visibility="private"/>
+        <Field name="patientID" type="String" visibility="private"/>
+        <Field name="ratingValue" type="int" visibility="private"/>
+        <Field name="message" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="_doctorID"/>
+          <Argument type="String" name="_patientID"/>
+          <Argument type="int" name="_ratingValue"/>
+          <Argument type="String" name="_message"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getDoctorID" returnType="String" visibility="public"/>
+        <Method name="getPatientID" returnType="String" visibility="public"/>
+        <Method name="getRatingValue" returnType="int" visibility="public"/>
+        <Method name="getMessage" returnType="String" visibility="public"/>
+        <Method name="setDoctorID" returnType="void" visibility="public">
+          <Argument type="String" name="_doctorID"/>
+        </Method>
+        <Method name="setPatientID" returnType="void" visibility="public">
+          <Argument type="String" name="_patientID"/>
+        </Method>
+        <Method name="setRatingValue" returnType="void" visibility="public">
+          <Argument type="int" name="_value"/>
+        </Method>
+        <Method name="setMessage" returnType="void" visibility="public">
+          <Argument type="String" name="_message"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Session" package="coursework.Models.Objects" visibility="public" xPosition="10267.0" yPosition="3472.0">
+      <Fields>
+        <Field name="instance" type="Session" visibility="private" isStatic="true"/>
+        <Field name="userID" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="private"/>
+      </Constructors>
+      <Methods>
+        <Method name="getInstance" returnType="Session" visibility="public" isStatic="true">
+          <Argument type="String" name="_uniqueID"/>
+        </Method>
+        <Method name="getUID" returnType="String" visibility="public"/>
+        <Method name="setUID" returnType="void" visibility="public">
+          <Argument type="String" name="_uniqueID"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Administrator" package="coursework.Models.Users" visibility="public" xPosition="11944.0" yPosition="3819.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="_uniqueID"/>
+          <Argument type="String" name="_password"/>
+          <Argument type="String" name="_firstName"/>
+          <Argument type="String" name="_lastName"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Doctor" package="coursework.Models.Users" visibility="public" xPosition="7663.0" yPosition="9846.0">
+      <Fields>
+        <Field name="address" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="_uniqueID"/>
+          <Argument type="String" name="_password"/>
+          <Argument type="String" name="_firstName"/>
+          <Argument type="String" name="_lastName"/>
+          <Argument type="String" name="_address"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getAddress" returnType="String" visibility="public"/>
+        <Method name="setAddress" returnType="void" visibility="public">
+          <Argument type="String" name="_address"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Patient" package="coursework.Models.Users" visibility="public" xPosition="9355.0" yPosition="3412.0">
+      <Fields>
+        <Field name="address" type="String" visibility="private"/>
+        <Field name="sex" type="char" visibility="private"/>
+        <Field name="dateOfBirth" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="_uniqueID"/>
+          <Argument type="String" name="_password"/>
+          <Argument type="String" name="_firstName"/>
+          <Argument type="String" name="_lastName"/>
+          <Argument type="String" name="_address"/>
+          <Argument type="char" name="_sex"/>
+          <Argument type="String" name="_dateOfBirth"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getAddress" returnType="String" visibility="public"/>
+        <Method name="getSex" returnType="char" visibility="public"/>
+        <Method name="getDOB" returnType="String" visibility="public"/>
+        <Method name="setAddress" returnType="void" visibility="public">
+          <Argument type="String" name="_address"/>
+        </Method>
+        <Method name="setSex" returnType="void" visibility="public">
+          <Argument type="char" name="_sex"/>
+        </Method>
+        <Method name="setDOB" returnType="void" visibility="public">
+          <Argument type="String" name="_dateOfBirth"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Secretary" package="coursework.Models.Users" visibility="public" xPosition="6681.0" yPosition="8919.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="_uniqueID"/>
+          <Argument type="String" name="_password"/>
+          <Argument type="String" name="_firstName"/>
+          <Argument type="String" name="_lastName"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="User" package="coursework.Models.Users" visibility="public" xPosition="12552.0" yPosition="3930.0">
+      <Fields>
+        <Field name="uniqueID" type="String" visibility="private"/>
+        <Field name="password" type="String" visibility="private"/>
+        <Field name="firstName" type="String" visibility="private"/>
+        <Field name="lastName" type="String" visibility="private"/>
+        <Field name="accessKey" type="char" visibility="private"/>
+        <Field name="hasObservable" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="_uniqueID"/>
+          <Argument type="String" name="_password"/>
+          <Argument type="String" name="_firstName"/>
+          <Argument type="String" name="_lastName"/>
+          <Argument type="char" name="_accessKey"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getUniqueID" returnType="String" visibility="public"/>
+        <Method name="getPassword" returnType="String" visibility="public"/>
+        <Method name="getFirstName" returnType="String" visibility="public"/>
+        <Method name="getLastName" returnType="String" visibility="public"/>
+        <Method name="getAccessKey" returnType="char" visibility="public"/>
+        <Method name="getHasObservable" returnType="boolean" visibility="public"/>
+        <Method name="setUniqueID" returnType="void" visibility="public">
+          <Argument type="String" name="_uniqueID"/>
+        </Method>
+        <Method name="setPassword" returnType="void" visibility="public">
+          <Argument type="String" name="_password"/>
+        </Method>
+        <Method name="setFirstName" returnType="void" visibility="public">
+          <Argument type="String" name="_firstName"/>
+        </Method>
+        <Method name="setLastName" returnType="void" visibility="public">
+          <Argument type="String" name="_lastName"/>
+        </Method>
+        <Method name="setAccessKey" returnType="void" visibility="public">
+          <Argument type="char" name="_accessKey"/>
+        </Method>
+        <Method name="update" returnType="void" visibility="public">
+          <Argument type="boolean" name="_input"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="UserCreator" package="coursework.Models.Users" visibility="public" xPosition="11333.0" yPosition="3497.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="addUserToSystem" returnType="void" visibility="public">
+          <Argument type="String" name="_uniqueID"/>
+          <Argument type="String" name="_password"/>
+          <Argument type="String" name="_first"/>
+          <Argument type="String" name="_second"/>
+          <Argument type="String" name="_address"/>
+          <Argument type="char" name="_sex"/>
+          <Argument type="String" name="_date"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Creator" package="coursework.Views" visibility="public" xPosition="13336.0" yPosition="4114.0">
+      <Fields>
+        <Field name="userSession" type="Session" visibility="package"/>
+        <Field name="patientArray" type="Patient[]" visibility="package"/>
+        <Field name="allUsers" type="User[]" visibility="package"/>
+        <Field name="addressText" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="createButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="dobText" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="femaleRadio" type="javax.swing.JRadioButton" visibility="private"/>
+        <Field name="firstnameText" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel4" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel5" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel6" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="lastnameText" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="maleRadio" type="javax.swing.JRadioButton" visibility="private"/>
+        <Field name="patientSelect" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="setDateField" type="javax.swing.JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Session" name="_input"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="clearForm" returnType="void" visibility="public"/>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="patientSelectActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="createButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="GiveMedicine" package="coursework.Views" visibility="public" xPosition="5859.0" yPosition="8589.0">
+      <Fields>
+        <Field name="userSession" type="Session" visibility="package"/>
+        <Field name="allPrescriptions" type="Prescription" visibility="package"/>
+        <Field name="selectedPrescription" type="Prescription" visibility="package"/>
+        <Field name="allMeds" type="Medicine" visibility="package"/>
+        <Field name="selectedMedicine" type="Medicine" visibility="package"/>
+        <Field name="allUsers" type="User" visibility="package"/>
+        <Field name="doctorLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="dosageLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="giveButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="medicineLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="notesLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="patientLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="qtyLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="selectPrescription" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="stockLabel" type="javax.swing.JLabel" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Session" name="_input"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="loadData" returnType="void" visibility="public"/>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="selectPrescriptionActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="giveButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="formWindowClosed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.WindowEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Login" package="coursework.Views" visibility="public" xPosition="13830.0" yPosition="8186.0">
+      <Fields>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="loginButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="passwordField" type="javax.swing.JPasswordField" visibility="private"/>
+        <Field name="registerButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="usernameField" type="javax.swing.JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="registerButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="loginButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="MainAdministrator" package="coursework.Views" visibility="public" xPosition="13830.0" yPosition="6874.0">
+      <Fields>
+        <Field name="userSession" type="Session" visibility="package"/>
+        <Field name="listValues" type="DefaultListModel" visibility="package"/>
+        <Field name="doctorArray" type="User" visibility="package"/>
+        <Field name="secretaryArray" type="User" visibility="package"/>
+        <Field name="readArray" type="User" visibility="package"/>
+        <Field name="doctorRatings" type="Rating" visibility="package"/>
+        <Field name="removeType" type="int" visibility="package"/>
+        <Field name="addDoctorButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="addSecretaryButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="adminFeedback" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="buttonPanel" type="javax.swing.JLayeredPane" visibility="private"/>
+        <Field name="confirmButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="createAdminButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="doctorDropdown" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="feedbackButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jList1" type="javax.swing.JList&lt;String&gt;" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel2" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jScrollPane1" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jScrollPane2" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="listField" type="javax.swing.JList&lt;String&gt;" visibility="private"/>
+        <Field name="logoutButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="messageBox" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="patientDropdown" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="ratingLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="refreshButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="removeDoctorButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="removeSecretaryButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="viewRatingsButton" type="javax.swing.JButton" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Session" name="_session"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="createAdminButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="logoutButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="addSecretaryButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="addDoctorButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="removeSecretaryButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="removeDoctorButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="confirmButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="refreshButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="viewRatingsButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="doctorDropdownActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="patientDropdownActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="feedbackButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="messageBoxActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="refreshForm" returnType="void" visibility="public"/>
+        <Method name="displaySecretaries" returnType="void" visibility="public"/>
+        <Method name="displayDoctors" returnType="void" visibility="public"/>
+        <Method name="loadArrays" returnType="void" visibility="public"/>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="MainDoctor" package="coursework.Views" visibility="public" xPosition="9355.0" yPosition="9456.0">
+      <Fields>
+        <Field name="userSession" type="Session" visibility="package"/>
+        <Field name="readArray" type="Appointment" visibility="package"/>
+        <Field name="doctorAppointments" type="Appointment" visibility="package"/>
+        <Field name="userArray" type="User" visibility="package"/>
+        <Field name="buttonPanel" type="javax.swing.JLayeredPane" visibility="private"/>
+        <Field name="createMedButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="dateText" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="doctorText" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="historyDate" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="historyNote" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="historyPatient" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel4" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel5" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel6" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel7" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel2" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel3" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="logoutButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="makeNoteButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="medDetailText" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="medNameText" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="noteField" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="orderMedButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="patientSelect" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="prescribeButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="proposeAppointmentButton" type="javax.swing.JButton" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Session" name="_session"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="clearForm" returnType="void" visibility="public"/>
+        <Method name="loadData" returnType="void" visibility="public"/>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="logoutButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="proposeAppointmentButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="makeNoteButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="patientSelectActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="historyPatientActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="historyDateActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="createMedButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="orderMedButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="prescribeButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="MainPatient" package="coursework.Views" visibility="public" xPosition="8390.0" yPosition="9416.0">
+      <Fields>
+        <Field name="userSession" type="Session" visibility="package"/>
+        <Field name="allUsers" type="User" visibility="package"/>
+        <Field name="allDoctors" type="Doctor" visibility="package"/>
+        <Field name="appointments" type="Appointment" visibility="package"/>
+        <Field name="proposedAppointment" type="Appointment" visibility="package"/>
+        <Field name="appointmentSelect" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="buttonPanel" type="javax.swing.JLayeredPane" visibility="private"/>
+        <Field name="dateLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="doctorLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel2" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="logoutButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="messageText" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="noteLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="rateDoctorButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="ratingSelect" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="requestAppointmentButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="selectDoctor" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="terminateButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="viewPrescriptionButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="viewRatingButton" type="javax.swing.JButton" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Session" name="_session"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="checkObservables" returnType="void" visibility="public"/>
+        <Method name="loadData" returnType="void" visibility="public"/>
+        <Method name="loadProposed" returnType="void" visibility="public"/>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="logoutButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="rateDoctorButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="terminateButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="viewRatingButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="appointmentSelectActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="viewPrescriptionButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="requestAppointmentButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="MainSecretary" package="coursework.Views" visibility="public" xPosition="12178.0" yPosition="9074.0">
+      <Fields>
+        <Field name="userSession" type="Session" visibility="package"/>
+        <Field name="approvals" type="Patient" visibility="package"/>
+        <Field name="appointmentRequests" type="Appointment[]" visibility="package"/>
+        <Field name="terminationRequests" type="User[]" visibility="package"/>
+        <Field name="allMeds" type="Medicine" visibility="package"/>
+        <Field name="stockOrders" type="Medicine" visibility="package"/>
+        <Field name="prescriptionRequests" type="Prescription" visibility="package"/>
+        <Field name="allUsers" type="User" visibility="package"/>
+        <Field name="accountLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="addressText" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="appSelect" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="appointmentLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="approveAccountButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="approveAppointmentButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="approveTerminationButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="buttonPanel" type="javax.swing.JLayeredPane" visibility="private"/>
+        <Field name="dateText" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="dobText" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="doctorText" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="genderText" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="giveMedicineButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel2" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel3" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel4" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="logoutButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="medicineSelect" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="nameText" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="orderButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="orderQty" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="orderStockButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="patientLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="patientSelect" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="patientText" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="prescriptionLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="refreshButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="remPatient" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="removeButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="stockLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="termSelect" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="terminationLabel" type="javax.swing.JLabel" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Session" name="_session"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="refresh" returnType="void" visibility="public"/>
+        <Method name="setLabels" returnType="void" visibility="public"/>
+        <Method name="clearComponents" returnType="void" visibility="public"/>
+        <Method name="readAll" returnType="void" visibility="public"/>
+        <Method name="displayAll" returnType="void" visibility="public"/>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="logoutButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="approveAccountButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="patientSelectActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="appSelectActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="approveAppointmentButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="orderStockButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="approveTerminationButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="removeButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="giveMedicineButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="orderButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="medicineSelectActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="remPatientActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="refreshButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="formWindowGainedFocus" returnType="void" visibility="private">
+          <Argument type="java.awt.event.WindowEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="OrderForm" package="coursework.Views" visibility="public" xPosition="7286.0" yPosition="4710.0">
+      <Fields>
+        <Field name="medArray" type="Medicine" visibility="package"/>
+        <Field name="orderButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="orderQty" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="selectMedicine" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="orderButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="selectMedicineActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="OrderStock" package="coursework.Views" visibility="public" xPosition="13589.0" yPosition="4795.0">
+      <Fields>
+        <Field name="allMeds" type="Medicine" visibility="package"/>
+        <Field name="stockRequests" type="Medicine" visibility="package"/>
+        <Field name="userSession" type="Session" visibility="package"/>
+        <Field name="currentText" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="medSelect" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="nameText" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="orderButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="requestedText" type="javax.swing.JLabel" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Session" name="_input"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="loadData" returnType="void" visibility="public"/>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="orderButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="medSelectActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="formWindowClosed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.WindowEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PrescribeForm" package="coursework.Views" visibility="public" xPosition="6072.0" yPosition="7024.0">
+      <Fields>
+        <Field name="meds" type="Medicine" visibility="package"/>
+        <Field name="allUsers" type="User" visibility="package"/>
+        <Field name="userSession" type="Session" visibility="package"/>
+        <Field name="addressText" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="birthText" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="dosageField" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="genderText" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel2" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel3" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="nameText" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="noteField" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="prescribeButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="quantityField" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="selectMedicine" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="selectPatient" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Session" name="_input"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="loadData" returnType="void" visibility="public"/>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="selectPatientActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="prescribeButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Register" package="coursework.Views" visibility="public" xPosition="10683.0" yPosition="9456.0">
+      <Fields>
+        <Field name="firstname" type="String" visibility="package"/>
+        <Field name="lastname" type="String" visibility="package"/>
+        <Field name="password" type="String" visibility="package"/>
+        <Field name="checkPassword" type="String" visibility="package"/>
+        <Field name="address" type="String" visibility="package"/>
+        <Field name="birthDate" type="String" visibility="package"/>
+        <Field name="sex" type="char" visibility="package"/>
+        <Field name="userType" type="char" visibility="package"/>
+        <Field name="addressField" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="addressWarning" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="birthField" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="birthWarning" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="checkField" type="javax.swing.JPasswordField" visibility="private"/>
+        <Field name="checkWarning" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="femaleRadio" type="javax.swing.JRadioButton" visibility="private"/>
+        <Field name="firstnameField" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="firstnameWarning" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="genderWarning" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel10" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel11" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel12" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel13" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel14" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel7" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel9" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel2" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="lastnameField" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="lastnameWarning" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="maleRadio" type="javax.swing.JRadioButton" visibility="private"/>
+        <Field name="passwordField" type="javax.swing.JPasswordField" visibility="private"/>
+        <Field name="passwordWarning" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="registerButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="usernameField2" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="usernameField4" type="javax.swing.JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="char" name="_userType"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setAccess" returnType="void" visibility="public">
+          <Argument type="char" name="_userType"/>
+        </Method>
+        <Method name="createUser" returnType="void" visibility="public">
+          <Argument type="char" name="_userType"/>
+        </Method>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="registerButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="maleRadioActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="femaleRadioActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="RequestAppointment" package="coursework.Views" visibility="public" xPosition="13877.0" yPosition="5314.0">
+      <Fields>
+        <Field name="userSession" type="Session" visibility="package"/>
+        <Field name="proposedAppointment" type="Appointment" visibility="package"/>
+        <Field name="allUsers" type="User" visibility="package"/>
+        <Field name="dateField" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="dateInput" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="doctorField" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="doctorLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="doctorName" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="doctorSelect" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel4" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel2" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="requestButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="requestButton2" type="javax.swing.JButton" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Session" name="_input"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="loadProposed" returnType="void" visibility="public"/>
+        <Method name="loadDoctors" returnType="void" visibility="public"/>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="requestButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="requestButton2ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="doctorSelectActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ViewPrescription" package="coursework.Views" visibility="public" xPosition="14046.0" yPosition="5978.0">
+      <Fields>
+        <Field name="userSession" type="Session" visibility="package"/>
+        <Field name="doctorLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="dosageLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="medLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="noteLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="patientLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="qtyLabel" type="javax.swing.JLabel" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Session" name="_input"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="displayData" returnType="void" visibility="public"/>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ViewRatings" package="coursework.Views" visibility="public" xPosition="8459.0" yPosition="3489.0">
+      <Fields>
+        <Field name="allUsers" type="User" visibility="package"/>
+        <Field name="doctorSelect" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="messageField" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="messageLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="patientSelect" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="ratingLabel" type="javax.swing.JLabel" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="loadDoctors" returnType="void" visibility="public"/>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="doctorSelectActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="patientSelectActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="Observable" package="coursework.Models.Objects" visibility="public" xPosition="13090.0" yPosition="9432.0">
+      <Methods>
+        <Method name="registerObserver" returnType="void" visibility="public">
+          <Argument type="String" name="_input"/>
+        </Method>
+        <Method name="removeObserver" returnType="void" visibility="public">
+          <Argument type="String" name="_input"/>
+        </Method>
+        <Method name="notifyObserver" returnType="void" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Interface name="Observer" package="coursework.Models.Objects" visibility="public" xPosition="6513.0" yPosition="6038.0">
+      <Methods>
+        <Method name="update" returnType="void" visibility="public">
+          <Argument type="boolean" name="_input"/>
+        </Method>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="userSession" source="coursework.Views.GiveMedicine" target="coursework.Models.Objects.Session" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="medicineType" source="coursework.Models.Objects.Prescription" target="coursework.Models.Objects.Medicine" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="uses" source="coursework.Models.Objects.PrescriptionCreator" target="coursework.Controllers.GenerateID" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="coursework.Views.MainAdministrator" target="coursework.Controllers.GenerateID" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="coursework.Controllers.Resize" target="coursework.Models.Objects.Medicine" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="secretaryArray" source="coursework.Views.MainAdministrator" target="coursework.Models.Users.User" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="doctorRatings" source="coursework.Views.MainAdministrator" target="coursework.Models.Objects.Rating" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="coursework.Controllers.FileWriter" target="coursework.Models.Objects.Medicine" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="allPrescriptions" source="coursework.Views.GiveMedicine" target="coursework.Models.Objects.Prescription" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="allUsers" source="coursework.Views.GiveMedicine" target="coursework.Models.Users.User" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="coursework.Views.Register" target="coursework.Controllers.GenerateID" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="coursework.Controllers.Display" target="coursework.Views.MainAdministrator" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="coursework.Controllers.Augment" target="coursework.Models.Objects.Medicine" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="coursework.Controllers.FileWriter" target="coursework.Models.Objects.Appointment" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="doctorArray" source="coursework.Views.MainAdministrator" target="coursework.Models.Users.User" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="allMeds" source="coursework.Views.GiveMedicine" target="coursework.Models.Objects.Medicine" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="userSession" source="coursework.Views.MainSecretary" target="coursework.Models.Objects.Session" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="coursework.Controllers.Resize" target="coursework.Models.Objects.Prescription" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="approvals" source="coursework.Views.MainSecretary" target="coursework.Models.Users.Patient" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="coursework.Models.Objects.Session" target="coursework.Models.Objects.Session" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="coursework.Controllers.FileReader" target="coursework.Models.Users.User" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="allDoctors" source="coursework.Views.MainPatient" target="coursework.Models.Users.Doctor" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="coursework.Controllers.MainFunctions" target="coursework.Models.Objects.Session" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="coursework.Controllers.Resize" target="coursework.Models.Objects.Rating" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="allMeds" source="coursework.Views.OrderStock" target="coursework.Models.Objects.Medicine" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="proposedAppointment" source="coursework.Views.RequestAppointment" target="coursework.Models.Objects.Appointment" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="userSession" source="coursework.Views.MainAdministrator" target="coursework.Models.Objects.Session" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="coursework.Models.Objects.Appointment" target="coursework.Models.Objects.Observable"/>
+    <HasRelation name="stockRequests" source="coursework.Views.OrderStock" target="coursework.Models.Objects.Medicine" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="allUsers" source="coursework.Views.MainSecretary" target="coursework.Models.Users.User" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="coursework.Views.Login" target="coursework.Controllers.Display" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="coursework.Controllers.MainFunctions" target="coursework.Models.Users.User" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="meds" source="coursework.Views.PrescribeForm" target="coursework.Models.Objects.Medicine" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="coursework.Controllers.Augment" target="coursework.Models.Users.User" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="userSession" source="coursework.Views.ViewPrescription" target="coursework.Models.Objects.Session" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="coursework.Views.Creator" target="coursework.Controllers.GenerateID" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="stockOrders" source="coursework.Views.MainSecretary" target="coursework.Models.Objects.Medicine" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="readArray" source="coursework.Views.MainDoctor" target="coursework.Models.Objects.Appointment" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="medicineType" source="coursework.Models.Objects.PrescriptionCreator" target="coursework.Models.Objects.Medicine" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="coursework.Models.Users.Doctor" target="coursework.Models.Users.User"/>
+    <HasRelation name="prescriptionRequests" source="coursework.Views.MainSecretary" target="coursework.Models.Objects.Prescription" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="readArray" source="coursework.Views.MainAdministrator" target="coursework.Models.Users.User" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="coursework.Controllers.FileWriter" target="coursework.Models.Objects.Rating" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="proposedAppointment" source="coursework.Views.MainPatient" target="coursework.Models.Objects.Appointment" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="coursework.Controllers.Augment" target="coursework.Models.Objects.Prescription" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="coursework.Controllers.Display" target="coursework.Views.MainDoctor" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="allUsers" source="coursework.Views.ViewRatings" target="coursework.Models.Users.User" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="coursework.Controllers.Augment" target="coursework.Models.Objects.Feedback" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="allUsers" source="coursework.Views.MainPatient" target="coursework.Models.Users.User" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="coursework.Controllers.Augment" target="coursework.Models.Objects.Appointment" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="coursework.Controllers.Resize" target="coursework.Models.Users.User" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="coursework.Controllers.FileReader" target="coursework.Models.Objects.Medicine" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="coursework.Controllers.FileWriter" target="coursework.Models.Users.User" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="coursework.Models.Users.Administrator" target="coursework.Models.Users.User"/>
+    <HasRelation name="allUsers" source="coursework.Views.PrescribeForm" target="coursework.Models.Users.User" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="appointments" source="coursework.Views.MainPatient" target="coursework.Models.Objects.Appointment" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="userSession" source="coursework.Views.Creator" target="coursework.Models.Objects.Session" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="selectedMedicine" source="coursework.Views.GiveMedicine" target="coursework.Models.Objects.Medicine" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="doctorAppointments" source="coursework.Views.MainDoctor" target="coursework.Models.Objects.Appointment" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="userSession" source="coursework.Views.MainPatient" target="coursework.Models.Objects.Session" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="coursework.Controllers.Resize" target="coursework.Models.Users.Patient" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="coursework.Controllers.Display" target="coursework.Views.MainSecretary" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="coursework.Controllers.FileReader" target="coursework.Models.Objects.Rating" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="coursework.Models.Users.Patient" target="coursework.Models.Users.User"/>
+    <HasRelation name="userSession" source="coursework.Views.PrescribeForm" target="coursework.Models.Objects.Session" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="selectedPrescription" source="coursework.Views.GiveMedicine" target="coursework.Models.Objects.Prescription" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="allMeds" source="coursework.Views.MainSecretary" target="coursework.Models.Objects.Medicine" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="userSession" source="coursework.Views.RequestAppointment" target="coursework.Models.Objects.Session" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="coursework.Controllers.MainFunctions" target="coursework.Models.Objects.Rating" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="coursework.Controllers.FileReader" target="coursework.Models.Objects.Feedback" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="coursework.Models.Users.User" target="coursework.Models.Objects.Observer"/>
+    <UseRelation source="coursework.Controllers.FileWriter" target="coursework.Models.Objects.Feedback" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="userSession" source="coursework.Views.MainDoctor" target="coursework.Models.Objects.Session" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="coursework.Controllers.FileReader" target="coursework.Models.Objects.Appointment" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="coursework.Controllers.Resize" target="coursework.Models.Objects.Appointment" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="coursework.Controllers.FileReader" target="coursework.Models.Objects.Prescription" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="coursework.Models.Users.Secretary" target="coursework.Models.Users.User"/>
+    <UseRelation name="" source="coursework.Views.MainAdministrator" target="coursework.Controllers.Display" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="instance" source="coursework.Models.Objects.Session" target="coursework.Models.Objects.Session" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="allUsers" source="coursework.Views.RequestAppointment" target="coursework.Models.Users.User" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="coursework.Controllers.Display" target="coursework.Views.MainPatient"/>
+    <HasRelation name="userArray" source="coursework.Views.MainDoctor" target="coursework.Models.Users.User" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="coursework.Models.Objects.PrescriptionCreator" target="coursework.Models.Objects.Prescription" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="coursework.Models.Objects.Prescription" target="coursework.Models.Objects.Medicine" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="coursework.Controllers.Augment" target="coursework.Models.Objects.Rating" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="coursework.Controllers.FileWriter" target="coursework.Models.Objects.Prescription" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="medArray" source="coursework.Views.OrderForm" target="coursework.Models.Objects.Medicine" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="userSession" source="coursework.Views.OrderStock" target="coursework.Models.Objects.Session" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="coursework.Controllers.Resize" target="coursework.Models.Objects.Feedback" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
