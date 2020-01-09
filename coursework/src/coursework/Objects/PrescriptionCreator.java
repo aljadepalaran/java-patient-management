@@ -26,6 +26,7 @@ public class PrescriptionCreator {
         
     }
     
+    //FACADE PATTERN
     public Prescription createPrescription(){
         Medicine med = new Medicine("", "" , 0);
         String prescriptionID = GenerateID.prescriptionID();
@@ -38,5 +39,4 @@ public class PrescriptionCreator {
         output.setDosage(this.dosage);
         return output;
     }
-    
 }

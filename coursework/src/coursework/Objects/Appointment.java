@@ -79,7 +79,7 @@ public class Appointment implements Serializable, Observable{
            User[] all = FileReader.readUsers();
            for(int i = 0; i<all.length; i++){
                if(_input.compareTo(all[i].getUniqueID()) == 0){
-                   if(observerList[0] == null){
+                   if(this.observerList[0] == null){
                        this.observerList[0] = all[i].getUniqueID();
                        break;
                    }else if(observerList[1] == null){
@@ -94,10 +94,10 @@ public class Appointment implements Serializable, Observable{
 
     @Override
     public void removeObserver(String _input) {
-        if(observerList[0].compareTo(_input) == 0){
-            observerList[0] = null;
-        }else if(observerList[1].compareTo(_input) == 0){
-            observerList[1] = null;
+        if(this.observerList[0].compareTo(_input) == 0){
+            this.observerList[0] = null;
+        }else if(this.observerList[1].compareTo(_input) == 0){
+            this.observerList[1] = null;
         }else{}
     }
 

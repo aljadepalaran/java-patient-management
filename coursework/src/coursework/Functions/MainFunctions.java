@@ -76,6 +76,7 @@ public class MainFunctions {
         }else{}
         return output;
     }
+    
     public static Rating[] getRating(String _doctorID){
         Rating readArray[] = null;
         Rating doctorRating[] = new Rating[1]; //will store the ratings for the specific doctor.

@@ -1,14 +1,16 @@
 package coursework.Users;
 
+import coursework.Objects.Observer;
 import java.io.Serializable;
 
-public class User implements Serializable{
+public class User implements Serializable, Observer{
     
     private String uniqueID;
     private String password;
     private String firstName;
     private String lastName;
     private char accessKey;
+    private boolean hasObservable;
     
     public User(String _uniqueID, String _password, String _firstName, 
             String _lastName, char _accessKey){
@@ -18,6 +20,7 @@ public class User implements Serializable{
         this.firstName = _firstName;
         this.lastName = _lastName;
         this.accessKey = 'U';
+        this.hasObservable = false;
         
     }
     
@@ -37,6 +40,9 @@ public class User implements Serializable{
     public char getAccessKey(){
         return this.accessKey;
     }
+    public boolean getHasObservable(){
+        return this.hasObservable;
+    }
     
     //SET Methods.
     public void setUniqueID(String _uniqueID){
@@ -53,6 +59,11 @@ public class User implements Serializable{
     }
     public void setAccessKey(char _accessKey){
         this.accessKey = _accessKey;
+    }
+
+    @Override
+    public void update(boolean _input) {
+        this.hasObservable = _input;
     }
     
 }

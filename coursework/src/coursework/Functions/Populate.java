@@ -64,17 +64,47 @@ public class Populate {
 
             //No notes.
             output[0] = new Appointment("0001", "P0000", "D0000", "01012010", "");
+            output[0].registerObserver("P0000");
+            output[0].registerObserver("D0000");
+            output[0].notifyObserver();
             output[1] = new Appointment("0002", "P0000", "D0001", "02022010", "");
+            output[1].registerObserver("P0000");
+            output[1].registerObserver("D0001");
+            output[1].notifyObserver();
             output[2] = new Appointment("0003", "P0001", "D0002", "03032010", "");
+            output[2].registerObserver("P0001");
+            output[2].registerObserver("D0002");
+            output[2].notifyObserver();
             output[3] = new Appointment("0004", "P0002", "D0003", "04042010", "");
+            output[3].registerObserver("P0002");
+            output[3].registerObserver("D0003");
+            output[3].notifyObserver();
             output[4] = new Appointment("0005", "P0003", "D0001", "05052010", "");
+            output[4].registerObserver("P0003");
+            output[4].registerObserver("D0001");
+            output[4].notifyObserver();
 
             //With notes.
             output[5] = new Appointment("0006", "P0003", "D0001", "06062010", "P0003 and D0001");
+            output[5].registerObserver("P0003");
+            output[5].registerObserver("D0001");
+            output[5].notifyObserver();
             output[6] = new Appointment("0007", "P0004", "D0002", "07072010", "The patient was very late.");
+            output[6].registerObserver("P0004");
+            output[6].registerObserver("D0002");
+            output[6].notifyObserver();
             output[7] = new Appointment("0008", "P0005", "D0003", "08082010", "The patient did not seem to be coping.");
+            output[7].registerObserver("P0005");
+            output[7].registerObserver("D0003");
+            output[7].notifyObserver();
             output[8] = new Appointment("0009", "P0001", "D0000", "09092010", "The patient has vanished.");
+            output[8].registerObserver("P0001");
+            output[8].registerObserver("D0000");
+            output[8].notifyObserver();
             output[9] = new Appointment("0010", "P0006", "D0000", "10102010", "Successful appointment.");
+            output[9].registerObserver("P0006");
+            output[9].registerObserver("D0000");
+            output[9].notifyObserver();
         
             FileWriter.writeAppointments(output);
             
