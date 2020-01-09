@@ -1,14 +1,18 @@
 package coursework.Objects;
 
+import coursework.Functions.FileReader;
+import coursework.Functions.FileWriter;
+import coursework.Users.User;
 import java.io.Serializable;
 
-public class Appointment implements Serializable{
+public class Appointment implements Serializable, Observable{
     
     private String appointmentID;
     private String patientID;
     private String doctorID;
     private String date;
     private String notes;
+    private String[] observerList;
     
     public Appointment(String _appointmentID, String _patientID, String _doctorID, String _date, String _notes){
         this.appointmentID = _appointmentID;
@@ -16,6 +20,9 @@ public class Appointment implements Serializable{
         this.doctorID = _doctorID;
         this.date = _date;
         this.notes = _notes;
+        this.observerList = new String[2];
+        this.observerList[0] = null;
+        this.observerList[1] = null;
     }
 
     public String getAppointmentID() {
@@ -56,6 +63,66 @@ public class Appointment implements Serializable{
 
     public void setNotes(String notes) {
         this.notes = notes;
+    }
+
+    public String getObserverOne(){
+        return this.observerList[0];
+    }
+    
+    public String getObserverTwo(){
+        return this.observerList[1];
+    }
+    
+    @Override
+    public void registerObserver(String _input) {
+       try{
+           User[] all = FileReader.readUsers();
+           for(int i = 0; i<all.length; i++){
+               if(_input.compareTo(all[i].getUniqueID()) == 0){
+                   if(observerList[0] == null){
+                       this.observerList[0] = all[i].getUniqueID();
+                       break;
+                   }else if(observerList[1] == null){
+                       this.observerList[1] = all[i].getUniqueID();
+                       break;
+                   }else{}
+                
+               }
+           }
+       }catch(Exception e){}
+    }
+
+    @Override
+    public void removeObserver(String _input) {
+        if(observerList[0].compareTo(_input) == 0){
+            observerList[0] = null;
+        }else if(observerList[1].compareTo(_input) == 0){
+            observerList[1] = null;
+        }else{}
+    }
+
+    @Override
+    public void notifyObserver() {
+        try{
+            User[] all = FileReader.readUsers();
+            if(observerList[0] != null){
+                for(int i = 0; i < all.length; i++){
+                    if(observerList[0].compareTo(all[i].getUniqueID()) == 0){
+                        all[i].update(true);
+                    }
+                }
+            }
+            if(observerList[1] != null){
+                for(int i = 0; i < all.length; i++){
+                    if(observerList[1].compareTo(all[i].getUniqueID()) == 0){
+                        all[i].update(true);
+                    }
+                }
+            }
+            FileWriter.writeUsers(all);
+        }catch(Exception e){}
+       
+
     }
     
     
