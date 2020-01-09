@@ -27,11 +27,25 @@ public class MainPatient extends javax.swing.JFrame {
         initComponents();
         this.setResizable(false); 
         userSession = _session;
+        checkObservables();
         loadData();
         loadProposed();
         if(proposedAppointment != null){
             JOptionPane.showMessageDialog(this, "You have a proposed appointment! Click 'Request Appointment' to view!");
         }
+    }
+    
+    public void checkObservables(){
+        try{
+            User[] all = FileReader.readUsers();
+            for(int i = 0; i < all.length; i++){
+                if(all[i].getUniqueID().compareTo(userSession.getUID()) == 0){
+                    if(all[i].getHasObservable() == true){
+                        JOptionPane.showMessageDialog(this, "You have appointment(s).");
+                    }
+                }
+            }
+        }catch(Exception e){}
     }
     
     //A controller to load all the data needed for the patient functions.

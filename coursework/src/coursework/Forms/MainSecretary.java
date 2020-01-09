@@ -604,10 +604,24 @@ public class MainSecretary extends javax.swing.JFrame {
     }//GEN-LAST:event_appSelectActionPerformed
 
     private void approveAppointmentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_approveAppointmentButtonActionPerformed
-        Appointment selectedAppointment = appointmentRequests[appSelect.getSelectedIndex()];
-        Augment.addAppointment(selectedAppointment);
-        Augment.removeAppointmentRequest(selectedAppointment.getAppointmentID());
-        refresh();
+        try{
+            User[] all = FileReader.readUsers();
+            Appointment selectedAppointment = appointmentRequests[appSelect.getSelectedIndex()];
+            selectedAppointment.registerObserver(selectedAppointment.getDoctorID());
+            selectedAppointment.registerObserver(selectedAppointment.getPatientID());
+            for(int i = 0; i < all.length; i++){
+                if(all[i].getUniqueID().compareTo(selectedAppointment.getDoctorID()) == 0){
+                    all[i].update(true); //Updates the doctor.
+                }
+                if(all[i].getUniqueID().compareTo(selectedAppointment.getPatientID()) == 0){
+                    all[i].update(true); //Updates the patient.
+                }
+            }
+            FileWriter.writeUsers(all);
+            Augment.addAppointment(selectedAppointment);
+            Augment.removeAppointmentRequest(selectedAppointment.getAppointmentID());
+            refresh();
+        }catch(Exception e){}
     }//GEN-LAST:event_approveAppointmentButtonActionPerformed
 
     private void orderStockButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderStockButtonActionPerformed

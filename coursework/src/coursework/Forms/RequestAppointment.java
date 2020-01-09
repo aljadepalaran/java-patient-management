@@ -224,6 +224,9 @@ public class RequestAppointment extends javax.swing.JFrame {
         try{
             Augment.addAppointmentRequest(proposedAppointment); //added to requests
             Augment.removeProposedAppointment(proposedAppointment.getAppointmentID());
+            JOptionPane.showMessageDialog(this, "The appointment has been requested.");
+            this.setVisible(false);
+            this.dispose();
         }catch(Exception e){
             JOptionPane.showMessageDialog(this, "You have no proposed appointment.");
         }
