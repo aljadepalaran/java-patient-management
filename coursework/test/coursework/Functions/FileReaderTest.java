@@ -90,7 +90,7 @@ public class FileReaderTest {
     public void testReadRequests() throws Exception {
         System.out.println("readRequests");
         User[] expResult = null;
-        FileWriter.writeUsers(expResult);
+        FileWriter.writeAccountRequests(expResult);
         User[] result = FileReader.readRequests();
         assertArrayEquals(expResult, result);
     }
