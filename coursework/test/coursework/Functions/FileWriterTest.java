@@ -5,12 +5,14 @@
  */
 package coursework.Functions;
 
-import coursework.Objects.Appointment;
-import coursework.Objects.Feedback;
-import coursework.Objects.Medicine;
-import coursework.Objects.Prescription;
-import coursework.Objects.Rating;
-import coursework.Users.User;
+import coursework.Controllers.FileWriter;
+import coursework.Controllers.FileReader;
+import coursework.Models.Objects.Appointment;
+import coursework.Models.Objects.Feedback;
+import coursework.Models.Objects.Medicine;
+import coursework.Models.Objects.Prescription;
+import coursework.Models.Objects.Rating;
+import coursework.Models.Users.User;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

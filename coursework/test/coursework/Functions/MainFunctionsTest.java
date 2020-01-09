@@ -5,9 +5,11 @@
  */
 package coursework.Functions;
 
-import coursework.Objects.Rating;
-import coursework.Objects.Session;
-import coursework.Users.User;
+import coursework.Controllers.MainFunctions;
+import coursework.Controllers.Populate;
+import coursework.Models.Objects.Rating;
+import coursework.Models.Objects.Session;
+import coursework.Models.Users.User;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

@@ -5,8 +5,9 @@
  */
 package coursework.Objects;
 
-import coursework.Functions.FileReader;
-import coursework.Users.User;
+import coursework.Models.Objects.Appointment;
+import coursework.Controllers.FileReader;
+import coursework.Models.Users.User;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
