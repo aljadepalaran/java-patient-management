@@ -1,13 +1,12 @@
 package coursework.Models.Users;
 import coursework.Controllers.Augment;
-public class UserCreator {
+public class UserCreator {//STRATEGY PATTERN
     public static interface createUser{
         public User generateUser(String _id, String _password, String _first, String _second, String _address, char _sex, String _date);
     }
     public abstract class abstractSimple implements createUser{}
     public abstract class abstractDoctor implements createUser{}
     public abstract class abstractPatient implements createUser{}
-    
     public class adminCreator extends abstractSimple{
         @Override
         public User generateUser(String _id, String _password, String _first, String _second, String _address, char _sex, String _date) {

@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package coursework.Users;
+package coursework.Models.Users;
 
 import coursework.Models.Users.User;
+import coursework.Controllers.Populate;
+import org.junit.After;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -149,6 +151,11 @@ public class UserTest {
         User instance = new User("testid","testpassword","testfirstname","testlastname",'U');
         instance.update(true);
         assertEquals(instance.getHasObservable(), true);
+    }
+    
+    @After
+    public void restore(){
+        Populate.populateFile();
     }
     
 }

@@ -5,6 +5,8 @@
  */
 package coursework.Models.Objects;
 
+import coursework.Controllers.Populate;
+import org.junit.After;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -70,4 +72,8 @@ public class MedicineTest {
         assertEquals(3, instance.getStock());
     }
     
+    @After
+    public void restore(){
+        Populate.populateFile();
+    }
 }

@@ -8,6 +8,8 @@ package coursework.Models.Objects;
 import coursework.Models.Objects.Appointment;
 import coursework.Controllers.FileReader;
 import coursework.Models.Users.User;
+import coursework.Controllers.Populate;
+import org.junit.After;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -202,6 +204,10 @@ public class AppointmentTest {
             }
             boolean result;
         }catch(Exception e){}
+    }
+    @After
+    public void restore(){
+        Populate.populateFile();
     }
     
 }

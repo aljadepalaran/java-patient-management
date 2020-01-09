@@ -6,6 +6,8 @@
 package coursework.Models.Objects;
 
 import coursework.Models.Objects.Session;
+import coursework.Controllers.Populate;
+import org.junit.After;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -49,6 +51,11 @@ public class SessionTest {
         Session userSession = Session.getInstance("testid");
         userSession.setUID("test2");
         assertEquals("test2", userSession.getUID());
+    }
+    
+    @After
+    public void restore(){
+        Populate.populateFile();
     }
     
 }

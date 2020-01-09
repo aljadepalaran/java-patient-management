@@ -7,6 +7,8 @@ package coursework.Models.Objects;
 
 import coursework.Models.Objects.Medicine;
 import coursework.Models.Objects.Prescription;
+import coursework.Controllers.Populate;
+import org.junit.After;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -179,6 +181,11 @@ public class PrescriptionTest {
         Prescription instance = new Prescription("testid", "testpatient", "testdoctor", "testnote", newMed, 5, "testdosage");
         instance.setDosage("test2");
         assertEquals("test2", instance.getDosage());
+    }
+    
+    @After
+    public void restore(){
+        Populate.populateFile();
     }
     
 }

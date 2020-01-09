@@ -6,6 +6,8 @@
 package coursework.Models.Objects;
 
 import coursework.Models.Objects.Rating;
+import coursework.Controllers.Populate;
+import org.junit.After;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -100,6 +102,11 @@ public class RatingTest {
         Rating instance = new Rating("testdoctor", "testpatient", 0, "testmessage");
         instance.setMessage("test2");
         assertEquals("test2", instance.getMessage());
+    }
+    
+    @After
+    public void restore(){
+        Populate.populateFile();
     }
     
 }

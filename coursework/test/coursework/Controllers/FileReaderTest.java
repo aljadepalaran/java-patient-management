@@ -3,16 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package coursework.Functions;
+package coursework.Controllers;
 
-import coursework.Controllers.FileWriter;
-import coursework.Controllers.FileReader;
 import coursework.Models.Objects.Appointment;
 import coursework.Models.Objects.Feedback;
 import coursework.Models.Objects.Medicine;
 import coursework.Models.Objects.Prescription;
 import coursework.Models.Objects.Rating;
 import coursework.Models.Users.User;
+import coursework.Controllers.Populate;
+import org.junit.After;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -167,6 +167,11 @@ public class FileReaderTest {
         FileWriter.writePrescriptionRequests(expResult);
         Prescription[] result = FileReader.readRequestedPrescriptions();
         assertArrayEquals(expResult, result);
+    }
+    
+    @After
+    public void restore(){
+        Populate.populateFile();
     }
     
 }

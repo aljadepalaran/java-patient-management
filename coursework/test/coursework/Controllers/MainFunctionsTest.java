@@ -3,13 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package coursework.Functions;
+package coursework.Controllers;
 
 import coursework.Controllers.MainFunctions;
 import coursework.Controllers.Populate;
 import coursework.Models.Objects.Rating;
 import coursework.Models.Objects.Session;
 import coursework.Models.Users.User;
+import coursework.Controllers.Populate;
+import org.junit.After;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -64,6 +66,11 @@ public class MainFunctionsTest {
         boolean expResult2 = false;
         boolean result2 = MainFunctions.validateDate(_date2);
         assertEquals(expResult2, result2);
+    }
+    
+    @After
+    public void restore(){
+        Populate.populateFile();
     }
     
 }

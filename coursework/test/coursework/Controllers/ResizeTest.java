@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package coursework.Functions;
+package coursework.Controllers;
 
 import coursework.Controllers.Resize;
 import coursework.Models.Objects.Appointment;
@@ -13,6 +13,8 @@ import coursework.Models.Objects.Prescription;
 import coursework.Models.Objects.Rating;
 import coursework.Models.Users.Patient;
 import coursework.Models.Users.User;
+import coursework.Controllers.Populate;
+import org.junit.After;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -174,8 +176,6 @@ public class ResizeTest {
         Prescription[] _array = new Prescription[5];
         _array = Resize.shortenPrescription(_array);
         assertEquals(_array.length, 4);
-   
-
     }
 
     /**
@@ -187,7 +187,11 @@ public class ResizeTest {
         Medicine[] _array = new Medicine[5];
         _array = Resize.shortenMedicines(_array);
         assertEquals(_array.length, 4);
-
+    }
+    
+    @After
+    public void restore(){
+        Populate.populateFile();
     }
     
 }
