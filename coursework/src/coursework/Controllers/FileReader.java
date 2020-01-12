@@ -8,6 +8,10 @@ import coursework.Models.Objects.Feedback;
 import coursework.Models.Users.User;
 import java.io.*;
 
+    /**
+    *
+    * The class reads in the data and outputs the data as an array.
+    */
 public class FileReader {
     public static User[] readUsers() throws IOException, ClassNotFoundException{                                     //Reads the array of users from a file.   
         ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("Users.txt"));

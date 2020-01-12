@@ -6,10 +6,12 @@ import coursework.Models.Objects.Rating;
 import coursework.Models.Objects.Prescription;
 import coursework.Models.Objects.Feedback;
 import coursework.Models.Users.User;
-import javax.swing.JOptionPane;
 
 public class Augment {
-    //ADD Objects to the file.
+    /**
+    * Takes in a single user.
+    * Adds the user to the system. 
+    */
     public static void addUser(User _input){
         
         User output[] = null;
@@ -40,7 +42,12 @@ public class Augment {
             System.out.println(e);
         }
         
-    }                               //Adds a user to the system.
+    }         
+    
+    /**
+    * Takes in a single rating.
+    * Adds the rating to the system.
+    */
     public static void addRating(Rating _input){
         
         Rating output[] = null;
@@ -70,7 +77,12 @@ public class Augment {
         }catch(Exception e){
             System.out.println(e);
         }
-    }                           //Adds a rating to the system.
+    }                           
+    
+    /**
+    * Takings in a single feedback.
+    * Adds the feedback to the system.
+    */
     public static void addFeedback(Feedback _input){
         
         Feedback output[] = null;
@@ -100,7 +112,12 @@ public class Augment {
         }catch(Exception e){
             System.out.println(e);
         }
-    }                       //Adds a feedback to the system.
+    }                       
+    
+    /**
+    * Take in a single prescription
+    * Adds the prescription to the system.
+    */
     public static void addPrescription(Prescription _input){
         
         Prescription output[] = null;
@@ -130,7 +147,12 @@ public class Augment {
         }catch(Exception e){
             System.out.println(e);
         }
-    }               //Adds a prescription to the system.
+    }               
+    
+    /**
+    * Takes in a single appointment.
+    * Adds the appointment to the system.
+    */
     public static void addAppointment(Appointment _input){
         
         Appointment output[] = null;
@@ -160,7 +182,12 @@ public class Augment {
         }catch(Exception e){
             System.out.println(e);
         }
-    }                 //Adds an appointment to the system.
+    }                 
+    
+    /**
+    * Takes in a single user.
+    * Adds the user to the requests file.
+    */
     public static void addRequest(User _input){
         
         User output[] = null;
@@ -191,7 +218,12 @@ public class Augment {
             System.out.println(e);
         }
         
-    }                            //Adds a user to the account creation requests.
+    }                            
+    
+    /**
+    * Takes in a single medicine.
+    * Adds the medicine into the system.
+    */
     public static void addMedicine(Medicine _input){
         Medicine output[] = null;
         boolean hasNull = false;
@@ -214,7 +246,12 @@ public class Augment {
         try{
             FileWriter.writeMedicines(output);
         }catch(Exception e){}
-    }                       //Adds a medicine to the system.
+    }                       
+    
+    /**
+    * Takes in a single medicine item.
+    * Adds to the stock orders.
+    */
     public static void addOrder(Medicine _input){
         Medicine output[] = null;
         boolean hasNull = false;
@@ -237,7 +274,12 @@ public class Augment {
         try{
             FileWriter.writeMedicineOrders(output);
         }catch(Exception e){}
-    }                          //Adds an order for medicine to the system.
+    }                          
+    
+    /**
+    * Takes in a single appointment.
+    * Adds the appointment into the requests for appointment.
+    */
     public static void addAppointmentRequest(Appointment _input){
         Appointment output[] = null;
         boolean hasNull = false;
@@ -266,7 +308,12 @@ public class Augment {
         }catch(Exception e){
             System.out.println(e);
         }
-    }          //Adds an appointment request by the user.
+    }          
+    
+    /**
+    * Takes in a single appointment.
+    * Adds the appointment into the proposed appointments.
+    */
     public static boolean addProposedAppointment(Appointment _input){
         Appointment output[] = null;
         boolean hasNull = false;
@@ -307,7 +354,12 @@ public class Augment {
             created = false;
         }
         return created;
-    }      //Adds a proposed appointment by the doctor.
+    }      
+    
+    /**
+    * Takes in a single prescription.
+    * Adds the prescription into the prescription requests.
+    */
     public static void addPrescriptionRequest(Prescription _input){
         Prescription output[] = null;
         boolean hasNull = false;
@@ -338,7 +390,10 @@ public class Augment {
         }
     }        //Adds a prescription request by the doctor.
     
-    //REMOVE Objects from the file.
+    /**
+    * Takes in a string.
+    * Removes a user where the string=id.
+    */
     public static void removeUser(String _input){
         User output[] = null;
         try{
@@ -351,7 +406,12 @@ public class Augment {
             output = trimUsers(output);
             FileWriter.writeUsers(output);
         }catch(Exception e){}
-    }                          //Remove a user.
+    }                          
+    
+    /**
+    * Takes in a string.
+    * Removes a prescription where id=string.
+    */
     public static void removePrescription(String _input){
         Prescription output[] = null;
         try{
@@ -366,7 +426,12 @@ public class Augment {
         try{
             FileWriter.writePrescriptions(output);
         }catch(Exception e){}
-    }                  //Remove a prescription.
+    }                  
+    
+    /**
+    * Takes in a string.
+    * Removes an appointment based on the id.
+    */
     public static void removeAppointmentRequest(String _input){
         Appointment output[] = null;
         try{
@@ -384,7 +449,12 @@ public class Augment {
         }catch(Exception e){
             System.out.println(e);
         }
-    }            //Remove a request for an appointment.
+    }            
+    
+    /**
+    * Takes in a string.
+    * Removes a user based on the id.
+    */
     public static void removeApproval(String _input){
         User output[] = null;
         try{
@@ -399,7 +469,12 @@ public class Augment {
         try{
             FileWriter.writeAccountRequests(output);
         }catch(Exception e){}
-    }                      //Remove patient from approvals.
+    }                      
+    
+    /**
+    * Takes in a string.
+    * Removes the medicine order based on the id.
+    */
     public static void removeMedicineOrder(String _input){
         Medicine output[] = null;
         try{
@@ -415,7 +490,12 @@ public class Augment {
         try{
             FileWriter.writeMedicineOrders(output);
         }catch(Exception e){}
-    }                 //Remove a medicine ordered by the doctor.
+    }                 
+    
+    /**
+    * Takes in a string.
+    * Removes a proposed appointment based on the id.
+    */
     public static void removeProposedAppointment(String _input){
         Appointment output[] = null;
         try{
@@ -430,7 +510,12 @@ public class Augment {
         try{
             FileWriter.writeProposedAppointments(output);
         }catch(Exception e){}
-    }           //Remove an appointment proposed by the doctor.
+    }           
+    
+    /**
+    * Takes in a string.
+    * Removes a termination request using the id.
+    */
     public static void removeTerminationRequest(String _input){
         User output[] = null;
         try{
@@ -443,7 +528,12 @@ public class Augment {
             output = trimUsers(output);
             FileWriter.writeAccountTermRequests(output);
         }catch(Exception e){}
-    }            //Remove a termination request.
+    }            
+    
+    /**
+    * Takes in a string.
+    * Removes a prescription request based on the id.
+    */
     public static void removePrescriptionRequest(String _input){
         Prescription output[] = null;
         try{
@@ -458,9 +548,12 @@ public class Augment {
         try{
             FileWriter.writePrescriptionRequests(output);
         }catch(Exception e){}
-    }           //remove prescriptions from prescription requests
+    }           
     
-    //TRIM NULL Elements.
+    /**
+    * 
+    * Trims null from the array
+    */
     public static User[] trimUsers(User[] _input){
         User[] output = _input;
         for(int i = 0; i < _input.length; i++){
@@ -474,7 +567,12 @@ public class Augment {
         }
         output = _input;
         return output;
-    }                         //Trim the User[] array.
+    }                        
+    
+    /**
+    *
+    * Trims null from the array
+    */
     public static Rating[] trimRatings(Rating[] _input){
         Rating[] output = _input;
         for(int i = 0; i < _input.length; i++){
@@ -488,7 +586,12 @@ public class Augment {
         }
         output = _input;
         return output;
-    }                   //Trim the Rating[] array.
+    }                   
+    
+    /**
+    *
+    * Trims null from the array
+    */
     public static Feedback[] trimFeedback(Feedback[] _input){
         Feedback[] output = _input;
         for(int i = 0; i < _input.length; i++){
@@ -502,7 +605,12 @@ public class Augment {
         }
         output = _input;
         return output;
-    }              //Trim the Feedback[] array.
+    }              /**
+    
+    /**
+    *
+    * Trims null from the array
+    */
     public static Prescription[] trimPrescriptions(Prescription[] _input){
         Prescription[] output = _input;
         for(int i = 0; i < _input.length; i++){
@@ -522,7 +630,12 @@ public class Augment {
             output[i] = _input[i];
         }
         return output;
-    } //Trim the prescription array.
+    } 
+    
+    /**
+    *
+    * Trims null from the array
+    */
     public static Appointment[] trimAppointments(Appointment[] _input){
         Appointment[] output = _input;
         for(int i = 0; i < _input.length; i++){
@@ -542,7 +655,12 @@ public class Augment {
             output[i] = _input[i];
         }
         return output;
-    }    //Trim the Appointment[] array.
+    }    
+    
+    /**
+    *
+    * Trims null from the array
+    */
     public static User[] trimRequests(User[] _input){
         User[] output = _input;
         for(int i = 0; i < _input.length; i++){
@@ -556,7 +674,12 @@ public class Augment {
         }
         output = _input;
         return output;
-    }                      //Trim the User[] array - redundant.
+    }                      
+    
+    /**
+    *
+    * Trims null from the array
+    */
     public static Medicine[] trimMedicines(Medicine[] _input){
         Medicine output[];
         for(int i = 0; i < _input.length; i++){
@@ -579,5 +702,5 @@ public class Augment {
         }
         
         return output;
-    }             //Trim the Medicine[] array.
+    }
 }
