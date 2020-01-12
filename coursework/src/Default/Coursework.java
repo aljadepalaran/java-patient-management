@@ -1,6 +1,5 @@
 package Default;
 import coursework.Views.Login;
-import coursework.Controllers.FileReader;
 import coursework.Controllers.Populate;
 import coursework.Controllers.FileReader;
 public class Coursework {
@@ -9,6 +8,11 @@ public class Coursework {
         checkFile();
     }
     
+    /**
+    * Checks if the data has been populated.
+    * If the data files don't exist, run the Populate.populateFile() function.
+    * This will populate the system with the data needed for the program to work.
+    */
     public static void checkFile(){
         try{
             FileReader.readUsers();

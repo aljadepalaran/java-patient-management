@@ -1,5 +1,11 @@
 package coursework.Models.Users;
 import coursework.Controllers.Augment;
+
+/**
+ * Implementation of the strategy pattern.
+ * Decides which user is to be created.
+ */
+
 public class UserCreator {//STRATEGY PATTERN
     public static interface createUser{
         public User generateUser(String _id, String _password, String _first, String _second, String _address, char _sex, String _date);

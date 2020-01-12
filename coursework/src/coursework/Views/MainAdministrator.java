@@ -15,6 +15,8 @@ import javax.swing.JOptionPane;
 
 public class MainAdministrator extends javax.swing.JFrame {
     
+    
+    //GLOBAL VARIABLES
     Session userSession;
     DefaultListModel listValues = new DefaultListModel();
     User doctorArray[] = new User[1];

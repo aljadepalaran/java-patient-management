@@ -8,6 +8,10 @@ import coursework.Models.Objects.Feedback;
 import coursework.Models.Users.User;
 import java.io.*;
 
+/**
+ * Class used to hold functions for debugging.
+ * Functions are used to check if the operations on the data correct.
+ */
 public class Display {
     
     public static void displayUsers(){
