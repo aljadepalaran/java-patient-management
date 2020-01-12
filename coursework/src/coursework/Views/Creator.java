@@ -1,4 +1,4 @@
-package coursework.Views; //CREATES Appointment
+package coursework.Views;
 
 import coursework.Models.Objects.Session;
 import coursework.Models.Objects.Appointment;
@@ -8,8 +8,12 @@ import coursework.Controllers.GenerateID;
 import coursework.Controllers.MainFunctions;
 import coursework.Controllers.Augment;
 import coursework.Controllers.FileReader;
-import com.sun.media.jfxmedia.logging.Logger;
 import javax.swing.JOptionPane;
+
+/**
+ * Form used to create appointments.
+ * 
+ */
 
 public class Creator extends javax.swing.JFrame {
 
@@ -21,6 +25,9 @@ public class Creator extends javax.swing.JFrame {
         initComponents();
     }
     
+    /**
+     * The constructor for the creator form.
+     */
     public Creator(Session _input) {
         initComponents();
         this.setResizable(false);
@@ -46,6 +53,9 @@ public class Creator extends javax.swing.JFrame {
         }catch(Exception e){}
     }
     
+    /**
+     * Clears the form.
+     */
     public void clearForm(){
         patientSelect.removeAllItems();
         firstnameText.setText("");
@@ -215,6 +225,9 @@ public class Creator extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Displays the information of the patient.
+     */
     private void patientSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientSelectActionPerformed
         try{
             Patient selected = patientArray[patientSelect.getSelectedIndex()];
@@ -231,6 +244,10 @@ public class Creator extends javax.swing.JFrame {
         }catch(Exception e){}
     }//GEN-LAST:event_patientSelectActionPerformed
 
+    /**
+     * Activates when the button is pressed.
+     * Creates the appointment and adds it to the system as a proposed appointment.
+     */
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
         try{
             Appointment allAppointments[] = FileReader.readAppointments();

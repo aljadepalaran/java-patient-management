@@ -10,6 +10,10 @@ import coursework.Models.Objects.Session;
 import coursework.Models.Users.User;
 import javax.swing.JOptionPane;
 
+/**
+ * The main form for the doctor.
+ * Opens when a user with doctor credentials logs into the system.
+ */
 public class MainDoctor extends javax.swing.JFrame {
     
     //GLOBAL VARIABLES
@@ -30,14 +34,18 @@ public class MainDoctor extends javax.swing.JFrame {
         loadData();
     }
     
-    //Clears the data stored in the form.
+    /**
+     * Clears the form.
+     */
     public void clearForm(){
         patientSelect.removeAllItems();
         historyPatient.removeAllItems();
         historyDate.removeAllItems();
     }
     
-    //A controller to load all the data needed for the doctor functions.
+    /**
+     * Loads the data into the doctor's form.
+     */
     public void loadData(){
         try{
             //APPOINTMENTS
@@ -379,6 +387,9 @@ public class MainDoctor extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Logs the doctor out of the system.
+     */
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
         Login loginForm = new Login();
         loginForm.setVisible(true);
@@ -391,6 +402,9 @@ public class MainDoctor extends javax.swing.JFrame {
         newForm.setVisible(true);
     }//GEN-LAST:event_proposeAppointmentButtonActionPerformed
 
+    /**
+     * Allows the doctor to make notes.
+     */
     private void makeNoteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_makeNoteButtonActionPerformed
         String output = noteField.getText();
         Appointment selected = doctorAppointments[patientSelect.getSelectedIndex()];

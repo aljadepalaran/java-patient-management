@@ -9,6 +9,10 @@ import coursework.Controllers.Augment;
 import coursework.Controllers.FileReader;
 import javax.swing.JOptionPane;
 
+/**
+ * A form for the secretary which will allow them to give the prescription to a patient.
+ * Will check if there is enough stock before completing the operation.
+ */
 public class GiveMedicine extends javax.swing.JFrame {
 
     //GLOBAL VARIABLES
@@ -164,6 +168,9 @@ public class GiveMedicine extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+    * A view for the secretary to allow them to select which prescription to hand out.
+    */
     private void selectPrescriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectPrescriptionActionPerformed
         try{
             String selectedID = selectPrescription.getSelectedItem().toString();
@@ -194,6 +201,10 @@ public class GiveMedicine extends javax.swing.JFrame {
         }catch(Exception e){}
     }//GEN-LAST:event_selectPrescriptionActionPerformed
 
+    /**
+     * A button which will allow them to confirm.
+     * When completed, the stock will be deducted from the system.
+     */
     private void giveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_giveButtonActionPerformed
         try{
             if(selectedPrescription.getQuantity() > selectedMedicine.getStock()){   //checks if there is enough stock for the prescription
@@ -214,6 +225,10 @@ public class GiveMedicine extends javax.swing.JFrame {
         }catch(Exception e){}
     }//GEN-LAST:event_giveButtonActionPerformed
 
+    /**
+     * When the window closes, opens the secretary window.
+     * This allows the secretary window to be refreshed.
+     */
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         MainSecretary newForm = new MainSecretary(userSession);
         newForm.setVisible(true);

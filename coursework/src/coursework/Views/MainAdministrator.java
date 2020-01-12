@@ -13,8 +13,11 @@ import coursework.Controllers.Resize;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
+/**
+ * The main form for the administrator.
+ * Opens when a user with administrator credentials logs into the system.
+ */
 public class MainAdministrator extends javax.swing.JFrame {
-    
     
     //GLOBAL VARIABLES
     Session userSession;
