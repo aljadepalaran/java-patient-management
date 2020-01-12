@@ -32,6 +32,20 @@ public class MainDoctor extends javax.swing.JFrame {
         userSession = _session;
         clearForm();
         loadData();
+        checkAppointments();
+    }
+    
+    public void checkAppointments(){
+        try{
+            int appCounter = 0;
+            Appointment[] all = FileReader.readAppointments();
+            for(int i = 0; i < all.length; i++){
+                if(all[i].getDoctorID().compareTo(userSession.getUID()) == 0){
+                    appCounter++;
+                }
+            }
+            JOptionPane.showMessageDialog(this, "You have " + appCounter + " appointments.");
+        }catch(Exception e){}
     }
     
     /**

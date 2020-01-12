@@ -5,7 +5,11 @@ import coursework.Controllers.FileReader;
 public class Coursework {
     public static void main(String[] args) {
 
-        checkFile();
+        Populate.populateFile();
+        Login loginForm = new Login();
+        loginForm.setVisible(true);
+        
+        //checkFile();
     }
     
     /**

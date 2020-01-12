@@ -131,6 +131,7 @@ public class MainSecretary extends javax.swing.JFrame {
         stockLabel = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         refreshButton = new javax.swing.JButton();
+        createAppointment = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         approveAccountButton = new javax.swing.JButton();
         patientSelect = new javax.swing.JComboBox<>();
@@ -227,6 +228,13 @@ public class MainSecretary extends javax.swing.JFrame {
             }
         });
 
+        createAppointment.setText("Create Appointment");
+        createAppointment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createAppointmentActionPerformed(evt);
+            }
+        });
+
         buttonPanel.setLayer(giveMedicineButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
         buttonPanel.setLayer(orderStockButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
         buttonPanel.setLayer(logoutButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -241,6 +249,7 @@ public class MainSecretary extends javax.swing.JFrame {
         buttonPanel.setLayer(stockLabel, javax.swing.JLayeredPane.DEFAULT_LAYER);
         buttonPanel.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         buttonPanel.setLayer(refreshButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        buttonPanel.setLayer(createAppointment, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout buttonPanelLayout = new javax.swing.GroupLayout(buttonPanel);
         buttonPanel.setLayout(buttonPanelLayout);
@@ -257,36 +266,27 @@ public class MainSecretary extends javax.swing.JFrame {
                                     .addComponent(orderStockButton, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
                                     .addComponent(giveMedicineButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(buttonPanelLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(appointmentLabel))
-                            .addGroup(buttonPanelLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(terminationLabel))
-                            .addGroup(buttonPanelLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(prescriptionLabel))
-                            .addGroup(buttonPanelLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(stockLabel))
-                            .addGroup(buttonPanelLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(accountLabel))
-                            .addGroup(buttonPanelLayout.createSequentialGroup()
                                 .addGap(57, 57, 57)
                                 .addComponent(jLabel2)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(buttonPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(appointmentLabel)
+                            .addComponent(terminationLabel)
+                            .addComponent(prescriptionLabel)
+                            .addComponent(stockLabel)
+                            .addComponent(accountLabel)
                             .addComponent(medicineSelect, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(buttonPanelLayout.createSequentialGroup()
                                 .addComponent(orderQty, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(orderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(refreshButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(buttonPanelLayout.createSequentialGroup()
-                                .addGap(35, 35, 35)
+                                .addGap(36, 36, 36)
                                 .addComponent(jLabel1))
-                            .addComponent(refreshButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(createAppointment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         buttonPanelLayout.setVerticalGroup(
@@ -298,7 +298,7 @@ public class MainSecretary extends javax.swing.JFrame {
                 .addComponent(giveMedicineButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(stockLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(appointmentLabel)
@@ -308,7 +308,7 @@ public class MainSecretary extends javax.swing.JFrame {
                 .addComponent(terminationLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(prescriptionLabel)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(medicineSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -316,8 +316,10 @@ public class MainSecretary extends javax.swing.JFrame {
                 .addGroup(buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(orderQty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(orderButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(refreshButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(createAppointment)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(logoutButton)
                 .addContainerGap())
@@ -505,8 +507,8 @@ public class MainSecretary extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addComponent(patientLabel)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(removeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(removeButton, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -515,13 +517,12 @@ public class MainSecretary extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(removeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(remPatient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(patientLabel)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(removeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -698,6 +699,11 @@ public class MainSecretary extends javax.swing.JFrame {
         
     }//GEN-LAST:event_formWindowGainedFocus
 
+    private void createAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAppointmentActionPerformed
+        CreateAppointment newForm = new CreateAppointment(userSession);
+        newForm.setVisible(true);
+    }//GEN-LAST:event_createAppointmentActionPerformed
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -715,6 +721,7 @@ public class MainSecretary extends javax.swing.JFrame {
     private javax.swing.JButton approveAppointmentButton;
     private javax.swing.JButton approveTerminationButton;
     private javax.swing.JLayeredPane buttonPanel;
+    private javax.swing.JButton createAppointment;
     private javax.swing.JLabel dateText;
     private javax.swing.JLabel dobText;
     private javax.swing.JLabel doctorText;
