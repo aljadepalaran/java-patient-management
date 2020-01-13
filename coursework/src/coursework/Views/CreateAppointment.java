@@ -223,26 +223,41 @@ public class CreateAppointment extends javax.swing.JFrame {
 
     private void viewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewButtonActionPerformed
         try{
+        
+            //Outputs all of the doctors - debugging
             for(int i = 0; i < allDoctors.length; i++){
-                System.out.println(allDoctors);
+                System.out.println(allDoctors[i]);
             }
+            
+            //Clears all of the selects.
             doctorSelect.removeAllItems();
             patientSelect.removeAllItems();
+            
+            //Retrieves the text
             String date = dateText.getText();
-            boolean valiDATE = MainFunctions.validateDate(date);
-            JOptionPane.showMessageDialog(this, valiDATE);
+            
+            boolean valiDATE = MainFunctions.validateDate(date); //Checks the valid status of the date
+            
+            //If date is in correct format.
             if(valiDATE == true){
-                for(int i = 0; i < allDoctors.length; i++){
-                    System.out.println(allDoctors[i].getUniqueID());
-                    for(int x = 0; x < allAppointments.length; x++){
-                    System.out.println(allAppointments[x].getDoctorID());
+                
+                for(int i = 0; i < allDoctors.length; i++){ //For every doctor
+                    boolean taken = false;
+                    for(int x = 0; x < allAppointments.length; x++){ //For every appointment
                         if(allAppointments[x].getDoctorID().compareTo(allDoctors[i].getUniqueID()) == 0){
-                            if(allAppointments[x].getDate().compareTo(date) != 0){
-                                doctorSelect.addItem(allDoctors[i].getUniqueID());
+                            if(allAppointments[x].getDate().compareTo(date) == 0){
+                                taken = true;
+                            }else{
+                                
                             }
-                        }
+                            if(taken != true){
+                                doctorSelect.addItem(allDoctors[i].getUniqueID());
+                                break;
+                            }
+                        }else{} //do nothing
                     }
                 }
+                
             }else{
                 JOptionPane.showMessageDialog(this, "1");
             }
