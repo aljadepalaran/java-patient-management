@@ -32,6 +32,7 @@ public class CreateAppointment extends javax.swing.JFrame {
     
     public CreateAppointment(Session _input) {
         initComponents();
+        this.setResizable(false);
         userSession = _input;
         loadData();
     }
@@ -90,7 +91,7 @@ public class CreateAppointment extends javax.swing.JFrame {
         patientName = new javax.swing.JLabel();
         doctorName = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -224,6 +225,7 @@ public class CreateAppointment extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void dateTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateTextActionPerformed

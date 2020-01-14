@@ -273,7 +273,7 @@ public class RequestAppointment extends javax.swing.JFrame {
             }else{
             JOptionPane.showMessageDialog(this, "Appointment request not submitted.");}
         }catch(Exception e){
-            JOptionPane.showMessageDialog(this, "Appointment request not submitted.");
+            JOptionPane.showMessageDialog(this, "Appointment request not submitted." + e);
         }
     }//GEN-LAST:event_requestButton2ActionPerformed
 
