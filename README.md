@@ -44,7 +44,7 @@ When you launch the program, there is a login system that will be displayed. On 
 - - This will allow the user to populate the program with data. The files are re-generated. This will also reset the data in case JUnit tests overwrite the files.
 
 ## The credentials inside the system
-- User Type	- Unique ID -	Password	- Name
+- [User Type]	- [Unique ID] -	[Password]	- [Name]
 - Administrator	- A0000	- adm1np455	- Admin One
 - Administrator	- A0001	- admin2	- Admin Two
 - Administrator	- A0002	- testpass	- Admin Three
