@@ -65,4 +65,5 @@ When you launch the program, there is a login system that will be displayed. On 
 - Patient	- P0008	- mywife	- Opra Streep
 - Patient	- P0009	- computers	- Ellen Jordan
 - Patient	- P0010	- jumpman	- Michael DeGeneres
-NOTE: The credentials provided above may be changed with usage of the system. To regenerate the data in the system to above, use the Populate File function on the login screen.
+### NOTE 
+The credentials provided above may be changed with usage of the system. To regenerate the data in the system to above, use the Populate File function on the login screen.
