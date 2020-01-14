@@ -34,14 +34,14 @@ The program is a Patient Management System. The program will allow the user to c
 ## How to use the program
 When you launch the program, there is a login system that will be displayed. On the login form, you are able to enter a unique ID (case-sensitive) and a password to log into the system. There are 3 buttons:
 - Login button
-- - This will allow you to log into the system using the given credentials.
-- - The credentials for the system can be found below in the next section of the README.
+-- This will allow you to log into the system using the given credentials.
+-- The credentials for the system can be found below in the next section of the README.
 - Register button
-- - This will allow a user to register themselves as a patient.
-- - You are only able to register as a patient from the login screen. You will need to be approved by the secretary when doing so.
-- - You can register an admin, doctor and secretary from the admin form.
+-- This will allow a user to register themselves as a patient.
+-- You are only able to register as a patient from the login screen. You will need to be approved by the secretary when doing so.
+-- You can register an admin, doctor and secretary from the admin form.
 - Populate button
-- - This will allow the user to populate the program with data. The files are re-generated. This will also reset the data in case JUnit tests overwrite the files.
+-- This will allow the user to populate the program with data. The files are re-generated. This will also reset the data in case JUnit tests overwrite the files.
 
 ## The credentials inside the system
 - User Type	- Unique ID -	Password	- Name
