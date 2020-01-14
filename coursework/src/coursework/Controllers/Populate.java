@@ -198,9 +198,9 @@ public class Populate {
         try{
             User output[] = new User[3];
 
-            output[0] = new Patient("P0008", "mywife", "Opra", "Winfrey", "Television", 'F', "29011954");
-            output[1] = new Patient("P0009", "computers", "Ellen", "DeGeneres", "LIVE", 'F', "26011958");
-            output[2] = new Patient("P0010", "jumpman", "Michael", "Jordan", "Address", 'M', "17021963");
+            output[0] = new Patient("P0008", "mywife", "Opra", "Streep", "Television", 'F', "29011954");
+            output[1] = new Patient("P0009", "computers", "Ellen", "Jordan", "LIVE", 'F', "26011958");
+            output[2] = new Patient("P0010", "jumpman", "Michael", "DeGeneres", "Address", 'M', "17021963");
         
             FileWriter.writeAccountTermRequests(output);
             
@@ -272,10 +272,10 @@ public class Populate {
         
             User output[] = new User[5];
             
-            output[0] = new Patient("P0011", "walls", "Donald", "Trump", "Mexican Border", 'M', "14061946");
-            output[1] = new Patient("P0012", "POTUS", "Barack", "Obama", "USA", 'M', "04081961");
-            output[2] = new Patient("P0013", "suits", "Barney", "Stinson", "MacLaren's", 'M', "16081976");
-            output[3] = new Patient("P0014", "story123", "Geraldine", "Story", "2834 Traction Street", 'F', "27071999");
+            output[0] = new Patient("P0011", "walls", "Donald", "Obama", "Mexican Border", 'M', "14061946");
+            output[1] = new Patient("P0012", "POTUS", "Barack", "Trump", "USA", 'M', "04081961");
+            output[2] = new Patient("P0013", "suits", "Barney", "Story", "MacLaren's", 'M', "16081976");
+            output[3] = new Patient("P0014", "story123", "Geraldine", "Stinson", "2834 Traction Street", 'F', "27071999");
             output[4] = new Patient("P0015", "Angthe", "Giovanni", "Carney", "37 Old Chapel Road", 'M', "27091954");
             
             FileWriter.writeAccountRequests(output);
