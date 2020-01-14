@@ -50,16 +50,16 @@ public class Populate {
 
             //PATIENTS
             output[9] = new Patient("P0000", "p4ssw0rd", "Patient", "Zero", "Earth", 'M', "01012000");
-            output[10] = new Patient("P0001", "password123", "Bradd", "Pitt", "Secret", 'M', "18121963");
-            output[11] = new Patient("P0002", "qwerty", "John", "Wick", "Everywhere", 'M', "02091964");
-            output[12] = new Patient("P0003", "1234567890", "Steve", "Jobs", "Apple Factory", 'M', "24021955");
-            output[13] = new Patient("P0004", "password", "James", "Bond", "London", 'M', "11091920");
-            output[14] = new Patient("P0005", "incorrect", "Mark", "Zuckerberg", "Internet", 'M', "14051984");
-            output[15] = new Patient("P0006", "football", "Jeff", "Bezos", "Amazon Office", 'M', "12011964");
-            output[16] = new Patient("P0007", "basketball", "Meryl", "Streep", "Nowhere", 'F', "22061949");
-            output[17] = new Patient("P0008", "mywife", "Opra", "Winfrey", "Television", 'F', "29011954");
-            output[18] = new Patient("P0009", "computers", "Ellen", "DeGeneres", "LIVE", 'F', "26011958");
-            output[19] = new Patient("P0010", "jumpman", "Michael", "Jordan", "Address", 'M', "17021963");
+            output[10] = new Patient("P0001", "password123", "Bradd", "Wick", "Secret", 'M', "18121963");
+            output[11] = new Patient("P0002", "qwerty", "John", "Pitt", "Everywhere", 'M', "02091964");
+            output[12] = new Patient("P0003", "1234567890", "Steve", "Zuckerberg", "Apple Factory", 'M', "24021955");
+            output[13] = new Patient("P0004", "password", "James", "Bezos", "London", 'M', "11091920");
+            output[14] = new Patient("P0005", "incorrect", "Mark", "Jobs", "Internet", 'M', "14051984");
+            output[15] = new Patient("P0006", "football", "Jeff", "Bond", "Amazon Office", 'M', "12011964");
+            output[16] = new Patient("P0007", "basketball", "Meryl", "Winfrey", "Nowhere", 'F', "22061949");
+            output[17] = new Patient("P0008", "mywife", "Opra", "Streep", "Television", 'F', "29011954");
+            output[18] = new Patient("P0009", "computers", "Ellen", "Jordan", "LIVE", 'F', "26011958");
+            output[19] = new Patient("P0010", "jumpman", "Michael", "DeGeneres", "Address", 'M', "17021963");
         
             FileWriter.writeUsers(output);
             
