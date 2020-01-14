@@ -41,24 +41,24 @@ When you launch the program, there is a login system that will be displayed. On 
  - This will allow the user to populate the program with data. The files are re-generated. This will also reset the data in case JUnit tests overwrite the files.
 
 ## The credentials inside the system
-User Type	- Unique ID -	Password	- Name
-Administrator	- A0000	- adm1np455	- Admin One
-Administrator	- A0001	- admin2	- Admin Two
-Administrator	- A0002	- testpass	- Admin Three
-Secretary	- S0000	- s3cr3t	- Richard Smiley
-Secretary	- S0001	- mypass	- Angela Collins
-Doctor	- D0000	- banana123	- Janet Strine
-Doctor	- D0001	- apple4	- Gary Rouse
-Doctor	- D0002	- doctorgreat	- Billy Hill
-Doctor	- D0003	- am4zing	- Diana Moreno
-Patient	- P0000	- p4ssw0rd	- Patient Zero
-Patient	- P0001	- password123	- Bradd Wick
-Patient	- P0002	- qwerty	- John Pitt
-Patient	- P0003	- 1234567890	- Steve Zuckerberg
-Patient	- P0004	- password	- James Bezos
-Patient	- P0005	- incorrect	- Mark Jobs
-Patient	- P0006	- football	- Jeff Bond
-Patient	- P0007	- basketball	- Meryl Winfrey
-Patient	- P0008	- mywife	- Opra Streep
-Patient	- P0009	- computers	- Ellen Jordan
-Patient	- P0010	- jumpman	- Michael DeGeneres
+- User Type	- Unique ID -	Password	- Name
+- Administrator	- A0000	- adm1np455	- Admin One
+- Administrator	- A0001	- admin2	- Admin Two
+- Administrator	- A0002	- testpass	- Admin Three
+- Secretary	- S0000	- s3cr3t	- Richard Smiley
+- Secretary	- S0001	- mypass	- Angela Collins
+- Doctor	- D0000	- banana123	- Janet Strine
+- Doctor	- D0001	- apple4	- Gary Rouse
+- Doctor	- D0002	- doctorgreat	- Billy Hill
+- Doctor	- D0003	- am4zing	- Diana Moreno
+- Patient	- P0000	- p4ssw0rd	- Patient Zero
+- Patient	- P0001	- password123	- Bradd Wick
+- Patient	- P0002	- qwerty	- John Pitt
+- Patient	- P0003	- 1234567890	- Steve Zuckerberg
+- Patient	- P0004	- password	- James Bezos
+- Patient	- P0005	- incorrect	- Mark Jobs
+- Patient	- P0006	- football	- Jeff Bond
+- Patient	- P0007	- basketball	- Meryl Winfrey
+- Patient	- P0008	- mywife	- Opra Streep
+- Patient	- P0009	- computers	- Ellen Jordan
+- Patient	- P0010	- jumpman	- Michael DeGeneres
