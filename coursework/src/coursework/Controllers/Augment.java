@@ -7,11 +7,17 @@ import coursework.Models.Objects.Prescription;
 import coursework.Models.Objects.Feedback;
 import coursework.Models.Users.User;
 
+/**
+ * A class for adding/removing a single object into the system.
+ * Class also contains methods to remove null elements from arrays.
+ * @author palar
+ */
 public class Augment {
+    
     /**
-    * Takes in a single user.
-    * Adds the user to the system. 
-    */
+     * Adds a user.
+     * @param _input 
+     */
     public static void addUser(User _input){
         
         User output[] = null;
@@ -45,9 +51,9 @@ public class Augment {
     }         
     
     /**
-    * Takes in a single rating.
-    * Adds the rating to the system.
-    */
+     * Adds a rating.
+     * @param _input 
+     */
     public static void addRating(Rating _input){
         
         Rating output[] = null;
@@ -80,9 +86,9 @@ public class Augment {
     }                           
     
     /**
-    * Takings in a single feedback.
-    * Adds the feedback to the system.
-    */
+     * Adds a feedback.
+     * @param _input 
+     */
     public static void addFeedback(Feedback _input){
         
         Feedback output[] = null;
@@ -115,9 +121,9 @@ public class Augment {
     }                       
     
     /**
-    * Take in a single prescription
-    * Adds the prescription to the system.
-    */
+     * Adds a prescription.
+     * @param _input 
+     */
     public static void addPrescription(Prescription _input){
         
         Prescription output[] = null;
@@ -150,9 +156,9 @@ public class Augment {
     }               
     
     /**
-    * Takes in a single appointment.
-    * Adds the appointment to the system.
-    */
+     * Adds an appointment.
+     * @param _input 
+     */
     public static void addAppointment(Appointment _input){
         
         Appointment output[] = null;
@@ -185,9 +191,9 @@ public class Augment {
     }                 
     
     /**
-    * Takes in a single user.
-    * Adds the user to the requests file.
-    */
+     * Adds a user to account creation requests.
+     * @param _input 
+     */
     public static void addRequest(User _input){
         
         User output[] = null;
@@ -221,9 +227,9 @@ public class Augment {
     }                            
     
     /**
-    * Takes in a single medicine.
-    * Adds the medicine into the system.
-    */
+     * Adds a medicine.
+     * @param _input 
+     */
     public static void addMedicine(Medicine _input){
         Medicine output[] = null;
         boolean hasNull = false;
@@ -249,9 +255,9 @@ public class Augment {
     }                       
     
     /**
-    * Takes in a single medicine item.
-    * Adds to the stock orders.
-    */
+     * Adds an order for medicine.
+     * @param _input 
+     */
     public static void addOrder(Medicine _input){
         Medicine output[] = null;
         boolean hasNull = false;
@@ -277,9 +283,9 @@ public class Augment {
     }                          
     
     /**
-    * Takes in a single appointment.
-    * Adds the appointment into the requests for appointment.
-    */
+     * Adds a request for an appointment.
+     * @param _input 
+     */
     public static void addAppointmentRequest(Appointment _input){
         Appointment output[] = null;
         boolean hasNull = false;
@@ -311,9 +317,11 @@ public class Augment {
     }          
     
     /**
-    * Takes in a single appointment.
-    * Adds the appointment into the proposed appointments.
-    */
+     * Adds a proposed appointment.
+     * Return is used to display whether it has gone throuugh or not.
+     * @param _input
+     * @return 
+     */
     public static boolean addProposedAppointment(Appointment _input){
         Appointment output[] = null;
         boolean hasNull = false;
@@ -357,9 +365,9 @@ public class Augment {
     }      
     
     /**
-    * Takes in a single prescription.
-    * Adds the prescription into the prescription requests.
-    */
+     * Adds a request for prescription.
+     * @param _input 
+     */
     public static void addPrescriptionRequest(Prescription _input){
         Prescription output[] = null;
         boolean hasNull = false;
@@ -391,9 +399,9 @@ public class Augment {
     }        //Adds a prescription request by the doctor.
     
     /**
-    * Takes in a string.
-    * Removes a user where the string=id.
-    */
+     * Removes a user.
+     * @param _input 
+     */
     public static void removeUser(String _input){
         User output[] = null;
         try{
@@ -409,9 +417,9 @@ public class Augment {
     }                          
     
     /**
-    * Takes in a string.
-    * Removes a prescription where id=string.
-    */
+     * Removes a prescription
+     * @param _input 
+     */
     public static void removePrescription(String _input){
         Prescription output[] = null;
         try{
@@ -429,9 +437,9 @@ public class Augment {
     }                  
     
     /**
-    * Takes in a string.
-    * Removes an appointment based on the id.
-    */
+     * Removes an appointment request.
+     * @param _input 
+     */
     public static void removeAppointmentRequest(String _input){
         Appointment output[] = null;
         try{
@@ -452,9 +460,9 @@ public class Augment {
     }            
     
     /**
-    * Takes in a string.
-    * Removes a user based on the id.
-    */
+     * Removes a user account creation request.
+     * @param _input 
+     */
     public static void removeApproval(String _input){
         User output[] = null;
         try{
@@ -472,9 +480,9 @@ public class Augment {
     }                      
     
     /**
-    * Takes in a string.
-    * Removes the medicine order based on the id.
-    */
+     * Removes an order for medicine.
+     * @param _input 
+     */
     public static void removeMedicineOrder(String _input){
         Medicine output[] = null;
         try{
@@ -493,9 +501,9 @@ public class Augment {
     }                 
     
     /**
-    * Takes in a string.
-    * Removes a proposed appointment based on the id.
-    */
+     * Removes a proposed appointment.
+     * @param _input 
+     */
     public static void removeProposedAppointment(String _input){
         Appointment output[] = null;
         try{
@@ -513,9 +521,9 @@ public class Augment {
     }           
     
     /**
-    * Takes in a string.
-    * Removes a termination request using the id.
-    */
+     * Removes a termination request.
+     * @param _input 
+     */
     public static void removeTerminationRequest(String _input){
         User output[] = null;
         try{
@@ -531,9 +539,9 @@ public class Augment {
     }            
     
     /**
-    * Takes in a string.
-    * Removes a prescription request based on the id.
-    */
+     * Removes a prescription request.
+     * @param _input 
+     */
     public static void removePrescriptionRequest(String _input){
         Prescription output[] = null;
         try{
@@ -551,9 +559,10 @@ public class Augment {
     }           
     
     /**
-    * 
-    * Trims null from the array
-    */
+     * Removes trailing null elements from a User[] array.
+     * @param _input
+     * @return 
+     */
     public static User[] trimUsers(User[] _input){
         User[] output = _input;
         for(int i = 0; i < _input.length; i++){
@@ -570,9 +579,10 @@ public class Augment {
     }                        
     
     /**
-    *
-    * Trims null from the array
-    */
+     * Removes trailing null elements from a Rating[] array.
+     * @param _input
+     * @return 
+     */
     public static Rating[] trimRatings(Rating[] _input){
         Rating[] output = _input;
         for(int i = 0; i < _input.length; i++){
@@ -589,9 +599,10 @@ public class Augment {
     }                   
     
     /**
-    *
-    * Trims null from the array
-    */
+     * Removes trailing null elements from Feedback[] array.
+     * @param _input
+     * @return 
+     */
     public static Feedback[] trimFeedback(Feedback[] _input){
         Feedback[] output = _input;
         for(int i = 0; i < _input.length; i++){
@@ -605,12 +616,13 @@ public class Augment {
         }
         output = _input;
         return output;
-    }              /**
+    }              
     
     /**
-    *
-    * Trims null from the array
-    */
+     * Removes trailing null elements from a Prescription[] array.
+     * @param _input
+     * @return 
+     */
     public static Prescription[] trimPrescriptions(Prescription[] _input){
         Prescription[] output = _input;
         for(int i = 0; i < _input.length; i++){
@@ -633,9 +645,10 @@ public class Augment {
     } 
     
     /**
-    *
-    * Trims null from the array
-    */
+     * Removes trailing null elements from Appointment[] array.
+     * @param _input
+     * @return 
+     */
     public static Appointment[] trimAppointments(Appointment[] _input){
         Appointment[] output = _input;
         for(int i = 0; i < _input.length; i++){
@@ -658,9 +671,10 @@ public class Augment {
     }    
     
     /**
-    *
-    * Trims null from the array
-    */
+     * Removes trailing null elements from User[] array - redundant.
+     * @param _input
+     * @return 
+     */
     public static User[] trimRequests(User[] _input){
         User[] output = _input;
         for(int i = 0; i < _input.length; i++){
@@ -677,9 +691,10 @@ public class Augment {
     }                      
     
     /**
-    *
-    * Trims null from the array
-    */
+     * Removes trailing null elements from Medicine[] array.
+     * @param _input
+     * @return 
+     */
     public static Medicine[] trimMedicines(Medicine[] _input){
         Medicine output[];
         for(int i = 0; i < _input.length; i++){

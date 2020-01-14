@@ -5,6 +5,10 @@ import coursework.Controllers.FileWriter;
 import coursework.Models.Users.User;
 import java.io.Serializable;
 
+/**
+ * Appointment class to store appointment information.
+ * @author palar
+ */
 public class Appointment implements Serializable, Observable{
     
     private String appointmentID;

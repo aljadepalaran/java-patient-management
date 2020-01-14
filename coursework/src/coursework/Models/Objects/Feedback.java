@@ -2,6 +2,10 @@ package coursework.Models.Objects;
 
 import java.io.Serializable;
 
+/**
+ * Feedback class to store feedback on doctors.
+ * @author palar
+ */
 public class Feedback implements Serializable{
     
     private String feedbackID;

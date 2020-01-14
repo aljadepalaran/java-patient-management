@@ -2,6 +2,10 @@ package coursework.Models.Objects;
 
 import java.io.Serializable;
 
+/**
+ * Prescription class to hold information about patient prescriptions.
+ * @author palar
+ */
 public class Prescription implements Serializable{
     
     private String prescriptionID;

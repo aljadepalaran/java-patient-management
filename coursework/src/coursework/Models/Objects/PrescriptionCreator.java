@@ -5,6 +5,10 @@ import coursework.Controllers.GenerateID;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Prescription creator class for the FACADE pattern.
+ * @author palar
+ */
 public class PrescriptionCreator {
     
     private String patientID;
@@ -14,6 +18,17 @@ public class PrescriptionCreator {
     private int quantity;
     private String dosage;
     
+    /**
+     * Input the values you want for the prescription into the PrescriptionCreator.
+     * Run the createPrescription from the object made from PrescriptionCreator.
+     * Output is a prescription with the given details.
+     * @param _patientID
+     * @param _doctorID
+     * @param _notes
+     * @param _medicineID
+     * @param _quantity
+     * @param _dosage 
+     */
     public PrescriptionCreator(String _patientID, String _doctorID, String _notes, 
             Medicine _medicineID, int _quantity, String _dosage){
         

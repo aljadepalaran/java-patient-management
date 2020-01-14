@@ -38,14 +38,7 @@ public class CreateAppointment extends javax.swing.JFrame {
     }
     
     /**
-     * Clears the form.
-     */
-    public void clearForm(){
-        
-    }
-    
-    /**
-     * Loads all of the data needed to create an appointment.
+     * Loads the data into the global variables to be used throughout the form
      */
     public void loadData(){
         try{
@@ -232,6 +225,10 @@ public class CreateAppointment extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_dateTextActionPerformed
 
+    /**
+     * Displays the doctor's name when the user selects a doctor.
+     * @param evt 
+     */
     private void doctorSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doctorSelectActionPerformed
         try{
             User[] allUsers = FileReader.readUsers();
@@ -243,6 +240,10 @@ public class CreateAppointment extends javax.swing.JFrame {
         }catch(Exception e){}
     }//GEN-LAST:event_doctorSelectActionPerformed
 
+    /**
+     * When the user clicks the button to view the doctors available on the given date.
+     * @param evt 
+     */
     private void viewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewButtonActionPerformed
         try{
         
@@ -281,7 +282,7 @@ public class CreateAppointment extends javax.swing.JFrame {
                 }
                 
             }else{
-                JOptionPane.showMessageDialog(this, "1");
+                JOptionPane.showMessageDialog(this, "Invalid date format: use DDMMYYYY");
             }
             User[] allUsers = FileReader.readUsers();
             for(int i = 0; i < allUsers.length; i++){
@@ -290,10 +291,14 @@ public class CreateAppointment extends javax.swing.JFrame {
                 }
             }
         }catch(Exception e){
-            JOptionPane.showMessageDialog(this, e);
+            JOptionPane.showMessageDialog(this, "System error: " + e);
         }
     }//GEN-LAST:event_viewButtonActionPerformed
 
+    /**
+     * Creates an appointment with the selected doctor and the patient.
+     * @param evt 
+     */
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
         String patientID = patientSelect.getSelectedItem().toString();
         String doctorID = doctorSelect.getSelectedItem().toString();
@@ -306,6 +311,10 @@ public class CreateAppointment extends javax.swing.JFrame {
         Augment.addAppointment(newApp);
     }//GEN-LAST:event_createButtonActionPerformed
 
+    /**
+     * Displays the patient's name when selected.
+     * @param evt 
+     */
     private void patientSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientSelectActionPerformed
         try{
             User[] allUsers = FileReader.readUsers();

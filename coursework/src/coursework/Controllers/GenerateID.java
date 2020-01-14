@@ -4,10 +4,11 @@ import coursework.Models.Objects.Appointment;
 import coursework.Models.Objects.Prescription;
 import coursework.Models.Objects.Feedback;
 import coursework.Models.Users.User;
-    /**
-    * Static class used to generate ID.
-    * 
-    */
+    
+/**
+ * A class used to generate IDs via static methods.
+ * @author palar
+ */
 public class GenerateID {
     public static String userID(char _class){
         String outputID = "XXXXX";                                                                                                      //Stores the output.

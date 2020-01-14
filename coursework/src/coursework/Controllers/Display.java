@@ -9,8 +9,8 @@ import coursework.Models.Users.User;
 import java.io.*;
 
 /**
- * Class used to hold functions for debugging.
- * Functions are used to check if the operations on the data correct.
+ * Class contains display methods for debugging purposes.
+ * @author palar
  */
 public class Display {
     

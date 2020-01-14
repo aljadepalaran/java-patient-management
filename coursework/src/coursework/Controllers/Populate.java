@@ -11,6 +11,10 @@ import coursework.Models.Users.User;
 import coursework.Models.Users.Administrator;
 import coursework.Models.Users.Patient;
 
+/**
+ * A class used to populate the data files in case of file corruption.
+ * @author palar
+ */
 public class Populate {
     
     public static void populateFile(){

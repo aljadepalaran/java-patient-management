@@ -8,6 +8,10 @@ import coursework.Models.Objects.Feedback;
 import coursework.Models.Users.User;
 import coursework.Models.Users.Patient;
 
+/**
+ * A class to resize arrays of a specific type.
+ * @author palar
+ */
 public class Resize {
     
     //ADD

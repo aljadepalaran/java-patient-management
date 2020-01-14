@@ -2,6 +2,10 @@ package coursework.Models.Objects;
 
 import java.io.Serializable;
 
+/**
+ * Medicine class to hold information about medicine in the system.
+ * @author palar
+ */
 public class Medicine implements Serializable{
     
     private String medicineName;

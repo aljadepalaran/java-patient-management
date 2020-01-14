@@ -8,15 +8,17 @@ import coursework.Models.Objects.Feedback;
 import coursework.Models.Users.User;
 import java.io.*;
 
-    /**
-    *
-    * The class reads in the data and outputs the data as an array.
-    */
+/**
+ * Reads in data from files.
+ * @author palar
+ */
 public class FileReader {
     
     /**
-     * Reads all of the users in the system.
-     * Returns an array of users.
+     * Reads all of the users on the system.
+     * @return
+     * @throws IOException
+     * @throws ClassNotFoundException 
      */
     public static User[] readUsers() throws IOException, ClassNotFoundException{                                     
         ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("Users.txt"));
@@ -25,8 +27,10 @@ public class FileReader {
     }                           //Reads all users in the system.
     
     /**
-     * Reads all of the ratings in the system.
-     * Returns an array of ratings.
+     * Reads all of the ratings on the system.
+     * @return
+     * @throws IOException
+     * @throws ClassNotFoundException 
      */
     public static Rating[] readRatings() throws IOException, ClassNotFoundException{
         ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("Ratings.txt"));
@@ -35,8 +39,10 @@ public class FileReader {
     }                       //Reads all ratings in the system.
     
     /**
-     * Reads all of the feedback in the system.
-     * Returns an array of feedback.
+     * Reads all of the feedback on the system.
+     * @return
+     * @throws IOException
+     * @throws ClassNotFoundException 
      */
     public static Feedback[] readFeedback() throws IOException, ClassNotFoundException{
         ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("Feedback.txt"));
@@ -46,7 +52,9 @@ public class FileReader {
     
     /**
      * Reads all of the prescriptions in the system.
-     * Returns an array of prescriptions.
+     * @return
+     * @throws IOException
+     * @throws ClassNotFoundException 
      */
     public static Prescription[] readPrescriptions() throws IOException, ClassNotFoundException{
         ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("Prescriptions.txt"));
@@ -56,7 +64,9 @@ public class FileReader {
     
     /**
      * Reads all of the appointments in the system.
-     * Returns an array of appointments.
+     * @return
+     * @throws IOException
+     * @throws ClassNotFoundException 
      */
     public static Appointment[] readAppointments() throws IOException, ClassNotFoundException{
         ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("Appointments.txt"));
@@ -65,8 +75,10 @@ public class FileReader {
     }             //Reads all appointments in the system.
     
     /**
-     * Reads all of the patient account creation requests on the system.
-     * Returns an array of users.
+     * Reads all of the user account creation requests.
+     * @return
+     * @throws IOException
+     * @throws ClassNotFoundException 
      */
     public static User[] readRequests() throws IOException, ClassNotFoundException{                                     //Reads the array of users from a file.   
         ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("Requests.txt"));
@@ -75,8 +87,10 @@ public class FileReader {
     }                        //Reads all account creation requests.
     
     /**
-     * Reads all of the appointment requests in the system.
-     * Returns an array of appointments.
+     * Reads all of the appointment requests.
+     * @return
+     * @throws IOException
+     * @throws ClassNotFoundException 
      */
     public static Appointment[] readAppointmentRequests() throws IOException, ClassNotFoundException{
         ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("AppRequests.txt"));
@@ -85,8 +99,10 @@ public class FileReader {
     }      //Reads patient appointment requests.
     
     /**
-     * Reads all of the account termination requests in the system.
-     * Returns an array of accounts.
+     * Reads all of the account termination requests.
+     * @return
+     * @throws IOException
+     * @throws ClassNotFoundException 
      */
     public static User[] readAccountTerminationRequests() throws IOException, ClassNotFoundException{                   //for termination of accounts  
         ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("Terminations.txt"));
@@ -95,8 +111,10 @@ public class FileReader {
     }      //Reads account termination requests.
     
     /**
-     * Reads all of the medicines on the system.
-     * Returns an array of medicines.
+     * Reads all of the medicines in the system.
+     * @return
+     * @throws IOException
+     * @throws ClassNotFoundException 
      */
     public static Medicine[] readMedicines() throws IOException, ClassNotFoundException{                   //for termination of accounts  
         ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("Medicines.txt"));
@@ -105,8 +123,10 @@ public class FileReader {
     }                   //Read medicines in the system.
     
     /**
-     * Reads all of the medicine order requests on the system.
-     * Returns an array of medicines.
+     * Reads all of the order requests in the system.
+     * @return
+     * @throws IOException
+     * @throws ClassNotFoundException 
      */
     public static Medicine[] readOrderRequests() throws IOException, ClassNotFoundException{
         ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("OrderRequests.txt"));
@@ -115,8 +135,10 @@ public class FileReader {
     }               //Reads the order requests.
     
     /**
-     * Reads all of the proposed appointments in the system.
-     * Returns an array of appointments.
+     * Reads all of the proposed appointments.
+     * @return
+     * @throws IOException
+     * @throws ClassNotFoundException 
      */
     public static Appointment[] readProposedAppointments() throws IOException, ClassNotFoundException{
         ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("ProposedAppointments.txt"));
@@ -125,8 +147,10 @@ public class FileReader {
     }     //Reads patient appointment requests.
     
     /**
-     * Reads all of the requested prescriptions in the system.
-     * Returns an array of prescriptions.
+     * Reads all of the requested prescriptions.
+     * @return
+     * @throws IOException
+     * @throws ClassNotFoundException 
      */
     public static Prescription[] readRequestedPrescriptions() throws IOException, ClassNotFoundException{
         ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("PrescriptionRequests.txt"));

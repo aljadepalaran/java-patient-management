@@ -8,6 +8,16 @@ import coursework.Views.MainDoctor;
 import coursework.Views.MainPatient;
 import coursework.Views.MainSecretary;
 
+/**
+ * A class with functions used throughout the program
+ * Char[] to String conversion for password input.
+ * Authenticator for the login.
+ * Method to retrieve user object from the ID.
+ * Display form based on which user is logged in.
+ * Date validation method.
+ * Ratings retrieval based on doctor ID.
+ * @author palar
+ */
 public class MainFunctions {
     
     public static String charToString(char[] _input){
