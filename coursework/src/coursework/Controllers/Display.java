@@ -75,7 +75,7 @@ public class Display {
         }
         for(int i = 0; i < output.length; i++){
             System.out.println(output[i].getAppointmentID() + ":" + output[i].getPatientID() + ":" + output[i].getDoctorID() 
-                    + ":" + output[i].getDate() + ":" + output[i].getNotes() + ":" + output[i].getObserverOne());
+                    + ":" + output[i].getDate() + ":" + output[i].getNotes() + ":" + output[i].getObserverOne() + ":" + output[i].getObserverTwo());
         }
     }//all appointments
     public static void displayRequests(){

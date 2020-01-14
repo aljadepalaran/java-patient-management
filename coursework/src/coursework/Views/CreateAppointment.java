@@ -21,6 +21,7 @@ public class CreateAppointment extends javax.swing.JFrame {
     Session userSession;
     Appointment[] allAppointments;
     Doctor[] allDoctors;
+    String enteredDate = "";
     
     /**
      * Creates new form CreateAppointment
@@ -64,6 +65,8 @@ public class CreateAppointment extends javax.swing.JFrame {
                 }else{}
             }
         }catch(Exception e){}
+        patientSelect.removeAllItems();
+        doctorSelect.removeAllItems();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -83,7 +86,7 @@ public class CreateAppointment extends javax.swing.JFrame {
         doctorSelect = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        createButton = new javax.swing.JButton();
         patientName = new javax.swing.JLabel();
         doctorName = new javax.swing.JLabel();
 
@@ -110,6 +113,11 @@ public class CreateAppointment extends javax.swing.JFrame {
         });
 
         patientSelect.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        patientSelect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                patientSelectActionPerformed(evt);
+            }
+        });
 
         doctorSelect.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         doctorSelect.addActionListener(new java.awt.event.ActionListener() {
@@ -122,7 +130,12 @@ public class CreateAppointment extends javax.swing.JFrame {
 
         jLabel4.setText("Doctor");
 
-        jButton2.setText("Create");
+        createButton.setText("Create");
+        createButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createButtonActionPerformed(evt);
+            }
+        });
 
         patientName.setText("NAME:");
 
@@ -155,7 +168,7 @@ public class CreateAppointment extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(createButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(patientSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -189,7 +202,7 @@ public class CreateAppointment extends javax.swing.JFrame {
                     .addComponent(doctorName)
                     .addComponent(patientName))
                 .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(createButton, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -218,7 +231,14 @@ public class CreateAppointment extends javax.swing.JFrame {
     }//GEN-LAST:event_dateTextActionPerformed
 
     private void doctorSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doctorSelectActionPerformed
-        // TODO add your handling code here:
+        try{
+            User[] allUsers = FileReader.readUsers();
+            for(int i = 0; i < allUsers.length; i++){
+                if(allUsers[i].getUniqueID().compareTo(doctorSelect.getSelectedItem().toString()) == 0){
+                    doctorName.setText("NAME: " + allUsers[i].getFirstName() + " " + allUsers[i].getLastName());
+                }
+            }
+        }catch(Exception e){}
     }//GEN-LAST:event_doctorSelectActionPerformed
 
     private void viewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewButtonActionPerformed
@@ -240,7 +260,7 @@ public class CreateAppointment extends javax.swing.JFrame {
             
             //If date is in correct format.
             if(valiDATE == true){
-                
+                enteredDate = date;
                 for(int i = 0; i < allDoctors.length; i++){ //For every doctor
                     boolean taken = false;
                     for(int x = 0; x < allAppointments.length; x++){ //For every appointment
@@ -271,6 +291,29 @@ public class CreateAppointment extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, e);
         }
     }//GEN-LAST:event_viewButtonActionPerformed
+
+    private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
+        String patientID = patientSelect.getSelectedItem().toString();
+        String doctorID = doctorSelect.getSelectedItem().toString();
+        String date = enteredDate;
+        String appID = GenerateID.appointmentID();
+        Appointment newApp = new Appointment(appID, patientID, doctorID, date, "");
+        newApp.registerObserver(patientID);
+        newApp.registerObserver(doctorID);
+        newApp.notifyObserver();
+        Augment.addAppointment(newApp);
+    }//GEN-LAST:event_createButtonActionPerformed
+
+    private void patientSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientSelectActionPerformed
+        try{
+            User[] allUsers = FileReader.readUsers();
+            for(int i = 0; i < allUsers.length; i++){
+                if(allUsers[i].getUniqueID().compareTo(patientSelect.getSelectedItem().toString()) == 0){
+                    patientName.setText("NAME: " + allUsers[i].getFirstName() + " " + allUsers[i].getLastName());
+                }
+            }
+        }catch(Exception e){}
+    }//GEN-LAST:event_patientSelectActionPerformed
 
     /**
      * @param args the command line arguments
@@ -308,10 +351,10 @@ public class CreateAppointment extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton createButton;
     private javax.swing.JTextField dateText;
     private javax.swing.JLabel doctorName;
     private javax.swing.JComboBox<String> doctorSelect;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

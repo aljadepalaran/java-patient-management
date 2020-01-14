@@ -1,10 +1,12 @@
 package Default;
+import coursework.Controllers.Display;
 import coursework.Views.Login;
 import coursework.Controllers.Populate;
 import coursework.Controllers.FileReader;
 public class Coursework {
     public static void main(String[] args) {
 
+        Display.displayAppointments();
         Populate.populateFile();
         Login loginForm = new Login();
         loginForm.setVisible(true);
