@@ -108,7 +108,7 @@ public class FileWriterTest {
         System.out.println("writeAppointmentRequests");
         Appointment[] _array = null;
         FileWriter.writeAppointmentRequests(_array);
-        Appointment[] testArray = FileReader.readAppointments();
+        Appointment[] testArray = FileReader.readAppointmentRequests();
         assertEquals(testArray == null, true);
     }
 
@@ -120,7 +120,7 @@ public class FileWriterTest {
         System.out.println("writeAccountTermRequests");
         User[] _array = null;
         FileWriter.writeAccountTermRequests(_array);
-        User[] testArray = FileReader.readUsers();
+        User[] testArray = FileReader.readAccountTerminationRequests();
         assertEquals(testArray == null, true);
     }
 
@@ -144,7 +144,7 @@ public class FileWriterTest {
         System.out.println("writeMedicineOrders");
         Medicine[] _array = null;
         FileWriter.writeMedicineOrders(_array);
-        User[] testArray = FileReader.readUsers();
+        Medicine[] testArray = FileReader.readOrderRequests();
         assertEquals(testArray == null, true);
     }
 
@@ -156,7 +156,7 @@ public class FileWriterTest {
         System.out.println("writeProposedAppointments");
         Appointment[] _array = null;
         FileWriter.writeProposedAppointments(_array);
-        User[] testArray = FileReader.readUsers();
+        Appointment[] testArray = FileReader.readProposedAppointments();
         assertEquals(testArray == null, true);
     }
 
@@ -168,7 +168,7 @@ public class FileWriterTest {
         System.out.println("writePrescriptionRequests");
         Prescription[] _array = null;
         FileWriter.writePrescriptionRequests(_array);
-        User[] testArray = FileReader.readUsers();
+        Prescription[] testArray = FileReader.readRequestedPrescriptions();
         assertEquals(testArray == null, true);
     }
     
