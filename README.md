@@ -1,7 +1,7 @@
 # SOFT252 Coursework
 
-## What is the program?
-The program is a Patient Management System. The program will allow the user to create 4 types of users: admin, patient, secretary and doctor. There are many functionalities in the system that allow for a complete system.
+## Patient Management System
+The program will allow the user to create 4 types of users: admin, patient, secretary and doctor. There are many functionalities in the system that allow for a complete system.
 
 ## Functionalities Included
 - Log in to the system using unique ID and password, and perform user-specific functionalities.
