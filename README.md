@@ -1,6 +1,6 @@
-# SOFT252 Coursework
+# Patient Management System
 
-## Patient Management System
+## What is it?
 The program will allow the user to create 4 types of users: admin, patient, secretary and doctor. There are many functionalities in the system that allow for a complete system.
 
 ## Functionalities Included
